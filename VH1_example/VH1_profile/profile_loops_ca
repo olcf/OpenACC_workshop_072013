@@ -1,0 +1,982 @@
+CrayPat/X:  Version 6.1.0 Revision 11030 (xf 10658)  03/20/13 16:42:24
+
+Number of PEs (MPI ranks):   256
+                           
+Numbers of PEs per Node:      16  PEs on each of  16  Nodes
+                           
+Numbers of Threads per PE:     1
+                           
+Number of Cores per Socket:   16
+
+Execution start time:  Tue Jul  9 11:43:43 2013
+
+System name and speed:  chester-login1 2200 MHz
+
+Current path to data file:
+  /lustre/scratch/levesque/VH1_version1/vhone+pat+498166-72t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O callers
+  Options implied by table option:
+    -d ti%@0.95,ti,tr -b gr,fu,ca,pe=HIDE
+  Other options:
+    -T 
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the sum for the Caller values.
+  The Caller value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 1:  Profile by Function and Callers
+
+ Time%  |     Time  |    Calls  |Group 
+        |           |           | Function 
+        |           |           |  Caller 
+        |           |           |   PE=HIDE 
+       
+ 100.0% | 55.371918 | 6429948.0 |Total
+|------------------------------------------------------
+|  69.5% | 38.458650 | 6427239.0 |USER
+||-----------------------------------------------------
+||  10.4% |  5.731781 | 1230336.0 |parabola_
+|||----------------------------------------------------
+3||   6.9% |  3.806002 |  820224.0 |remap_.LOOPS
+4||        |           |           | remap_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   2.3% |  1.253343 |  273408.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   2.3% |  1.247284 |  273408.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   1.2% |  0.655451 |  136704.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+6|||||   1.2% |  0.649924 |  136704.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+||||||=================================================
+3||   3.5% |  1.925779 |  410112.0 |ppmlr_
+||||---------------------------------------------------
+4|||   1.1% |  0.635728 |  136704.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   1.1% |  0.630515 |  136704.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.6% |  0.331139 |   68352.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.6% |  0.328396 |   68352.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+|||====================================================
+||   8.9% |  4.933358 |  136704.0 |remap_.LOOPS
+3|        |           |           | remap_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   2.8% |  1.558948 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   2.8% |  1.554579 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   1.7% |  0.917121 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   1.6% |  0.902711 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   8.6% |  4.763696 |  136704.0 |ppmlr_
+|||----------------------------------------------------
+3||   2.9% |  1.589854 |   45568.0 |sweepx1_.LOOP.2.li.35
+4||        |           |           | sweepx1_.LOOP.1.li.34
+5||        |           |           |  sweepx1_.LOOPS
+6||        |           |           |   sweepx1_
+7||        |           |           |    vhone_
+3||   2.8% |  1.573111 |   45568.0 |sweepx2_.LOOP.2.li.35
+4||        |           |           | sweepx2_.LOOP.1.li.34
+5||        |           |           |  sweepx2_.LOOPS
+6||        |           |           |   sweepx2_
+7||        |           |           |    vhone_
+3||   1.4% |  0.802080 |   22784.0 |sweepz_.LOOP.06.li.55
+4||        |           |           | sweepz_.LOOP.05.li.54
+5||        |           |           |  sweepz_.LOOPS
+6||        |           |           |   sweepz_
+7||        |           |           |    vhone_
+3||   1.4% |  0.798652 |   22784.0 |sweepy_.LOOP.2.li.39
+4||        |           |           | sweepy_.LOOP.1.li.38
+5||        |           |           |  sweepy_.LOOPS
+6||        |           |           |   sweepy_
+7||        |           |           |    vhone_
+|||====================================================
+||   8.2% |  4.565392 | 1230336.0 |parabola_.LOOPS
+3|        |           |           | parabola_
+||||---------------------------------------------------
+4|||   5.4% |  3.017197 |  820224.0 |remap_.LOOPS
+5|||        |           |           | remap_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   1.4% |  0.785938 |  136704.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+7||||||   1.4% |  0.763791 |  136704.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+7||||||   1.3% |  0.734902 |  273408.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+7||||||   1.3% |  0.732566 |  273408.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+|||||||================================================
+4|||   2.8% |  1.548195 |  410112.0 |ppmlr_
+|||||--------------------------------------------------
+5||||   0.7% |  0.401945 |   68352.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   0.7% |  0.390716 |   68352.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+5||||   0.7% |  0.383712 |  136704.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   0.7% |  0.371822 |  136704.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+||||===================================================
+||   4.5% |  2.515981 |  136704.0 |riemann_.LOOPS
+3|        |           |           | riemann_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   1.4% |  0.785702 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+5||||   1.4% |  0.780093 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   0.9% |  0.475237 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.9% |  0.474949 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   4.2% |  2.341938 |  136704.0 |evolve_.LOOPS
+3|        |           |           | evolve_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   1.3% |  0.743099 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   1.3% |  0.740094 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.8% |  0.432870 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   0.8% |  0.425875 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   3.5% |  1.910350 |  410112.0 |forces_
+|||----------------------------------------------------
+3||   2.3% |  1.266870 |  273408.0 |evolve_.LOOPS
+4||        |           |           | evolve_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   0.8% |  0.417361 |   91136.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   0.8% |  0.417032 |   91136.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.216847 |   45568.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.215630 |   45568.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+||||||=================================================
+3||   1.2% |  0.643480 |  136704.0 |states_.LOOPS
+4||        |           |           | states_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   0.4% |  0.211709 |   45568.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.211373 |   45568.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.111392 |   22784.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.109006 |   22784.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+|||====================================================
+||   3.2% |  1.767369 |  410112.0 |volume_
+|||----------------------------------------------------
+3||   2.1% |  1.165706 |  273408.0 |evolve_.LOOPS
+4||        |           |           | evolve_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   0.7% |  0.385602 |   91136.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   0.7% |  0.383820 |   91136.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.200415 |   45568.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.195870 |   45568.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+||||||=================================================
+3||   1.1% |  0.601662 |  136704.0 |remap_.LOOPS
+4||        |           |           | remap_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   0.4% |  0.198920 |   45568.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.198716 |   45568.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.102774 |   22784.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.101254 |   22784.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+|||====================================================
+||   2.2% |  1.220526 |  273408.0 |paraset_
+|||----------------------------------------------------
+3||   1.1% |  0.620011 |  136704.0 |remap_.LOOPS
+4||        |           |           | remap_
+5||        |           |           |  ppmlr_
+||||||-------------------------------------------------
+6|||||   0.4% |  0.204500 |   45568.0 |sweepx2_.LOOP.2.li.35
+7|||||        |           |           | sweepx2_.LOOP.1.li.34
+8|||||        |           |           |  sweepx2_.LOOPS
+9|||||        |           |           |   sweepx2_
+10||||        |           |           |    vhone_
+6|||||   0.4% |  0.203732 |   45568.0 |sweepx1_.LOOP.2.li.35
+7|||||        |           |           | sweepx1_.LOOP.1.li.34
+8|||||        |           |           |  sweepx1_.LOOPS
+9|||||        |           |           |   sweepx1_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.106359 |   22784.0 |sweepz_.LOOP.06.li.55
+7|||||        |           |           | sweepz_.LOOP.05.li.54
+8|||||        |           |           |  sweepz_.LOOPS
+9|||||        |           |           |   sweepz_
+10||||        |           |           |    vhone_
+6|||||   0.2% |  0.105420 |   22784.0 |sweepy_.LOOP.2.li.39
+7|||||        |           |           | sweepy_.LOOP.1.li.38
+8|||||        |           |           |  sweepy_.LOOPS
+9|||||        |           |           |   sweepy_
+10||||        |           |           |    vhone_
+||||||=================================================
+3||   1.1% |  0.600515 |  136704.0 |ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.199777 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.196517 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.102477 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.101744 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+|||====================================================
+||   1.5% |  0.849707 |  136704.0 |states_.LOOPS
+3|        |           |           | states_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   0.5% |  0.249421 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   0.4% |  0.248310 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.3% |  0.176010 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+5||||   0.3% |  0.175966 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   1.3% |  0.702400 |  273408.0 |paraset_.LOOPS
+3|        |           |           | paraset_
+||||---------------------------------------------------
+4|||   0.6% |  0.353552 |  136704.0 |ppmlr_
+|||||--------------------------------------------------
+5||||   0.2% |  0.090958 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.088836 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.087992 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.085767 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+|||||==================================================
+4|||   0.6% |  0.348848 |  136704.0 |remap_.LOOPS
+5|||        |           |           | remap_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   0.2% |  0.089120 |   22784.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+7||||||   0.2% |  0.087966 |   22784.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+7||||||   0.2% |  0.086250 |   45568.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+7||||||   0.2% |  0.085511 |   45568.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+||||===================================================
+||   1.3% |  0.692411 |  410112.0 |volume_.LOOPS
+3|        |           |           | volume_
+||||---------------------------------------------------
+4|||   0.8% |  0.456426 |  273408.0 |evolve_.LOOPS
+5|||        |           |           | evolve_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   0.3% |  0.150550 |   91136.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+7||||||   0.3% |  0.148452 |   91136.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.079859 |   45568.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.077565 |   45568.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+|||||||================================================
+4|||   0.4% |  0.235985 |  136704.0 |remap_.LOOPS
+5|||        |           |           | remap_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   0.1% |  0.080225 |   45568.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.077146 |   45568.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.039473 |   22784.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.039142 |   22784.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+||||===================================================
+||   1.2% |  0.664031 |  136704.0 |boundary_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.219880 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.217785 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.113732 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.112633 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+||||===================================================
+||   1.2% |  0.651262 |  136704.0 |remap_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.215524 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.214741 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.111299 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.109698 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+||||===================================================
+||   1.1% |  0.628263 |  136704.0 |states_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.208770 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.206309 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.106803 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.106381 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+||||===================================================
+||   1.1% |  0.627858 |  410112.0 |forces_.LOOPS
+3|        |           |           | forces_
+||||---------------------------------------------------
+4|||   0.7% |  0.412919 |  273408.0 |evolve_.LOOPS
+5|||        |           |           | evolve_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   0.2% |  0.131631 |   91136.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+7||||||   0.2% |  0.128199 |   91136.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.076793 |   45568.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.076296 |   45568.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+|||||||================================================
+4|||   0.4% |  0.214939 |  136704.0 |states_.LOOPS
+5|||        |           |           | states_
+6|||        |           |           |  ppmlr_
+|||||||------------------------------------------------
+7||||||   0.1% |  0.067915 |   45568.0 |sweepx1_.LOOP.2.li.35
+8||||||        |           |           | sweepx1_.LOOP.1.li.34
+9||||||        |           |           |  sweepx1_.LOOPS
+10|||||        |           |           |   sweepx1_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.066566 |   45568.0 |sweepx2_.LOOP.2.li.35
+8||||||        |           |           | sweepx2_.LOOP.1.li.34
+9||||||        |           |           |  sweepx2_.LOOPS
+10|||||        |           |           |   sweepx2_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.040319 |   22784.0 |sweepy_.LOOP.2.li.39
+8||||||        |           |           | sweepy_.LOOP.1.li.38
+9||||||        |           |           |  sweepy_.LOOPS
+10|||||        |           |           |   sweepy_
+11|||||        |           |           |    vhone_
+7||||||   0.1% |  0.040139 |   22784.0 |sweepz_.LOOP.06.li.55
+8||||||        |           |           | sweepz_.LOOP.05.li.54
+9||||||        |           |           |  sweepz_.LOOPS
+10|||||        |           |           |   sweepz_
+11|||||        |           |           |    vhone_
+||||===================================================
+||   1.1% |  0.618606 |  136704.0 |riemann_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.205475 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.202302 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.105492 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.105337 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+||||===================================================
+||   1.1% |  0.618112 |  136704.0 |flatten_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.204064 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.203519 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.105839 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.104689 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+||||===================================================
+||   1.1% |  0.610622 |  136704.0 |evolve_
+3|        |           |           | ppmlr_
+||||---------------------------------------------------
+4|||   0.4% |  0.202098 |   45568.0 |sweepx2_.LOOP.2.li.35
+5|||        |           |           | sweepx2_.LOOP.1.li.34
+6|||        |           |           |  sweepx2_.LOOPS
+7|||        |           |           |   sweepx2_
+8|||        |           |           |    vhone_
+4|||   0.4% |  0.200520 |   45568.0 |sweepx1_.LOOP.2.li.35
+5|||        |           |           | sweepx1_.LOOP.1.li.34
+6|||        |           |           |  sweepx1_.LOOPS
+7|||        |           |           |   sweepx1_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.104950 |   22784.0 |sweepz_.LOOP.06.li.55
+5|||        |           |           | sweepz_.LOOP.05.li.54
+6|||        |           |           |  sweepz_.LOOPS
+7|||        |           |           |   sweepz_
+8|||        |           |           |    vhone_
+4|||   0.2% |  0.103054 |   22784.0 |sweepy_.LOOP.2.li.39
+5|||        |           |           | sweepy_.LOOP.1.li.38
+6|||        |           |           |  sweepy_.LOOPS
+7|||        |           |           |   sweepy_
+8|||        |           |           |    vhone_
+||||===================================================
+||   0.8% |  0.434511 |  136704.0 |flatten_.LOOPS
+3|        |           |           | flatten_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   0.2% |  0.121789 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.120250 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.097475 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+5||||   0.2% |  0.094997 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   0.7% |  0.383375 |     178.0 |sweepz_.LOOPS
+3|        |           |           | sweepz_
+4|        |           |           |  vhone_
+||   0.7% |  0.362388 |     356.0 |sweepy_.LOOPS
+3|        |           |           | sweepy_
+4|        |           |           |  vhone_
+||   0.5% |  0.263533 |     178.0 |sweepx2_.LOOPS
+3|        |           |           | sweepx2_
+4|        |           |           |  vhone_
+||   0.5% |  0.263233 |     178.0 |sweepx1_.LOOPS
+3|        |           |           | sweepx1_
+4|        |           |           |  vhone_
+||   0.4% |  0.248203 |  136704.0 |boundary_.LOOPS
+3|        |           |           | boundary_
+4|        |           |           |  ppmlr_
+|||||--------------------------------------------------
+5||||   0.1% |  0.082211 |   45568.0 |sweepx1_.LOOP.2.li.35
+6||||        |           |           | sweepx1_.LOOP.1.li.34
+7||||        |           |           |  sweepx1_.LOOPS
+8||||        |           |           |   sweepx1_
+9||||        |           |           |    vhone_
+5||||   0.1% |  0.082046 |   45568.0 |sweepx2_.LOOP.2.li.35
+6||||        |           |           | sweepx2_.LOOP.1.li.34
+7||||        |           |           |  sweepx2_.LOOPS
+8||||        |           |           |   sweepx2_
+9||||        |           |           |    vhone_
+5||||   0.1% |  0.042280 |   22784.0 |sweepz_.LOOP.06.li.55
+6||||        |           |           | sweepz_.LOOP.05.li.54
+7||||        |           |           |  sweepz_.LOOPS
+8||||        |           |           |   sweepz_
+9||||        |           |           |    vhone_
+5||||   0.1% |  0.041667 |   22784.0 |sweepy_.LOOP.2.li.39
+6||||        |           |           | sweepy_.LOOP.1.li.38
+7||||        |           |           |  sweepy_.LOOPS
+8||||        |           |           |   sweepy_
+9||||        |           |           |    vhone_
+|||||==================================================
+||   0.1% |  0.045832 |       2.0 |prin_.LOOPS
+3|        |           |           | prin_
+4|        |           |           |  vhone_
+||   0.0% |  0.020039 |       1.0 |dump_
+3|        |           |           | vhone_
+||   0.0% |  0.009108 |       2.0 |vhone_
+3|        |           |           | vhone_
+||   0.0% |  0.007617 |     178.0 |dtcon_.LOOPS
+3|        |           |           | dtcon_
+4|        |           |           |  vhone_
+||   0.0% |  0.002111 |     356.0 |sweepy_
+3|        |           |           | vhone_
+||   0.0% |  0.001399 |     178.0 |sweepz_
+3|        |           |           | vhone_
+||   0.0% |  0.000988 |     178.0 |sweepx2_
+3|        |           |           | vhone_
+||   0.0% |  0.000948 |     178.0 |sweepx1_
+3|        |           |           | vhone_
+||   0.0% |  0.000877 |     178.0 |dtcon_
+3|        |           |           | vhone_
+||   0.0% |  0.000650 |       1.0 |init_.LOOPS
+3|        |           |           | init_
+4|        |           |           |  vhone_
+||   0.0% |  0.000125 |       2.0 |prin_
+3|        |           |           | vhone_
+||   0.0% |  0.000018 |       3.0 |grid_.LOOPS
+3|        |           |           | grid_
+4|        |           |           |  init_.LOOPS
+5|        |           |           |   init_
+6|        |           |           |    vhone_
+||   0.0% |  0.000018 |       3.0 |grid_
+3|        |           |           | init_.LOOPS
+4|        |           |           |  init_
+5|        |           |           |   vhone_
+||   0.0% |  0.000012 |       1.0 |init_
+3|        |           |           | vhone_
+||=====================================================
+|  25.0% | 13.831420 |    1259.0 |MPI
+||-----------------------------------------------------
+||  22.6% | 12.496681 |       2.0 |mpi_comm_split
+3|        |           |           | vhone_
+||   1.4% |  0.789340 |    1068.0 |mpi_alltoall
+|||----------------------------------------------------
+3||   0.9% |  0.482850 |     356.0 |sweepz_.LOOPS
+4||        |           |           | sweepz_
+5||        |           |           |  vhone_
+3||   0.6% |  0.306490 |     712.0 |sweepy_.LOOPS
+4||        |           |           | sweepy_
+5||        |           |           |  vhone_
+|||====================================================
+||   1.0% |  0.529143 |       1.0 |mpi_finalize
+3|        |           |           | vhone_
+||   0.0% |  0.011037 |     179.0 |MPI_ALLREDUCE
+|||----------------------------------------------------
+3||   0.0% |  0.010956 |     178.0 |dtcon_.LOOPS
+4||        |           |           | dtcon_
+5||        |           |           |  vhone_
+3||   0.0% |  0.000080 |       1.0 |init_.LOOPS
+4||        |           |           | init_
+5||        |           |           |  vhone_
+|||====================================================
+||   0.0% |  0.005207 |       2.0 |mpi_gather
+3|        |           |           | prin_.LOOPS
+4|        |           |           |  prin_
+5|        |           |           |   vhone_
+||   0.0% |  0.000006 |       3.0 |MPI_COMM_SIZE
+3|        |           |           | vhone_
+||   0.0% |  0.000004 |       3.0 |mpi_comm_rank
+3|        |           |           | vhone_
+||   0.0% |  0.000001 |       1.0 |MPI_INIT
+3|        |           |           | vhone_
+||   0.0% |  0.000000 |       0.0 |mpi_wtime
+3|        |           |           | vhone_
+||   0.0% |  0.000000 |       0.0 |MPI_GET_PROCESSOR_NAME
+3|        |           |           | vhone_
+||=====================================================
+|   5.6% |  3.081515 |    1249.0 |MPI_SYNC
+||-----------------------------------------------------
+||   3.8% |  2.123081 |    1068.0 |mpi_alltoall_(sync)
+|||----------------------------------------------------
+3||   2.7% |  1.487480 |     712.0 |sweepy_.LOOPS
+4||        |           |           | sweepy_
+5||        |           |           |  vhone_
+3||   1.1% |  0.635602 |     356.0 |sweepz_.LOOPS
+4||        |           |           | sweepz_
+5||        |           |           |  vhone_
+|||====================================================
+||   1.7% |  0.958221 |     179.0 |mpi_allreduce_(sync)
+|||----------------------------------------------------
+3||   1.7% |  0.953441 |     178.0 |dtcon_.LOOPS
+4||        |           |           | dtcon_
+5||        |           |           |  vhone_
+3||   0.0% |  0.004780 |       1.0 |init_.LOOPS
+4||        |           |           | init_
+5||        |           |           |  vhone_
+|||====================================================
+||   0.0% |  0.000213 |       2.0 |mpi_gather_(sync)
+3|        |           |           | prin_.LOOPS
+4|        |           |           |  prin_
+5|        |           |           |   vhone_
+||=====================================================
+|   0.0% |  0.000334 |     201.0 |ETC
+||-----------------------------------------------------
+||   0.0% |  0.000279 |     200.0 |__libc_csu_init
+3|        |           |           | __libc_csu_init
+||   0.0% |  0.000056 |       1.0 |_STOP2
+3|        |           |           | _STOP2
+|======================================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/scratch/levesque/VH1_version1/vhone+pat+498166-72t.xf  (RTS)
+
+Original program:  /lustre/scratch/levesque/VH1_version1/vhone
+
+Instrumented with:  pat_build -u -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 256 PEs
+
+AMD CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  All 256 PEs have CPB capability
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia K20X Memory: 5.62 GB Frequency: 0.73 GHz
+
+Accelerator Driver Version: 304.47.13
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  ASYNCPE_VERSION=5.20
+  ATP_HOME=/opt/cray/atp/1.6.2
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.6.2/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.6.2/lib/ -Wl,--undefined=_ATP_Data_Globals -Wl,--undefined=__atpHandlerInstall -Wl,-lAtpSigHCommData -Wl,-lAtpSigHandler
+  CRAY_LIBSCI_VERSION=12.0.01
+  LIBSCI_VERSION=12.0.01
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/5.6.5/gni/mpich2-pgi/119
+  PAT_RT_HWPC=1
+  PBS_VERSION=TORQUE-4.1.6-snap.201304171654
+  PGI_VERSION=13.4
+  XTOS_VERSION=4.1.40
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.1.0
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Report command line options:  -T -O ca
+
+Operating system:
+  Linux 2.6.32.59-0.7.1_1.0401.6845-cray_gem_c #1 SMP Thu Feb 21 21:03:43 UTC 2013
+
+Hardware performance counter events:
+   PAPI_L1_DCM  Level 1 data cache misses
+   PAPI_TLB_DM  Data translation lookaside buffer misses
+   PAPI_L1_DCA  Level 1 data cache accesses
+   PAPI_FP_OPS  Floating point operations
+   CYCLES_RTC   User Cycles (approx, from rtc)
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    PAPI_L1_DCM   22.223  
+    PAPI_TLB_DM    0.002  
+    PAPI_L1_DCA  598.302  
+    PAPI_FP_OPS    0.000  
+    CYCLES_RTC  5887.613  
+    Time           2.670  microsecs
+
+Number of traced functions:  107
+
+  (To see the list, specify:  -s traced_functions=show)
+
+
+=========  Warnings  ======================================
+
+Loop regions included 1 region with no end address, and it was ignored.
+
+An exit() call or a STOP statement can cause missing end addresses.
+

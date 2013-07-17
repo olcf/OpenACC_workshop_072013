@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N himeno 
+#PBS -l nodes=4
+#PBS -l walltime=0:20:00
+#PBS -j oe
+#PBS -A TRN001
+cd $PBS_O_WORKDIR
+date
+
+source /opt/modules/3.2.6.6/init/bash 
+module load vampirtrace/5.14.3-chester
+
+export VT_GPUTRACE=cuda,cupti,runtime,driver,kernel,memcpy,memusage,idle 
+export VT_BUFFER_SIZE=1G 
+export VT_VERBOSE=2 
+export OMP_NUM_THREADS=8 
+export CRAY_CUDA_PROXY=0 
+export VT_CUDATRACE_BUFFER_SIZE=64M 
+export VT_GPUTRACE_KERNEL=2
+export VT_PFORM_LDIR=$PWD/traces/$PBS_JOBID
+export VT_PFORM_GDIR=$VT_PFORM_LDIR
+mkdir -p $VT_PFORM_GDIR
+#VT_CUPTI_METRICS=achieved_occupancy
+
+#export CRAY_CUDA_PROXY=1
+aprun -n 4  -N 1 -d 8 ./himeno_acc
+

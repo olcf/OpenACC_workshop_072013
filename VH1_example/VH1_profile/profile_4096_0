@@ -1,0 +1,305 @@
+CrayPat/X:  Version 5.3.1 Revision 8907 (xf 8679)  03/08/12 12:37:40
+
+Number of PEs (MPI ranks):   4096
+                           
+Numbers of PEs per Node:       16  PEs on each of  256  Nodes
+                           
+Numbers of Threads per PE:      1
+                           
+Number of Cores per Socket:    16
+
+Execution start time:  Thu Apr  5 05:14:14 2012
+
+System type and speed:  x86_64 2200 MHz
+
+Current path to data file:
+  /ccs/home/levesque/lustre/VH1_version1/vhone+pat+24372-10752t.ap2  (RTS)
+
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 1:  Profile by Function Group and Function
+
+ Time%  |     Time  |    Imb.  |  Imb.  |    Calls  |Group 
+        |           |    Time  | Time%  |           | Function 
+        |           |          |        |           |  PE=HIDE 
+       
+ 100.0% | 50.553984 |       -- |     -- | 6922023.0 |Total
+|------------------------------------------------------------------------
+|  52.1% | 26.353695 |       -- |     -- | 6915004.0 |USER
+||-----------------------------------------------------------------------
+||  16.9% |  8.540852 | 0.366647 |   4.1% | 2592000.0 |parabola_
+||   8.0% |  4.034867 | 0.222303 |   5.2% |  288000.0 |remap_
+||   7.1% |  3.612980 | 0.862830 |  19.3% |  288000.0 |riemann_
+||   3.7% |  1.859449 | 0.094075 |   4.8% |  288000.0 |ppmlr_
+||   3.3% |  1.666590 | 0.064095 |   3.7% |  288000.0 |evolve_
+||   2.6% |  1.315145 | 0.119832 |   8.4% |  576000.0 |paraset_
+||   1.8% |  0.923711 | 0.048359 |   5.0% |  864000.0 |volume_
+||   1.8% |  0.890751 | 0.064695 |   6.8% |  288000.0 |states_
+||   1.4% |  0.719636 | 0.079651 |  10.0% |  288000.0 |flatten_
+||   1.0% |  0.513454 | 0.019075 |   3.6% |  864000.0 |forces_
+||   1.0% |  0.508696 | 0.023855 |   4.5% |     500.0 |sweepz_
+||   1.0% |  0.504152 | 0.027139 |   5.1% |    1000.0 |sweepy_
+||=======================================================================
+|  37.9% | 19.149499 |       -- |     -- |    3512.0 |MPI
+||-----------------------------------------------------------------------
+||  28.7% | 14.487564 | 0.572138 |   3.8% |    3000.0 |mpi_alltoall
+||   8.7% |  4.391205 | 2.885755 |  39.7% |       2.0 |mpi_comm_split
+||=======================================================================
+|  10.0% |  5.050780 |       -- |     -- |    3502.0 |MPI_SYNC
+||-----------------------------------------------------------------------
+||   6.9% |  3.483206 | 1.813952 |  52.1% |    3000.0 |mpi_alltoall_(sync)
+||   3.1% |  1.567285 | 0.606728 |  38.7% |     501.0 |mpi_allreduce_(sync)
+||=======================================================================
+|   0.0% |  0.000011 | 0.000015 |  57.8% |       5.0 |SYSCALL
+|========================================================================
+
+
+================  Observations and suggestions  ========================
+
+Metric-Based Rank Order:  
+
+    No rank order was suggested based on the following metric because
+    the resource was already well balanced across the nodes.
+      USER Time
+
+================  End Observations  ====================================
+
+
+
+Notes for table 2:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm]
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 2:  Load Balance with MPI Message Stats
+
+ Time%  |     Time  |   MPI  |     MPI Msg  |  Avg MPI  |Group 
+        |           |   Msg  |       Bytes  | Msg Size  | PE=[mmm] 
+        |           | Count  |              |           |
+       
+ 100.0% | 52.865001 | 3502.0 | 1179977684.0 | 336943.94 |Total
+|------------------------------------------------------------------
+|  54.2% | 28.662369 |    0.0 |          0.0 |        -- |USER
+||-----------------------------------------------------------------
+||  57.7% | 30.493081 |    0.0 |          0.0 |        -- |pe.1472
+||  54.0% | 28.527866 |    0.0 |          0.0 |        -- |pe.504
+||  52.4% | 27.722194 |    0.0 |          0.0 |        -- |pe.3709
+||=================================================================
+|  36.2% | 19.150671 | 3502.0 | 1179977684.0 | 336943.94 |MPI
+||-----------------------------------------------------------------
+||  42.7% | 22.559038 | 3502.0 | 1179977684.0 | 336943.94 |pe.30
+||  36.3% | 19.193377 | 3502.0 | 1179977684.0 | 336943.94 |pe.2852
+||  26.3% | 13.878638 | 3502.0 | 1179977684.0 | 336943.94 |pe.3444
+||=================================================================
+|   9.6% |  5.051949 |    0.0 |          0.0 |        -- |MPI_SYNC
+||-----------------------------------------------------------------
+||  13.9% |  7.332327 |    0.0 |          0.0 |        -- |pe.3633
+||   9.6% |  5.094092 |    0.0 |          0.0 |        -- |pe.1254
+||   5.4% |  2.840896 |    0.0 |          0.0 |        -- |pe.1472
+||=================================================================
+|   0.0% |  0.000012 |    0.0 |          0.0 |        -- |SYSCALL
+||-----------------------------------------------------------------
+||   0.0% |  0.000027 |    0.0 |          0.0 |        -- |pe.2525
+||   0.0% |  0.000011 |    0.0 |          0.0 |        -- |pe.2377
+||   0.0% |  0.000009 |    0.0 |          0.0 |        -- |pe.1686
+|==================================================================
+
+
+Notes for table 3:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm,Mc@,Mb1..7 -b fu,ca,pe=[mmm]
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with MPI Msg Count > 0.
+
+
+Table 3:  MPI Message Stats by Caller
+
+     MPI Msg  |   MPI  | MsgSz  | 4KB<=  | 64KB<=  |Function 
+       Bytes  |   Msg  |  <16B  | MsgSz  |  MsgSz  | Caller 
+              | Count  | Count  | <64KB  |   <1MB  |  PE=[mmm] 
+              |        |        | Count  |  Count  |
+             
+ 1179977684.0 | 3502.0 |  501.0 | 3000.0 |     1.0 |Total
+|----------------------------------------------------------------
+| 1179648000.0 | 3000.0 |    0.0 | 3000.0 |     0.0 |mpi_alltoall
+||---------------------------------------------------------------
+||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |sweepy_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.2720
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.672
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.1375
+||||=============================================================
+||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |sweepz_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.2720
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.672
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.1375
+||===============================================================
+|     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |mpi_gather
+|              |        |        |        |         | prin_
+3              |        |        |        |         |  vhone_
+||||-------------------------------------------------------------
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.2720
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.672
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.1375
+||||=============================================================
+|       2004.0 |  501.0 |  501.0 |    0.0 |     0.0 |MPI_ALLREDUCE
+||---------------------------------------------------------------
+||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |dtcon_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.2720
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.672
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.1375
+||||=============================================================
+||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |init_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.2720
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.672
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.1375
+|================================================================
+
+
+Notes for table 4:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm]
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+
+
+Table 4:  Wall Clock Time, Memory High Water Mark
+
+  Process  |  Process  |PE=[mmm] 
+     Time  |    HiMem  |
+           | (MBytes)  |
+          
+ 67.062331 |    36.639 |Total
+|--------------------------------
+| 72.823594 |    35.930 |pe.3420
+| 66.974702 |    37.176 |pe.2888
+| 64.390552 |    35.871 |pe.518
+|================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/widow3/scratch/levesque/VH1_version1/vhone+pat+24372-10752t/000000.xf  (RTS)
+
+Original program:  /lustre/widow3/scratch/levesque/VH1_version1/vhone
+
+Instrumented with:  pat_build -u -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 4096 PEs
+
+CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  Configured for    0 PEs
+                         Capable    for 4096 PEs
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia X2090 Memory: 6.00 GB Frequency: 1.15 GHz
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  PBS_VERSION=TORQUE-2.5.9-snap.201111021154
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  ASYNCPE_VERSION=5.05
+  ATP_HOME=/opt/cray/atp/1.4.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.4.1/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.4.1/lib/ -Wl,-lAtpSigHandler -Wl,--undefined=__atpHandlerInstall
+  LIBSCI_VERSION=11.0.04.4
+  MPICH_ABORT_ON_ERROR=1
+  PGI_VERSION=12.1
+  XTOS_VERSION=4.0.30
+  CRAY_MPICH2_VERSION=5.4.1
+  MPICH_DIR=/opt/cray/mpt/5.4.1/xt/gemini/mpich2-pgi/109
+
+Report time environment variables:
+  CRAYPAT_ROOT=/opt/cray/perftools/5.3.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_
+
+Report command line options:  <none>
+
+Operating system:
+  Linux 2.6.32.45-0.3.2_1.0400.6221-cray_gem_c #1 SMP Wed Sep 28 03:54:16 UTC 2011
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  0.334  microsecs
+
+Number of traced functions:  89
+
+  (To see the list, specify:  -s traced_functions=show)
+

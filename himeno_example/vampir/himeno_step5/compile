@@ -1,0 +1,2 @@
+#ftn -rm -eF -DGPU himenoBMTxpr.f -o himeno_acc
+vtf90 -vt:verbose -vt:hyb -rm -eF -DGPU himenoBMTxpr.f -o himeno_acc

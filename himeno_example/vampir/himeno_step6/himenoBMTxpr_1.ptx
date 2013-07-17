@@ -1,0 +1,1079 @@
+      .version 3.1
+      .target sm_35 
+
+      // Cray Fortran : Version 8.1.8  (u81109f81248i81210p81391a81035e81007z81391)
+
+// Start libm header
+
+	.extern .func (.param .u64 __cudaretf_malloc) malloc (.param .u64 __cudaparmf1_malloc)
+	.extern .func (.param .s32 __cudaretf_printf) printf (.param .u64 __cudaparmf1_printf)
+	.extern .func (.param .s32 __cudaretf_vprintf) vprintf (.param .u64 __cudaparmf1_vprintf, .param .u64 __cudaparmf2_vprintf)
+	.extern .func free (.param .u64 __cudaparmf1_free)
+	.visible .func (.param .f32 __cudaretf___CHABS) __CHABS (.param .f32 __cudaparmf1___CHABS, .param .f32 __cudaparmf2___CHABS)
+	.visible .func (.param .f64 __cudaretf___CABS) __CABS (.param .f64 __cudaparmf1___CABS, .param .f64 __cudaparmf2___CABS)
+	.visible .func (.param .f32 __cudaretf__HTOH) _HTOH (.param .f32 __cudaparmf1__HTOH, .param .f32 __cudaparmf2__HTOH)
+	.visible .func (.param .f32 __cudaretf__HTON) _HTON (.param .f32 __cudaparmf1__HTON, .param .s32 __cudaparmf2__HTON)
+	.visible .func (.param .f32 __cudaretf__HTOI) _HTOI (.param .f32 __cudaparmf1__HTOI, .param .s64 __cudaparmf2__HTOI)
+	.visible .func (.param .f64 __cudaretf__RTOR) _RTOR (.param .f64 __cudaparmf1__RTOR, .param .f64 __cudaparmf2__RTOR)
+	.visible .func (.param .f64 __cudaretf__RTON) _RTON (.param .f64 __cudaparmf1__RTON, .param .s32 __cudaparmf2__RTON)
+	.visible .func (.param .f64 __cudaretf__RTOI) _RTOI (.param .f64 __cudaparmf1__RTOI, .param .s64 __cudaparmf2__RTOI)
+	.visible .func (.param .f32 __cudaretf_asinf) asinf (.param .f32 __cudaparmf1_asinf)
+	.visible .func (.param .f64 __cudaretf_asin) asin (.param .f64 __cudaparmf1_asin)
+	.visible .func (.param .f32 __cudaretf_atanf) atanf (.param .f32 __cudaparmf1_atanf)
+	.visible .func (.param .f64 __cudaretf_atan) atan (.param .f64 __cudaparmf1_atan)
+	.visible .func (.param .f32 __cudaretf_atan2f) atan2f (.param .f32 __cudaparmf1_atan2f, .param .f32 __cudaparmf2_atan2f)
+	.visible .func (.param .f64 __cudaretf_atan2) atan2 (.param .f64 __cudaparmf1_atan2, .param .f64 __cudaparmf2_atan2)
+	.visible .func (.param .f32 __cudaretf_sinf) sinf (.param .f32 __cudaparmf1_sinf)
+	.visible .func (.param .f64 __cudaretf__SIN) _SIN (.param .f64 __cudaparmf1__SIN)
+	.visible .func (.param .s32 __cudaretf_isnormal64) isnormal64 (.param .f64 __cudaparmf1_isnormal64)
+	.visible .func (.param .s32 __cudaretf_isnormal32) isnormal32 (.param .f32 __cudaparmf1_isnormal32)
+	.visible .func (.param .s32 __cudaretf__leadz4) _leadz4 (.param .u32 __cudaparmf1__leadz4)
+	.visible .func (.param .s64 __cudaretf__leadz8) _leadz8 (.param .u64 __cudaparmf1__leadz8)
+	.visible .func (.param .f32 __cudaretf__FRACTION_4) _FRACTION_4 (.param .f32 __cudaparmf1__FRACTION_4)
+	.visible .func (.param .f64 __cudaretf__FRACTION) _FRACTION (.param .f64 __cudaparmf1__FRACTION)
+	.visible .func (.param .f64 __cudaretf__SPACING) _SPACING (.param .f64 __cudaparmf1__SPACING)
+	.visible .func (.param .f32 __cudaretf__SPACING_4) _SPACING_4 (.param .f32 __cudaparmf1__SPACING_4)
+	.visible .func (.param .f32 __cudaretf__SCALE_4) _SCALE_4 (.param .f32 __cudaparmf1__SCALE_4, .param .s32 __cudaparmf2__SCALE_4)
+	.visible .func (.param .f64 __cudaretf__SCALE) _SCALE (.param .f64 __cudaparmf1__SCALE, .param .s32 __cudaparmf2__SCALE)
+	.visible .func (.param .f64 __cudaretf__RRSPACING) _RRSPACING (.param .f64 __cudaparmf1__RRSPACING)
+	.visible .func (.param .f32 __cudaretf__RRSPACING_4) _RRSPACING_4 (.param .f32 __cudaparmf1__RRSPACING_4)
+	.visible .func (.param .f32 __cudaretf__SET_EXPONENT_4_I8) _SET_EXPONENT_4_I8 (.param .f32 __cudaparmf1__SET_EXPONENT_4_I8, .param .s64 __cudaparmf2__SET_EXPONENT_4_I8)
+	.visible .func (.param .f64 __cudaretf__SET_EXPONENT_8_I8) _SET_EXPONENT_8_I8 (.param .f64 __cudaparmf1__SET_EXPONENT_8_I8, .param .s64 __cudaparmf2__SET_EXPONENT_8_I8)
+	.visible .func (.param .f32 __cudaretf__NEAREST_4) _NEAREST_4 (.param .f32 __cudaparmf1__NEAREST_4, .param .f32 __cudaparmf2__NEAREST_4)
+	.visible .func (.param .f32 __cudaretf__NEAREST_4_8) _NEAREST_4_8 (.param .f32 __cudaparmf1__NEAREST_4_8, .param .f64 __cudaparmf2__NEAREST_4_8)
+	.visible .func (.param .f64 __cudaretf__NEAREST_8_4) _NEAREST_8_4 (.param .f64 __cudaparmf1__NEAREST_8_4, .param .f32 __cudaparmf2__NEAREST_8_4)
+	.visible .func (.param .f64 __cudaretf__NEAREST) _NEAREST (.param .f64 __cudaparmf1__NEAREST, .param .f64 __cudaparmf2__NEAREST)
+	.visible .func (.param .f32 __cudaretf__nextafterf) _nextafterf (.param .f32 __cudaparmf1__nextafterf, .param .f32 __cudaparmf2__nextafterf)
+	.visible .func (.param .f64 __cudaretf__nextafter) _nextafter (.param .f64 __cudaparmf1__nextafter, .param .f64 __cudaparmf2__nextafter)
+	.visible .func (.param .f32 __cudaretf_sinhf) sinhf (.param .f32 __cudaparmf1_sinhf)
+	.visible .func (.param .f64 __cudaretf_sinh) sinh (.param .f64 __cudaparmf1_sinh)
+	.visible .func (.param .f32 __cudaretf_cosf) cosf (.param .f32 __cudaparmf1_cosf)
+	.visible .func (.param .f64 __cudaretf__COS) _COS (.param .f64 __cudaparmf1__COS)
+	.visible .func (.param .f32 __cudaretf_coshf) coshf (.param .f32 __cudaparmf1_coshf)
+	.visible .func (.param .f64 __cudaretf_cosh) cosh (.param .f64 __cudaparmf1_cosh)
+	.visible .func (.param .f32 __cudaretf__HTAN) _HTAN (.param .f32 __cudaparmf1__HTAN)
+	.visible .func (.param .f64 __cudaretf__TAN) _TAN (.param .f64 __cudaparmf1__TAN)
+	.visible .func (.param .f32 __cudaretf_tanhf) tanhf (.param .f32 __cudaparmf1_tanhf)
+	.visible .func (.param .f64 __cudaretf_tanh) tanh (.param .f64 __cudaparmf1_tanh)
+	.visible .func (.param .f32 __cudaretf__HCOT) _HCOT (.param .f32 __cudaparmf1__HCOT)
+	.visible .func (.param .f64 __cudaretf__COT) _COT (.param .f64 __cudaparmf1__COT)
+	.visible .func (.param .f32 __cudaretf_acosf) acosf (.param .f32 __cudaparmf1_acosf)
+	.visible .func (.param .f64 __cudaretf_acos) acos (.param .f64 __cudaparmf1_acos)
+	.visible .func (.param .align 8 .b8 __cudaretf__HCOSS[8]) _HCOSS (.param .f32 __cudaparmf1__HCOSS)
+	.visible .func (.param .align 16 .b8 __cudaretf__COSS[16]) _COSS (.param .f64 __cudaparmf1__COSS)
+	.visible .func (.param .align 8 .b8 __cudaretf__HCOSSH[8]) _HCOSSH (.param .f32 __cudaparmf1__HCOSSH)
+	.visible .func (.param .align 16 .b8 __cudaretf__COSSH[16]) _COSSH (.param .f64 __cudaparmf1__COSSH)
+	.visible .func (.param .f32 __cudaretf__HEXP) _HEXP (.param .f32 __cudaparmf1__HEXP)
+	.visible .func (.param .f64 __cudaretf__EXP) _EXP (.param .f64 __cudaparmf1__EXP)
+	.visible .func (.param .align 8 .b8 __cudaretf_cexpf[8]) cexpf (.param .f32 __cudaparmf1_cexpf, .param .f32 __cudaparmf2_cexpf)
+	.visible .func (.param .align 16 .b8 __cudaretf_cexp[16]) cexp (.param .f64 __cudaparmf1_cexp, .param .f64 __cudaparmf2_cexp)
+	.visible .func (.param .f32 __cudaretf__HLOG) _HLOG (.param .f32 __cudaparmf1__HLOG)
+	.visible .func (.param .f64 __cudaretf__ALOG) _ALOG (.param .f64 __cudaparmf1__ALOG)
+	.visible .func (.param .align 8 .b8 __cudaretf__CHLOG[8]) _CHLOG (.param .f32 __cudaparmf1__CHLOG, .param .f32 __cudaparmf2__CHLOG)
+	.visible .func (.param .align 16 .b8 __cudaretf__CLOG[16]) _CLOG (.param .f64 __cudaparmf1__CLOG, .param .f64 __cudaparmf2__CLOG)
+	.visible .func (.param .f32 __cudaretf_log10f) log10f (.param .f32 __cudaparmf1_log10f)
+	.visible .func (.param .f64 __cudaretf_log10) log10 (.param .f64 __cudaparmf1_log10)
+	.visible .func (.param .f32 __cudaretf__CHABS) _CHABS (.param .f32 __cudaparmf1__CHABS, .param .f32 __cudaparmf2__CHABS)
+	.visible .func (.param .f64 __cudaretf__CABS) _CABS (.param .f64 __cudaparmf1__CABS, .param .f64 __cudaparmf2__CABS)
+	.visible .func (.param .align 16 .b8 __cudaretf_cpow[16]) cpow (.param .f64 __cudaparmf1_cpow, .param .f64 __cudaparmf2_cpow, .param .f64 __cudaparmf3_cpow, .param .f64 __cudaparmf4_cpow)
+	.visible .func (.param .align 8 .b8 __cudaretf_cpowf[8]) cpowf (.param .f32 __cudaparmf1_cpowf, .param .f32 __cudaparmf2_cpowf, .param .f32 __cudaparmf3_cpowf, .param .f32 __cudaparmf4_cpowf)
+	.visible .func (.param .align 8 .b8 __cudaretf__CHSQRT[8]) _CHSQRT (.param .f32 __cudaparmf1__CHSQRT, .param .f32 __cudaparmf2__CHSQRT)
+	.visible .func (.param .align 16 .b8 __cudaretf__CSQRT[16]) _CSQRT (.param .f64 __cudaparmf1__CSQRT, .param .f64 __cudaparmf2__CSQRT)
+	.visible .func (.param .align 16 .b8 __cudaretf__CSIN[16]) _CSIN (.param .f64 __cudaparmf1__CSIN, .param .f64 __cudaparmf2__CSIN)
+	.visible .func (.param .align 8 .b8 __cudaretf__CHSIN[8]) _CHSIN (.param .f32 __cudaparmf1__CHSIN, .param .f32 __cudaparmf2__CHSIN)
+	.visible .func (.param .align 16 .b8 __cudaretf__CCOS[16]) _CCOS (.param .f64 __cudaparmf1__CCOS, .param .f64 __cudaparmf2__CCOS)
+	.visible .func (.param .align 8 .b8 __cudaretf__CHCOS[8]) _CHCOS (.param .f32 __cudaparmf1__CHCOS, .param .f32 __cudaparmf2__CHCOS)
+	.visible .func (.param .align 16 .b8 __cudaretf__CTAN[16]) _CTAN (.param .f64 __cudaparmf1__CTAN, .param .f64 __cudaparmf2__CTAN)
+	.visible .func (.param .align 8 .b8 __cudaretf__CHTAN[8]) _CHTAN (.param .f32 __cudaparmf1__CHTAN, .param .f32 __cudaparmf2__CHTAN)
+	.visible .func (.param .align 16 .b8 __cudaretf_casin[16]) casin (.param .f64 __cudaparmf1_casin, .param .f64 __cudaparmf2_casin)
+	.visible .func (.param .align 8 .b8 __cudaretf_casinf[8]) casinf (.param .f32 __cudaparmf1_casinf, .param .f32 __cudaparmf2_casinf)
+	.visible .func (.param .align 16 .b8 __cudaretf_cacos[16]) cacos (.param .f64 __cudaparmf1_cacos, .param .f64 __cudaparmf2_cacos)
+	.visible .func (.param .align 8 .b8 __cudaretf_cacosf[8]) cacosf (.param .f32 __cudaparmf1_cacosf, .param .f32 __cudaparmf2_cacosf)
+	.visible .func (.param .align 16 .b8 __cudaretf_catan[16]) catan (.param .f64 __cudaparmf1_catan, .param .f64 __cudaparmf2_catan)
+	.visible .func (.param .align 8 .b8 __cudaretf_catanf[8]) catanf (.param .f32 __cudaparmf1_catanf, .param .f32 __cudaparmf2_catanf)
+	.visible .func (.param .f64 __cudaretf__raisovfl) _raisovfl (.param .f64 __cudaparmf1__raisovfl)
+	.visible .func (.param .f64 __cudaretf__raisunfl) _raisunfl (.param .f64 __cudaparmf1__raisunfl, .param .f64 __cudaparmf2__raisunfl)
+	.visible .func (.param .f64 __cudaretf__IEEE_BINARY_SCALE_I8) _IEEE_BINARY_SCALE_I8 (.param .f64 __cudaparmf1__IEEE_BINARY_SCALE_I8, .param .s64 __cudaparmf2__IEEE_BINARY_SCALE_I8)
+	.visible .func (.param .f32 __cudaretf__IEEE_BINARY_SCALE_H_I8) _IEEE_BINARY_SCALE_H_I8 (.param .f32 __cudaparmf1__IEEE_BINARY_SCALE_H_I8, .param .s64 __cudaparmf2__IEEE_BINARY_SCALE_H_I8)
+	.visible .func (.param .u64 __cudaretf___cray_device_alloc_vla) __cray_device_alloc_vla (.param .u64 __cudaparmf1___cray_device_alloc_vla)
+	.visible .func __cray_device_free_vla (.param .u64 __cudaparmf1___cray_device_free_vla)
+	.visible .func __cray_acc_stop (.param .s32 __cudaparmf1___cray_acc_stop, .param .u64 __cudaparmf2___cray_acc_stop, .param .s32 __cudaparmf3___cray_acc_stop)
+
+// End libm header
+
+
+      .entry initmt_$ck_L160_1(
+               .param .s64 $$arg_ptr_acc_wrk2_t7,
+               .param .s64 $$arg_ptr_acc_wrk1_t9,
+               .param .s64 $$arg_ptr_acc_bnd_t11,
+               .param .s64 $$arg_ptr_acc_c_t13,
+               .param .s64 $$arg_ptr_acc_b_t15,
+               .param .s64 $$arg_ptr_acc_p_t17,
+               .param .s64 $$arg_ptr_acc_a_t19 )
+      .maxnreg 128
+      {
+      .reg .pred %p<4>;
+      .reg .b64  %bd<2>;
+      .reg .s64  %sd<21>;
+      //
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:168 : $$id_T28
+      setp.ge.s64          %p1, %sd1, 129;             // himenoBMTxpr.f:168
+      @%p1 bra             $initmt_$ck_L160_1__l17__;  // himenoBMTxpr.f:168
+      cvt.s64.u32          %sd4, %ntid.x;              // himenoBMTxpr.f:170 : $$pvt2_numthrds_T29
+      cvt.s64.u32          %sd5, %tid.x;               // himenoBMTxpr.f:170
+      mov.s64              %sd3, %sd5;                 // himenoBMTxpr.f:170 : $$I_L170_132
+      setp.ge.s64          %p2, %sd5, 8777;            // himenoBMTxpr.f:170
+      @%p2 bra             $initmt_$ck_L160_1__l16__;  // himenoBMTxpr.f:170
+      mul.lo.s64           %sd2, %sd1, 8777;           // himenoBMTxpr.f:171 : $$LIS_E0
+$initmt_$ck_L160_1__l12__:
+      add.s64              %sd6, %sd3, %sd2;           // himenoBMTxpr.f:171
+      ld.param.s64         %sd7, [$$arg_ptr_acc_a_t19];// himenoBMTxpr.f:171 : $$arg_ptr_acc_a_t19
+      shl.b64              %bd1, %sd6, 2;              // himenoBMTxpr.f:171
+      add.s64              %sd8, %sd7, %bd1;           // himenoBMTxpr.f:171
+      add.s64              %sd3, %sd3, %sd4;           // himenoBMTxpr.f:185 : $$I_L170_132
+      setp.lt.s64          %p3, %sd3, 8777;            // himenoBMTxpr.f:185
+      st.global.f32        [%sd8], 0f00000000;         // himenoBMTxpr.f:171 : 0[$$arg_ptr_acc_a_t19,$$LCS_1,na]
+      st.global.f32        [%sd8 + 4528932], 0f00000000;// himenoBMTxpr.f:172 : 1132233[$$arg_ptr_acc_a_t19,$$LCS_1,na]
+      st.global.f32        [%sd8 + 9057864], 0f00000000;// himenoBMTxpr.f:173 : 2264466[$$arg_ptr_acc_a_t19,$$LCS_1,na]
+      st.global.f32        [%sd8 + 13586796], 0f00000000;// himenoBMTxpr.f:174 : 3396699[$$arg_ptr_acc_a_t19,$$LCS_1,na]
+      ld.param.s64         %sd9, [$$arg_ptr_acc_b_t15];// himenoBMTxpr.f:175 : $$arg_ptr_acc_b_t15
+      add.s64              %sd10, %sd9, %bd1;          // himenoBMTxpr.f:175
+      st.global.f32        [%sd10], 0f00000000;        // himenoBMTxpr.f:175 : 0[$$arg_ptr_acc_b_t15,$$LCS_1,na]
+      st.global.f32        [%sd10 + 4528932], 0f00000000;// himenoBMTxpr.f:176 : 1132233[$$arg_ptr_acc_b_t15,$$LCS_1,na]
+      st.global.f32        [%sd10 + 9057864], 0f00000000;// himenoBMTxpr.f:177 : 2264466[$$arg_ptr_acc_b_t15,$$LCS_1,na]
+      ld.param.s64         %sd11, [$$arg_ptr_acc_c_t13];// himenoBMTxpr.f:178 : $$arg_ptr_acc_c_t13
+      add.s64              %sd12, %sd11, %bd1;         // himenoBMTxpr.f:178
+      st.global.f32        [%sd12], 0f00000000;        // himenoBMTxpr.f:178 : 0[$$arg_ptr_acc_c_t13,$$LCS_1,na]
+      st.global.f32        [%sd12 + 4528932], 0f00000000;// himenoBMTxpr.f:179 : 1132233[$$arg_ptr_acc_c_t13,$$LCS_1,na]
+      st.global.f32        [%sd12 + 9057864], 0f00000000;// himenoBMTxpr.f:180 : 2264466[$$arg_ptr_acc_c_t13,$$LCS_1,na]
+      ld.param.s64         %sd13, [$$arg_ptr_acc_p_t17];// himenoBMTxpr.f:181 : $$arg_ptr_acc_p_t17
+      add.s64              %sd14, %sd13, %bd1;         // himenoBMTxpr.f:181
+      st.global.f32        [%sd14], 0f00000000;        // himenoBMTxpr.f:181 : 0[$$arg_ptr_acc_p_t17,$$LCS_1,na]
+      ld.param.s64         %sd15, [$$arg_ptr_acc_wrk1_t9];// himenoBMTxpr.f:182 : $$arg_ptr_acc_wrk1_t9
+      add.s64              %sd16, %sd15, %bd1;         // himenoBMTxpr.f:182
+      st.global.f32        [%sd16], 0f00000000;        // himenoBMTxpr.f:182 : 0[$$arg_ptr_acc_wrk1_t9,$$LCS_1,na]
+      ld.param.s64         %sd17, [$$arg_ptr_acc_wrk2_t7];// himenoBMTxpr.f:183 : $$arg_ptr_acc_wrk2_t7
+      add.s64              %sd18, %sd17, %bd1;         // himenoBMTxpr.f:183
+      st.global.f32        [%sd18], 0f00000000;        // himenoBMTxpr.f:183 : 0[$$arg_ptr_acc_wrk2_t7,$$LCS_1,na]
+      ld.param.s64         %sd19, [$$arg_ptr_acc_bnd_t11];// himenoBMTxpr.f:184 : $$arg_ptr_acc_bnd_t11
+      add.s64              %sd20, %sd19, %bd1;         // himenoBMTxpr.f:184
+      st.global.f32        [%sd20], 0f00000000;        // himenoBMTxpr.f:184 : 0[$$arg_ptr_acc_bnd_t11,$$LCS_1,na]
+      @%p3 bra             $initmt_$ck_L160_1__l12__;  // himenoBMTxpr.f:185
+$initmt_$ck_L160_1__l16__:
+      bar.sync             0;                          // himenoBMTxpr.f:185
+$initmt_$ck_L160_1__l17__:
+      exit;
+      } // initmt_$ck_L160_1
+
+
+      .entry initmt_$ck_L193_2(
+               .param .s64 $$arg_ptr_acc_wrk2_t7,
+               .param .s64 $$arg_ptr_acc_wrk1_t9,
+               .param .s64 $$arg_ptr_acc_bnd_t11,
+               .param .s64 $$arg_ptr_acc_c_t13,
+               .param .s64 $$arg_ptr_acc_b_t15,
+               .param .s64 $$arg_ptr_acc_p_t17,
+               .param .s64 $$arg_ptr_acc_a_t19,
+               .param .s32 $$_arg_acc_imax_t39,
+               .param .s32 $$_arg_acc_jmax_t40,
+               .param .s32 $$_arg_acc_kmax_t41,
+               .param .s32 $$_arg_acc_seat_mz_t42,
+               .param .s32 $$_arg_acc_seat_it_t43 )
+      .maxnreg 128
+      {
+      .reg .pred %p<8>;
+      .reg .b64  %bd<2>;
+      .reg .s32  %s<8>;
+      .reg .s64  %sd<30>;
+      .reg .f32  %f<6>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_kmax_t41]; // himenoBMTxpr.f:201 : $$MR_kmax_40
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:201
+      @%p1 bra             $initmt_$ck_L193_2__l43__;  // himenoBMTxpr.f:201
+      ld.param.s32         %s2, [$$_arg_acc_jmax_t40]; // himenoBMTxpr.f:202 : $$MR_jmax_41
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:202
+      @%p2 bra             $initmt_$ck_L193_2__l43__;  // himenoBMTxpr.f:202
+      ld.param.s32         %s3, [$$_arg_acc_imax_t39]; // himenoBMTxpr.f:203 : $$SC_imax_I0
+      setp.le.s32          %p3, %s3, 0;                // himenoBMTxpr.f:203
+      @%p3 bra             $initmt_$ck_L193_2__l43__;  // himenoBMTxpr.f:203
+      cvt.s64.u32          %sd2, %ctaid.x;             // himenoBMTxpr.f:201 : $$id_T32
+      cvt.s64.s32          %sd9, %s1;                  // himenoBMTxpr.f:201
+      setp.ge.s64          %p4, %sd2, %sd9;            // himenoBMTxpr.f:201
+      @%p4 bra             $initmt_$ck_L193_2__l43__;  // himenoBMTxpr.f:201
+      mov.s64              %sd3, 0;                    // himenoBMTxpr.f:202 : $$I_L202_128
+      ld.param.s32         %s4, [$$_arg_acc_seat_it_t43];// himenoBMTxpr.f:214 : $$SC_it_I2
+      ld.param.s32         %s5, [$$_arg_acc_seat_mz_t42];// himenoBMTxpr.f:214 : $$SC_mz_I1
+      cvt.s64.u32          %sd6, %ntid.x;              // himenoBMTxpr.f:203 : $$pvt2_numthrds_T33
+      cvt.s64.u32          %sd1, %tid.x;               // himenoBMTxpr.f:203 : $$pvt2_id_T34
+      cvt.s64.s32          %sd10, %s2;                 // himenoBMTxpr.f:220
+      neg.s64              %sd8, %sd10;                // himenoBMTxpr.f:202 : $$Induc02_S13
+$initmt_$ck_L193_2__l31__:
+      mov.s64              %sd5, %sd1;                 // himenoBMTxpr.f:203 : $$I_L203_134
+      cvt.s64.s32          %sd7, %s3;                  // himenoBMTxpr.f:203 : $$LIS_E6
+      setp.ge.s64          %p5, %sd1, %sd7;            // himenoBMTxpr.f:203
+      @%p5 bra             $initmt_$ck_L193_2__l42__;  // himenoBMTxpr.f:203
+      cvt.s64.s32          %sd11, %s4;                 // himenoBMTxpr.f:214
+      add.s64              %sd12, %sd2, %sd11;         // himenoBMTxpr.f:214
+      add.s32              %s6, %s5, -1;               // himenoBMTxpr.f:214
+      mul.lo.s64           %sd13, %sd12, %sd12;        // himenoBMTxpr.f:214
+      cvt.rn.f32.s64       %f4, %sd13;                 // himenoBMTxpr.f:214
+      mul.lo.s32           %s7, %s6, %s6;              // himenoBMTxpr.f:214
+      cvt.rn.f32.s32       %f5, %s7;                   // himenoBMTxpr.f:214
+      div.rn.f32           %f3, %f4, %f5;              // himenoBMTxpr.f:214 : $$LIS_E5
+      mov.f32              %f2, 0f3e2aaaab;            // himenoBMTxpr.f:207 : $$LIS_E4
+      mov.f32              %f1, 0f3f800000;            // himenoBMTxpr.f:204 : $$LIS_E3
+      mul.lo.s64           %sd14, %sd2, 8777;          // himenoBMTxpr.f:204
+      mad.lo.s64           %sd4, 131, %sd3, %sd14;     // himenoBMTxpr.f:204 : $$LIS_E2
+$initmt_$ck_L193_2__l36__:
+      add.s64              %sd15, %sd5, %sd4;          // himenoBMTxpr.f:204
+      ld.param.s64         %sd16, [$$arg_ptr_acc_a_t19];// himenoBMTxpr.f:204 : $$arg_ptr_acc_a_t19
+      shl.b64              %bd1, %sd15, 2;             // himenoBMTxpr.f:204
+      add.s64              %sd17, %sd16, %bd1;         // himenoBMTxpr.f:204
+      add.s64              %sd5, %sd5, %sd6;           // himenoBMTxpr.f:219 : $$I_L203_134
+      setp.lt.s64          %p6, %sd5, %sd7;            // himenoBMTxpr.f:219
+      st.global.f32        [%sd17], %f1;               // himenoBMTxpr.f:204 : 0[$$arg_ptr_acc_a_t19,$$LCS_5,na]
+      st.global.f32        [%sd17 + 4528932], %f1;     // himenoBMTxpr.f:205 : 1132233[$$arg_ptr_acc_a_t19,$$LCS_5,na]
+      st.global.f32        [%sd17 + 9057864], %f1;     // himenoBMTxpr.f:206 : 2264466[$$arg_ptr_acc_a_t19,$$LCS_5,na]
+      st.global.f32        [%sd17 + 13586796], %f2;    // himenoBMTxpr.f:207 : 3396699[$$arg_ptr_acc_a_t19,$$LCS_5,na]
+      ld.param.s64         %sd18, [$$arg_ptr_acc_b_t15];// himenoBMTxpr.f:208 : $$arg_ptr_acc_b_t15
+      add.s64              %sd19, %sd18, %bd1;         // himenoBMTxpr.f:208
+      st.global.f32        [%sd19], 0f00000000;        // himenoBMTxpr.f:208 : 0[$$arg_ptr_acc_b_t15,$$LCS_5,na]
+      st.global.f32        [%sd19 + 4528932], 0f00000000;// himenoBMTxpr.f:209 : 1132233[$$arg_ptr_acc_b_t15,$$LCS_5,na]
+      st.global.f32        [%sd19 + 9057864], 0f00000000;// himenoBMTxpr.f:210 : 2264466[$$arg_ptr_acc_b_t15,$$LCS_5,na]
+      ld.param.s64         %sd20, [$$arg_ptr_acc_c_t13];// himenoBMTxpr.f:211 : $$arg_ptr_acc_c_t13
+      add.s64              %sd21, %sd20, %bd1;         // himenoBMTxpr.f:211
+      st.global.f32        [%sd21], %f1;               // himenoBMTxpr.f:211 : 0[$$arg_ptr_acc_c_t13,$$LCS_5,na]
+      st.global.f32        [%sd21 + 4528932], %f1;     // himenoBMTxpr.f:212 : 1132233[$$arg_ptr_acc_c_t13,$$LCS_5,na]
+      st.global.f32        [%sd21 + 9057864], %f1;     // himenoBMTxpr.f:213 : 2264466[$$arg_ptr_acc_c_t13,$$LCS_5,na]
+      ld.param.s64         %sd22, [$$arg_ptr_acc_p_t17];// himenoBMTxpr.f:214 : $$arg_ptr_acc_p_t17
+      add.s64              %sd23, %sd22, %bd1;         // himenoBMTxpr.f:214
+      st.global.f32        [%sd23], %f3;               // himenoBMTxpr.f:214 : 0[$$arg_ptr_acc_p_t17,$$LCS_5,na]
+      ld.param.s64         %sd24, [$$arg_ptr_acc_wrk1_t9];// himenoBMTxpr.f:216 : $$arg_ptr_acc_wrk1_t9
+      add.s64              %sd25, %sd24, %bd1;         // himenoBMTxpr.f:216
+      st.global.f32        [%sd25], 0f00000000;        // himenoBMTxpr.f:216 : 0[$$arg_ptr_acc_wrk1_t9,$$LCS_5,na]
+      ld.param.s64         %sd26, [$$arg_ptr_acc_wrk2_t7];// himenoBMTxpr.f:217 : $$arg_ptr_acc_wrk2_t7
+      add.s64              %sd27, %sd26, %bd1;         // himenoBMTxpr.f:217
+      st.global.f32        [%sd27], 0f00000000;        // himenoBMTxpr.f:217 : 0[$$arg_ptr_acc_wrk2_t7,$$LCS_5,na]
+      ld.param.s64         %sd28, [$$arg_ptr_acc_bnd_t11];// himenoBMTxpr.f:218 : $$arg_ptr_acc_bnd_t11
+      add.s64              %sd29, %sd28, %bd1;         // himenoBMTxpr.f:218
+      st.global.f32        [%sd29], %f1;               // himenoBMTxpr.f:218 : 0[$$arg_ptr_acc_bnd_t11,$$LCS_5,na]
+      @%p6 bra             $initmt_$ck_L193_2__l36__;  // himenoBMTxpr.f:219
+$initmt_$ck_L193_2__l42__:
+      bar.sync             0;                          // himenoBMTxpr.f:219
+      add.s64              %sd3, %sd3, 1;              // himenoBMTxpr.f:220 : $$I_L202_128
+      add.s64              %sd8, %sd8, 1;              // himenoBMTxpr.f:202 : $$Induc02_S13
+      setp.lt.s64          %p7, %sd8, 0;               // himenoBMTxpr.f:220
+      @%p7 bra             $initmt_$ck_L193_2__l31__;  // himenoBMTxpr.f:220
+$initmt_$ck_L193_2__l43__:
+      exit;
+      } // initmt_$ck_L193_2
+
+
+      .entry jacobi_$ck_L259_5(
+               .param .s64 $$arg_ptr_acc_wrk1_t48,
+               .param .s64 $$arg_ptr_acc_bnd_t50,
+               .param .s64 $$arg_ptr_acc_c_t52,
+               .param .s64 $$arg_ptr_acc_b_t54,
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_a_t58,
+               .param .s64 $$arg_ptr_acc_wgosa_t84,
+               .param .s64 $$arg_ptr_acc_wrk2_t86,
+               .param .s64 $$arg_ptr_reduc_ctl_t97,
+               .param .s64 $$arg_ptr_reduc_val_t100,
+               .param .s32 $$_arg_acc_imax_t140,
+               .param .s32 $$_arg_acc_jmax_t141,
+               .param .s32 $$_arg_acc_kmax_t142,
+               .param .f32 $$_arg_acc_omega_t143 )
+      .maxnreg 128
+      {
+      .shared .s32 reduc_share_ctl_C3__f3s856;
+      .shared .u64 $$_redfold_T219__f3s1369[64];
+      //
+      .reg .pred %p<17>;
+      .reg .b64  %bd<11>;
+      .reg .s32  %s<20>;
+      .reg .s64  %sd<94>;
+      .reg .u32  %u<22>;
+      .reg .f32  %f<82>;
+      //
+      ld.param.s32         %s2, [$$_arg_acc_kmax_t142];// himenoBMTxpr.f:268 : $$MR_kmax_204
+      add.s32              %s5, %s2, -3;               // himenoBMTxpr.f:268
+      setp.lt.s32          %p1, %s5, 0;                // himenoBMTxpr.f:268
+      @%p1 bra             $jacobi_$ck_L259_5__l58__;  // himenoBMTxpr.f:268
+      mov.f32              %f3, 0f00000000;            // himenoBMTxpr.f:261 : $$_wgosa_T45
+      ld.param.s32         %s1, [$$_arg_acc_jmax_t141];// himenoBMTxpr.f:269 : $$MR_jmax_205
+      add.s32              %s6, %s1, -3;               // himenoBMTxpr.f:269
+      setp.lt.s32          %p2, %s6, 0;                // himenoBMTxpr.f:269
+      @%p2 bra             $jacobi_$ck_L259_5__l58__;  // himenoBMTxpr.f:269
+      ld.param.s32         %s3, [$$_arg_acc_imax_t140];// himenoBMTxpr.f:270 : $$MR_imax_206
+      add.s32              %s7, %s3, -3;               // himenoBMTxpr.f:270
+      setp.lt.s32          %p3, %s7, 0;                // himenoBMTxpr.f:270
+      @%p3 bra             $jacobi_$ck_L259_5__l58__;  // himenoBMTxpr.f:270
+      mov.u32              %u7, %ntid.x;               // himenoBMTxpr.f:270
+      mov.u32              %u8, %nctaid.x;             // himenoBMTxpr.f:270
+      mul.lo.u32           %u9, %u7, %u8;              // himenoBMTxpr.f:270
+      cvt.s64.u32          %sd8, %u9;                  // himenoBMTxpr.f:270 : $$numthrds_T94
+      mov.u32              %u10, %ctaid.x;             // himenoBMTxpr.f:270
+      mov.u32              %u11, %tid.x;               // himenoBMTxpr.f:270
+      mad.lo.u32           %u12, %u7, %u10, %u11;      // himenoBMTxpr.f:270
+      cvt.s64.u32          %sd10, %u12;                // himenoBMTxpr.f:270
+      mov.s64              %sd2, %sd10;                // himenoBMTxpr.f:270 : $$I_L270_434
+      cvt.s64.s32          %sd11, %s1;                 // himenoBMTxpr.f:270
+      cvt.s64.s32          %sd12, %s2;                 // himenoBMTxpr.f:270
+      cvt.s64.s32          %sd13, %s3;                 // himenoBMTxpr.f:270
+      sub.s64              %sd14, 4, %sd13;            // himenoBMTxpr.f:270
+      add.s64              %sd15, %sd12, -1;           // himenoBMTxpr.f:270
+      neg.s32              %s8, %s2;                   // himenoBMTxpr.f:270
+      cvt.s64.s32          %sd16, %s8;                 // himenoBMTxpr.f:270
+      mad.lo.s64           %sd17, %sd11, %sd15, %sd16; // himenoBMTxpr.f:270
+      add.s64              %sd18, %sd17, 4;            // himenoBMTxpr.f:270
+      add.s32              %s9, %s1, %s3;              // himenoBMTxpr.f:270
+      cvt.s64.s32          %sd19, %s9;                 // himenoBMTxpr.f:270
+      add.s64              %sd20, %sd19, %sd11;        // himenoBMTxpr.f:270
+      sub.s64              %sd21, 4, %sd20;            // himenoBMTxpr.f:270
+      mul.lo.s64           %sd22, %sd21, %sd12;        // himenoBMTxpr.f:270
+      mad.lo.s64           %sd23, %sd13, %sd18, %sd22; // himenoBMTxpr.f:270
+      mad.lo.s64           %sd24, %sd11, %sd14, %sd23; // himenoBMTxpr.f:270
+      add.s64              %sd25, %sd24, -8;           // himenoBMTxpr.f:270
+      setp.ge.s64          %p4, %sd10, %sd25;          // himenoBMTxpr.f:270
+      @%p4 bra             $jacobi_$ck_L259_5__l26__;  // himenoBMTxpr.f:270
+      ld.param.f32         %f2, [$$_arg_acc_omega_t143];// himenoBMTxpr.f:283 : $$SC_omega_I6
+      mov.f32              %f1, 0f00000000;            // himenoBMTxpr.f:282 : $SC_wgosa_I5
+      cvt.s64.s32          %sd26, %s1;                 // himenoBMTxpr.f:284
+      cvt.s64.s32          %sd27, %s2;                 // himenoBMTxpr.f:284
+      cvt.s64.s32          %sd28, %s3;                 // himenoBMTxpr.f:284
+      sub.s64              %sd29, 4, %sd28;            // himenoBMTxpr.f:284
+      add.s64              %sd30, %sd27, -1;           // himenoBMTxpr.f:284
+      neg.s32              %s10, %s2;                  // himenoBMTxpr.f:284
+      cvt.s64.s32          %sd31, %s10;                // himenoBMTxpr.f:284
+      mad.lo.s64           %sd32, %sd26, %sd30, %sd31; // himenoBMTxpr.f:284
+      add.s64              %sd33, %sd32, 4;            // himenoBMTxpr.f:284
+      sub.s64              %sd34, 4, %sd26;            // himenoBMTxpr.f:284
+      add.s32              %s11, %s1, %s3;             // himenoBMTxpr.f:284
+      neg.s32              %s12, %s11;                 // himenoBMTxpr.f:284
+      cvt.s64.s32          %sd35, %s12;                // himenoBMTxpr.f:284
+      add.s64              %sd36, %sd34, %sd35;        // himenoBMTxpr.f:284
+      mul.lo.s64           %sd37, %sd36, %sd27;        // himenoBMTxpr.f:284
+      mad.lo.s64           %sd38, %sd28, %sd33, %sd37; // himenoBMTxpr.f:284
+      mad.lo.s64           %sd39, %sd26, %sd29, %sd38; // himenoBMTxpr.f:284
+      add.s64              %sd9, %sd39, -8;            // himenoBMTxpr.f:284 : $$LIS_E6
+      mov.s64              %sd7, %sd28;                // himenoBMTxpr.f:270 : $$LIS_E5
+      add.s64              %sd6, %sd28, -2;            // himenoBMTxpr.f:270 : $$LIS_E4
+      shl.b64              %bd1, %sd28, 1;             // himenoBMTxpr.f:270
+      mov.s64              %sd3, %bd1;                 // himenoBMTxpr.f:270 : $$LIS_E3
+      shl.b64              %sd4, %sd26, 1;             // himenoBMTxpr.f:270 : $$LIS_E2
+      mul.lo.s64           %sd5, %sd28, %sd26;         // himenoBMTxpr.f:270 : $$LIS_E1
+      add.s64              %sd40, %sd28, -1;           // himenoBMTxpr.f:270
+      add.s64              %sd41, %sd26, %bd1;         // himenoBMTxpr.f:270
+      neg.s64              %sd42, %sd41;               // himenoBMTxpr.f:270
+      mad.lo.s64           %sd43, %sd26, %sd40, %sd42; // himenoBMTxpr.f:270
+      add.s64              %sd1, %sd43, 4;             // himenoBMTxpr.f:270 : $$LIS_E0
+$jacobi_$ck_L259_5__l21__:
+      div.s64              %sd44, %sd2, %sd1;          // himenoBMTxpr.f:270
+      add.s64              %sd45, %sd3, -4;            // himenoBMTxpr.f:270
+      add.s64              %sd46, %sd45, %sd4;         // himenoBMTxpr.f:270
+      sub.s64              %sd47, %sd46, %sd5;         // himenoBMTxpr.f:270
+      mad.lo.s64           %sd48, %sd44, %sd47, %sd2;  // himenoBMTxpr.f:270
+      div.s64              %sd49, %sd48, %sd6;         // himenoBMTxpr.f:270
+      sub.s64              %sd50, 2, %sd7;             // himenoBMTxpr.f:270
+      mad.lo.s64           %sd51, %sd49, %sd50, %sd48; // himenoBMTxpr.f:270
+      mad.lo.s64           %sd52, 8777, %sd44, %sd51;  // himenoBMTxpr.f:271
+      mad.lo.s64           %sd53, 131, %sd49, %sd52;   // himenoBMTxpr.f:271
+      shl.b64              %bd2, %sd53, 2;             // himenoBMTxpr.f:271
+      ld.param.s64         %sd54, [$$arg_ptr_acc_c_t52];// himenoBMTxpr.f:271 : $$arg_ptr_acc_c_t52
+      add.s64              %sd55, %sd54, %bd2;         // himenoBMTxpr.f:271
+      ld.param.s64         %sd56, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:271 : $$arg_ptr_acc_p_t56
+      add.s64              %sd57, %sd56, %bd2;         // himenoBMTxpr.f:271
+      ld.param.s64         %sd58, [$$arg_ptr_acc_b_t54];// himenoBMTxpr.f:271 : $$arg_ptr_acc_b_t54
+      add.s64              %sd59, %sd58, %bd2;         // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f9, [%sd57 + 70748];       // himenoBMTxpr.f:271 : 17687[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f10, [%sd57 + 524];        // himenoBMTxpr.f:271 : 131[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f11, %f10, %f9;            // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f12, [%sd57 + 532];        // himenoBMTxpr.f:271 : 133[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f13, [%sd57 + 70740];      // himenoBMTxpr.f:271 : 17685[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f14, %f13, %f12;           // himenoBMTxpr.f:271
+      sub.rn.f32           %f15, %f11, %f14;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f16, [%sd57 + 71268];      // himenoBMTxpr.f:271 : 17817[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f17, [%sd57 + 4];          // himenoBMTxpr.f:271 : 1[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f18, %f17, %f16;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f19, [%sd57 + 1052];       // himenoBMTxpr.f:271 : 263[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f20, [%sd57 + 70220];      // himenoBMTxpr.f:271 : 17555[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f21, %f20, %f19;           // himenoBMTxpr.f:271
+      sub.rn.f32           %f22, %f18, %f21;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f23, [%sd57 + 36164];      // himenoBMTxpr.f:271 : 9041[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f24, [%sd57 + 35108];      // himenoBMTxpr.f:271 : 8777[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f25, %f24, %f23;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f26, [%sd57 + 36156];      // himenoBMTxpr.f:271 : 9039[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f27, [%sd57 + 35116];      // himenoBMTxpr.f:271 : 8779[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      add.rn.f32           %f28, %f27, %f26;           // himenoBMTxpr.f:271
+      sub.rn.f32           %f29, %f25, %f28;           // himenoBMTxpr.f:271
+      ld.param.s64         %sd60, [$$arg_ptr_acc_a_t58];// himenoBMTxpr.f:271 : $$arg_ptr_acc_a_t58
+      add.s64              %sd61, %sd60, %bd2;         // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f30, [%sd57 + 36160];      // himenoBMTxpr.f:271 : 9040[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      ld.global.nc.f32     %f31, [%sd61 + 4564568];    // himenoBMTxpr.f:271 : 1141142[$$arg_ptr_acc_a_t58,$$LCS_47,ex]
+      mul.rn.f32           %f32, %f31, %f30;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f33, [%sd61 + 35636];      // himenoBMTxpr.f:271 : 8909[$$arg_ptr_acc_a_t58,$$LCS_47,ex]
+      ld.global.nc.f32     %f34, [%sd57 + 35640];      // himenoBMTxpr.f:271 : 8910[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      mad.rn.f32           %f35, %f33, %f34, %f32;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f36, [%sd61 + 9093500];    // himenoBMTxpr.f:271 : 2273375[$$arg_ptr_acc_a_t58,$$LCS_47,ex]
+      ld.global.nc.f32     %f37, [%sd57 + 70744];      // himenoBMTxpr.f:271 : 17686[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      mad.rn.f32           %f38, %f36, %f37, %f35;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f39, [%sd59 + 35636];      // himenoBMTxpr.f:271 : 8909[$$arg_ptr_acc_b_t54,$$LCS_47,ex]
+      mad.rn.f32           %f40, %f39, %f29, %f38;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f41, [%sd59 + 4564568];    // himenoBMTxpr.f:271 : 1141142[$$arg_ptr_acc_b_t54,$$LCS_47,ex]
+      mad.rn.f32           %f42, %f41, %f22, %f40;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f43, [%sd59 + 9093500];    // himenoBMTxpr.f:271 : 2273375[$$arg_ptr_acc_b_t54,$$LCS_47,ex]
+      mad.rn.f32           %f44, %f43, %f15, %f42;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f45, [%sd55 + 35636];      // himenoBMTxpr.f:271 : 8909[$$arg_ptr_acc_c_t52,$$LCS_47,ex]
+      ld.global.nc.f32     %f46, [%sd57 + 35632];      // himenoBMTxpr.f:271 : 8908[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      mad.rn.f32           %f47, %f45, %f46, %f44;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f48, [%sd55 + 4564568];    // himenoBMTxpr.f:271 : 1141142[$$arg_ptr_acc_c_t52,$$LCS_47,ex]
+      ld.global.nc.f32     %f49, [%sd57 + 35112];      // himenoBMTxpr.f:271 : 8778[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      mad.rn.f32           %f50, %f48, %f49, %f47;     // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f51, [%sd55 + 9093500];    // himenoBMTxpr.f:271 : 2273375[$$arg_ptr_acc_c_t52,$$LCS_47,ex]
+      ld.global.nc.f32     %f52, [%sd57 + 528];        // himenoBMTxpr.f:271 : 132[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      mad.rn.f32           %f53, %f51, %f52, %f50;     // himenoBMTxpr.f:271
+      ld.param.s64         %sd62, [$$arg_ptr_acc_wrk1_t48];// himenoBMTxpr.f:271 : $$arg_ptr_acc_wrk1_t48
+      add.s64              %sd63, %sd62, %bd2;         // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f54, [%sd63 + 35636];      // himenoBMTxpr.f:271 : 8909[$$arg_ptr_acc_wrk1_t48,$$LCS_47,ex]
+      add.rn.f32           %f55, %f54, %f53;           // himenoBMTxpr.f:271
+      ld.global.nc.f32     %f56, [%sd57 + 35636];      // himenoBMTxpr.f:281 : 8909[$$arg_ptr_acc_p_t56,$$LCS_47,ex]
+      neg.f32              %f57, %f56;                 // himenoBMTxpr.f:281
+      ld.global.nc.f32     %f58, [%sd61 + 13622432];   // himenoBMTxpr.f:281 : 3405608[$$arg_ptr_acc_a_t58,$$LCS_47,ex]
+      mad.rn.f32           %f59, %f55, %f58, %f57;     // himenoBMTxpr.f:281
+      ld.param.s64         %sd64, [$$arg_ptr_acc_bnd_t50];// himenoBMTxpr.f:281 : $$arg_ptr_acc_bnd_t50
+      add.s64              %sd65, %sd64, %bd2;         // himenoBMTxpr.f:281
+      ld.global.nc.f32     %f60, [%sd65 + 35636];      // himenoBMTxpr.f:281 : 8909[$$arg_ptr_acc_bnd_t50,$$LCS_47,ex]
+      mul.rn.f32           %f61, %f60, %f59;           // himenoBMTxpr.f:281
+      mad.rn.f32           %f1, %f61, %f61, %f1;       // himenoBMTxpr.f:282 : $SC_wgosa_I5
+      mad.rn.f32           %f62, %f61, %f2, %f56;      // himenoBMTxpr.f:283
+      ld.param.s64         %sd66, [$$arg_ptr_acc_wrk2_t86];// himenoBMTxpr.f:283 : $$arg_ptr_acc_wrk2_t86
+      add.s64              %sd67, %sd66, %bd2;         // himenoBMTxpr.f:283
+      st.global.f32        [%sd67 + 35636], %f62;      // himenoBMTxpr.f:283 : 8909[$$arg_ptr_acc_wrk2_t86,$$LCS_47,na]
+      add.s64              %sd2, %sd8, %sd2;           // himenoBMTxpr.f:284 : $$I_L270_434
+      setp.lt.s64          %p5, %sd2, %sd9;            // himenoBMTxpr.f:284
+      @%p5 bra             $jacobi_$ck_L259_5__l21__;  // himenoBMTxpr.f:284
+      mov.f32              %f3, %f1;                   // himenoBMTxpr.f:282 : $$_wgosa_T45
+$jacobi_$ck_L259_5__l26__:
+      mov.u32              %u13, %tid.x;               // himenoBMTxpr.f:288
+      mov.u32              %u1, %tid.x;                // himenoBMTxpr.f:288 : $$LCS_48
+      cvt.s64.u32          %sd68, %tid.x;              // himenoBMTxpr.f:288
+      shl.b64              %bd3, %sd68, 2;             // himenoBMTxpr.f:288
+      mov.s64              %sd69, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd70, %bd3, %sd69;         // himenoBMTxpr.f:288
+      st.volatile.shared.f32 [%sd70], %f3;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_48]
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f4, [%sd70];             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      setp.ge.u32          %p6, %u13, 64;              // himenoBMTxpr.f:288
+      @%p6 bra             $jacobi_$ck_L259_5__l29__;  // himenoBMTxpr.f:288
+      cvt.s64.u32          %sd71, %u1;                 // himenoBMTxpr.f:288
+      shl.b64              %bd4, %sd71, 2;             // himenoBMTxpr.f:288
+      mov.s64              %sd72, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd73, %bd4, %sd72;         // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f63, [%sd73 + 256];      // himenoBMTxpr.f:288 : 64[ _&$$_redfold_T219,$$LCS_48]
+      add.rn.f32           %f4, %f4, %f63;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd73], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_48]
+$jacobi_$ck_L259_5__l29__:
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      mov.u32              %u14, %tid.x;               // himenoBMTxpr.f:288
+      mov.u32              %u2, %tid.x;                // himenoBMTxpr.f:288 : $$LCS_49
+      setp.ge.u32          %p7, %u14, 32;              // himenoBMTxpr.f:288
+      @%p7 bra             $jacobi_$ck_L259_5__l32__;  // himenoBMTxpr.f:288
+      cvt.s64.u32          %sd74, %u2;                 // himenoBMTxpr.f:288
+      shl.b64              %bd5, %sd74, 2;             // himenoBMTxpr.f:288
+      mov.s64              %sd75, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd76, %bd5, %sd75;         // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f64, [%sd76 + 128];      // himenoBMTxpr.f:288 : 32[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f4, %f4, %f64;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd76], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      ld.volatile.shared.f32 %f65, [%sd76 + 64];       // himenoBMTxpr.f:288 : 16[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f4, %f4, %f65;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd76], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      ld.volatile.shared.f32 %f66, [%sd76 + 32];       // himenoBMTxpr.f:288 : 8[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f4, %f4, %f66;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd76], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      ld.volatile.shared.f32 %f67, [%sd76 + 16];       // himenoBMTxpr.f:288 : 4[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f4, %f4, %f67;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd76], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      ld.volatile.shared.f32 %f68, [%sd76 + 8];        // himenoBMTxpr.f:288 : 2[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f4, %f4, %f68;             // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+      st.volatile.shared.f32 [%sd76], %f4;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      ld.volatile.shared.f32 %f69, [%sd76 + 4];        // himenoBMTxpr.f:288 : 1[ _&$$_redfold_T219,$$LCS_49]
+      add.rn.f32           %f70, %f4, %f69;            // himenoBMTxpr.f:288
+      st.volatile.shared.f32 [%sd76], %f70;            // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_49]
+      mov.f32              %f4, %f70;                  // himenoBMTxpr.f:288 : $redfold_left_temp_T220
+$jacobi_$ck_L259_5__l32__:
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f6, [$$_redfold_T219__f3s1369];// himenoBMTxpr.f:288 : $$reduc_pvt_T99
+      mov.f32              %f5, %f6;                   // himenoBMTxpr.f:288 : $redfinal_T222
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      mov.u32              %u15, %tid.x;               // himenoBMTxpr.f:288
+      setp.ne.u32          %p8, %u15, 0;               // himenoBMTxpr.f:288
+      @%p8 bra             $jacobi_$ck_L259_5__l35__;  // himenoBMTxpr.f:288
+      cvt.s64.u32          %sd77, %ctaid.x;            // himenoBMTxpr.f:288
+      shl.b64              %bd6, %sd77, 2;             // himenoBMTxpr.f:288
+      ld.param.s64         %sd78, [$$arg_ptr_reduc_val_t100];// himenoBMTxpr.f:288 : $$arg_ptr_reduc_val_t100
+      add.s64              %sd79, %sd78, %bd6;         // himenoBMTxpr.f:288
+      st.global.f32        [%sd79], %f5;               // himenoBMTxpr.f:288 : 0[$$arg_ptr_reduc_val_t100,_acc_read_hw_reg(%ctaid.x)]
+$jacobi_$ck_L259_5__l35__:
+      membar.gl;                                       // himenoBMTxpr.f:288
+      mov.u32              %u16, %tid.x;               // himenoBMTxpr.f:288
+      setp.ne.u32          %p9, %u16, 0;               // himenoBMTxpr.f:288
+      @%p9 bra             $jacobi_$ck_L259_5__l38__;  // himenoBMTxpr.f:288
+      cvt.s32.u32          %s13, %nctaid.x;            // himenoBMTxpr.f:288
+      sub.s32              %s14, 1, %s13;              // himenoBMTxpr.f:288
+      mov.u32              %u17, %ctaid.x;             // himenoBMTxpr.f:288
+      setp.eq.u32          %p10, %u17, 0;              // himenoBMTxpr.f:288
+      mov.s32              %s15, 1;                    // himenoBMTxpr.f:288
+      selp.s32             %s16, %s14, %s15, %p10;     // himenoBMTxpr.f:288
+      ld.param.s64         %sd80, [$$arg_ptr_reduc_ctl_t97];// himenoBMTxpr.f:288 : $$arg_ptr_reduc_ctl_t97
+      atom.global.add.s32  %s17, [%sd80], %s16;        // himenoBMTxpr.f:288
+      add.s32              %s18, %s17, %s16;           // himenoBMTxpr.f:288
+      st.volatile.shared.s32 [reduc_share_ctl_C3__f3s856], %s18;// himenoBMTxpr.f:288 : reduc_share_ctl_C3
+$jacobi_$ck_L259_5__l38__:
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      ld.volatile.shared.s32 %s19, [reduc_share_ctl_C3__f3s856];// himenoBMTxpr.f:288 : reduc_share_ctl_C3
+      setp.ne.s32          %p11, %s19, 0;              // himenoBMTxpr.f:288
+      @%p11 bra            $jacobi_$ck_L259_5__l58__;  // himenoBMTxpr.f:288
+      mov.f32              %f6, 0f00000000;            // himenoBMTxpr.f:288 : $$reduc_pvt_T99
+      cvt.s32.u32          %s4, %tid.x;                // himenoBMTxpr.f:288 : $$INDUC_P4
+      mov.u32              %u18, %nctaid.x;            // himenoBMTxpr.f:288
+      mov.u32              %u4, %nctaid.x;             // himenoBMTxpr.f:288 : $$LIS_E8
+      setp.ge.u32          %p12, %s4, %u18;            // himenoBMTxpr.f:288
+      @%p12 bra            $jacobi_$ck_L259_5__l49__;  // himenoBMTxpr.f:288
+      mov.u32              %u3, %ntid.x;               // himenoBMTxpr.f:288 : $$LIS_E7
+$jacobi_$ck_L259_5__l45__:
+      cvt.s64.s32          %sd81, %s4;                 // himenoBMTxpr.f:288
+      shl.b64              %bd7, %sd81, 2;             // himenoBMTxpr.f:288
+      ld.param.s64         %sd82, [$$arg_ptr_reduc_val_t100];// himenoBMTxpr.f:288 : $$arg_ptr_reduc_val_t100
+      add.s64              %sd83, %sd82, %bd7;         // himenoBMTxpr.f:288
+      ld.global.f32        %f71, [%sd83];              // himenoBMTxpr.f:288 : 0[$$arg_ptr_reduc_val_t100,$$INDUC_P4]
+      add.rn.f32           %f6, %f71, %f6;             // himenoBMTxpr.f:288 : $$reduc_pvt_T99
+      add.u32              %s4, %s4, %u3;              // himenoBMTxpr.f:288 : $$INDUC_P4
+      setp.lt.u32          %p13, %s4, %u4;             // himenoBMTxpr.f:288
+      @%p13 bra            $jacobi_$ck_L259_5__l45__;  // himenoBMTxpr.f:288
+$jacobi_$ck_L259_5__l49__:
+      mov.u32              %u19, %tid.x;               // himenoBMTxpr.f:288
+      mov.u32              %u5, %tid.x;                // himenoBMTxpr.f:288 : $$LCS_52
+      cvt.s64.u32          %sd84, %tid.x;              // himenoBMTxpr.f:288
+      shl.b64              %bd8, %sd84, 2;             // himenoBMTxpr.f:288
+      mov.s64              %sd85, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd86, %bd8, %sd85;         // himenoBMTxpr.f:288
+      st.volatile.shared.f32 [%sd86], %f6;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_52]
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f7, [%sd86];             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      setp.ge.u32          %p14, %u19, 64;             // himenoBMTxpr.f:288
+      @%p14 bra            $jacobi_$ck_L259_5__l52__;  // himenoBMTxpr.f:288
+      cvt.s64.u32          %sd87, %u5;                 // himenoBMTxpr.f:288
+      shl.b64              %bd9, %sd87, 2;             // himenoBMTxpr.f:288
+      mov.s64              %sd88, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd89, %bd9, %sd88;         // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f72, [%sd89 + 256];      // himenoBMTxpr.f:288 : 64[ _&$$_redfold_T219,$$LCS_52]
+      add.rn.f32           %f7, %f7, %f72;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd89], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_52]
+$jacobi_$ck_L259_5__l52__:
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      mov.u32              %u20, %tid.x;               // himenoBMTxpr.f:288
+      mov.u32              %u6, %tid.x;                // himenoBMTxpr.f:288 : $$LCS_53
+      setp.ge.u32          %p15, %u20, 32;             // himenoBMTxpr.f:288
+      @%p15 bra            $jacobi_$ck_L259_5__l55__;  // himenoBMTxpr.f:288
+      cvt.s64.u32          %sd90, %u6;                 // himenoBMTxpr.f:288
+      shl.b64              %bd10, %sd90, 2;            // himenoBMTxpr.f:288
+      mov.s64              %sd91, $$_redfold_T219__f3s1369;// himenoBMTxpr.f:288
+      add.s64              %sd92, %bd10, %sd91;        // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f73, [%sd92 + 128];      // himenoBMTxpr.f:288 : 32[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f7, %f7, %f73;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd92], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      ld.volatile.shared.f32 %f74, [%sd92 + 64];       // himenoBMTxpr.f:288 : 16[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f7, %f7, %f74;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd92], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      ld.volatile.shared.f32 %f75, [%sd92 + 32];       // himenoBMTxpr.f:288 : 8[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f7, %f7, %f75;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd92], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      ld.volatile.shared.f32 %f76, [%sd92 + 16];       // himenoBMTxpr.f:288 : 4[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f7, %f7, %f76;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd92], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      ld.volatile.shared.f32 %f77, [%sd92 + 8];        // himenoBMTxpr.f:288 : 2[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f7, %f7, %f77;             // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+      st.volatile.shared.f32 [%sd92], %f7;             // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      ld.volatile.shared.f32 %f78, [%sd92 + 4];        // himenoBMTxpr.f:288 : 1[ _&$$_redfold_T219,$$LCS_53]
+      add.rn.f32           %f79, %f7, %f78;            // himenoBMTxpr.f:288
+      st.volatile.shared.f32 [%sd92], %f79;            // himenoBMTxpr.f:288 : 0[ _&$$_redfold_T219,$$LCS_53]
+      mov.f32              %f7, %f79;                  // himenoBMTxpr.f:288 : $redfold_left_temp_T223
+$jacobi_$ck_L259_5__l55__:
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      ld.volatile.shared.f32 %f6, [$$_redfold_T219__f3s1369];// himenoBMTxpr.f:288 : $$reduc_pvt_T99
+      mov.f32              %f8, %f6;                   // himenoBMTxpr.f:288 : $redfinal_T225
+      bar.sync             0;                          // himenoBMTxpr.f:288
+      mov.u32              %u21, %tid.x;               // himenoBMTxpr.f:288
+      setp.ne.u32          %p16, %u21, 0;              // himenoBMTxpr.f:288
+      @%p16 bra            $jacobi_$ck_L259_5__l58__;  // himenoBMTxpr.f:288
+      ld.param.s64         %sd93, [$$arg_ptr_acc_wgosa_t84];// himenoBMTxpr.f:288 : $$arg_ptr_acc_wgosa_t84
+      ld.global.f32        %f80, [%sd93];              // himenoBMTxpr.f:288 : 0[$$arg_ptr_acc_wgosa_t84,0]
+      add.rn.f32           %f81, %f80, %f8;            // himenoBMTxpr.f:288
+      st.global.f32        [%sd93], %f81;              // himenoBMTxpr.f:288 : 0[$$arg_ptr_acc_wgosa_t84,0]
+$jacobi_$ck_L259_5__l58__:
+      exit;
+      } // jacobi_$ck_L259_5
+
+
+      .entry jacobi_$ck_L292_6(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_wrk2_t87,
+               .param .s32 $$_arg_acc_imax_t144,
+               .param .s32 $$_arg_acc_jmax_t145,
+               .param .s32 $$_arg_acc_kmax_t146 )
+      .maxnreg 128
+      {
+      .reg .pred %p<5>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<9>;
+      .reg .s64  %sd<39>;
+      .reg .u32  %u<5>;
+      .reg .f32  %f<2>;
+      //
+      ld.param.s32         %s2, [$$_arg_acc_kmax_t146];// himenoBMTxpr.f:299 : $$MR_kmax_236
+      add.s32              %s4, %s2, -3;               // himenoBMTxpr.f:299
+      setp.lt.s32          %p1, %s4, 0;                // himenoBMTxpr.f:299
+      @%p1 bra             $jacobi_$ck_L292_6__l71__;  // himenoBMTxpr.f:299
+      ld.param.s32         %s1, [$$_arg_acc_jmax_t145];// himenoBMTxpr.f:300 : $$MR_jmax_237
+      add.s32              %s5, %s1, -3;               // himenoBMTxpr.f:300
+      setp.lt.s32          %p2, %s5, 0;                // himenoBMTxpr.f:300
+      @%p2 bra             $jacobi_$ck_L292_6__l71__;  // himenoBMTxpr.f:300
+      ld.param.s32         %s3, [$$_arg_acc_imax_t144];// himenoBMTxpr.f:301 : $$MR_imax_238
+      add.s32              %s6, %s3, -3;               // himenoBMTxpr.f:301
+      setp.lt.s32          %p3, %s6, 0;                // himenoBMTxpr.f:301
+      @%p3 bra             $jacobi_$ck_L292_6__l71__;  // himenoBMTxpr.f:301
+      mov.u32              %u1, %ntid.x;               // himenoBMTxpr.f:301
+      mov.u32              %u2, %ctaid.x;              // himenoBMTxpr.f:301
+      mov.u32              %u3, %tid.x;                // himenoBMTxpr.f:301
+      mad.lo.u32           %u4, %u1, %u2, %u3;         // himenoBMTxpr.f:301
+      cvt.s64.u32          %sd3, %u4;                  // himenoBMTxpr.f:301 : $$id_T103
+      cvt.s64.s32          %sd1, %s1;                  // himenoBMTxpr.f:301 : $$LCS_54
+      cvt.s64.s32          %sd4, %s2;                  // himenoBMTxpr.f:301
+      cvt.s64.s32          %sd2, %s3;                  // himenoBMTxpr.f:301 : $$LCS_56
+      sub.s64              %sd5, 4, %sd2;              // himenoBMTxpr.f:301
+      add.s64              %sd6, %sd4, -1;             // himenoBMTxpr.f:301
+      neg.s32              %s7, %s2;                   // himenoBMTxpr.f:301
+      cvt.s64.s32          %sd7, %s7;                  // himenoBMTxpr.f:301
+      mad.lo.s64           %sd8, %sd1, %sd6, %sd7;     // himenoBMTxpr.f:301
+      add.s64              %sd9, %sd8, 4;              // himenoBMTxpr.f:301
+      add.s32              %s8, %s1, %s3;              // himenoBMTxpr.f:301
+      cvt.s64.s32          %sd10, %s8;                 // himenoBMTxpr.f:301
+      add.s64              %sd11, %sd10, %sd1;         // himenoBMTxpr.f:301
+      sub.s64              %sd12, 4, %sd11;            // himenoBMTxpr.f:301
+      mul.lo.s64           %sd13, %sd12, %sd4;         // himenoBMTxpr.f:301
+      mad.lo.s64           %sd14, %sd2, %sd9, %sd13;   // himenoBMTxpr.f:301
+      mad.lo.s64           %sd15, %sd1, %sd5, %sd14;   // himenoBMTxpr.f:301
+      add.s64              %sd16, %sd15, -8;           // himenoBMTxpr.f:301
+      setp.ge.s64          %p4, %sd3, %sd16;           // himenoBMTxpr.f:301
+      @%p4 bra             $jacobi_$ck_L292_6__l71__;  // himenoBMTxpr.f:301
+      add.s64              %sd17, %sd2, -1;            // himenoBMTxpr.f:301
+      cvt.s64.s32          %sd18, %s3;                 // himenoBMTxpr.f:301
+      shl.b64              %bd1, %sd18, 1;             // himenoBMTxpr.f:301
+      add.s64              %sd19, %bd1, %sd1;          // himenoBMTxpr.f:301
+      neg.s64              %sd20, %sd19;               // himenoBMTxpr.f:301
+      mad.lo.s64           %sd21, %sd1, %sd17, %sd20;  // himenoBMTxpr.f:301
+      add.s64              %sd22, %sd21, 4;            // himenoBMTxpr.f:301
+      div.s64              %sd23, %sd3, %sd22;         // himenoBMTxpr.f:301
+      cvt.s64.s32          %sd24, %s1;                 // himenoBMTxpr.f:301
+      sub.s64              %sd25, 2, %sd24;            // himenoBMTxpr.f:301
+      shl.b64              %bd2, %sd24, 1;             // himenoBMTxpr.f:301
+      mad.lo.s64           %sd26, %sd2, %sd25, %bd2;   // himenoBMTxpr.f:301
+      add.s64              %sd27, %sd26, -4;           // himenoBMTxpr.f:301
+      mad.lo.s64           %sd28, %sd23, %sd27, %sd3;  // himenoBMTxpr.f:301
+      add.s64              %sd29, %sd2, -2;            // himenoBMTxpr.f:301
+      div.s64              %sd30, %sd28, %sd29;        // himenoBMTxpr.f:301
+      sub.s64              %sd31, 2, %sd18;            // himenoBMTxpr.f:301
+      mad.lo.s64           %sd32, %sd30, %sd31, %sd28; // himenoBMTxpr.f:301
+      mad.lo.s64           %sd33, 8777, %sd23, %sd32;  // himenoBMTxpr.f:302
+      mad.lo.s64           %sd34, 131, %sd30, %sd33;   // himenoBMTxpr.f:302
+      shl.b64              %bd3, %sd34, 2;             // himenoBMTxpr.f:302
+      ld.param.s64         %sd35, [$$arg_ptr_acc_wrk2_t87];// himenoBMTxpr.f:302 : $$arg_ptr_acc_wrk2_t87
+      add.s64              %sd36, %sd35, %bd3;         // himenoBMTxpr.f:302
+      ld.global.nc.f32     %f1, [%sd36 + 35636];       // himenoBMTxpr.f:302 : 8909[$$arg_ptr_acc_wrk2_t87,$$LCS_57,ex]
+      ld.param.s64         %sd37, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:302 : $$arg_ptr_acc_p_t56
+      add.s64              %sd38, %sd37, %bd3;         // himenoBMTxpr.f:302
+      st.global.f32        [%sd38 + 35636], %f1;       // himenoBMTxpr.f:302 : 8909[$$arg_ptr_acc_p_t56,$$LCS_57]
+$jacobi_$ck_L292_6__l71__:
+      exit;
+      } // jacobi_$ck_L292_6
+
+
+      .entry jacobi_$ck_L310_7(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_pack_p12_t80,
+               .param .s64 $$arg_ptr_acc_pack_p11_t82,
+               .param .s32 $$_arg_acc_imax_t147,
+               .param .s32 $$_arg_acc_jmax_t148,
+               .param .s32 $$_arg_acc_kmax_t149 )
+      .maxnreg 128
+      {
+      .reg .pred %p<5>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<18>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_kmax_t149];// himenoBMTxpr.f:317 : $$MR_kmax_241
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:317
+      @%p1 bra             $jacobi_$ck_L310_7__l85__;  // himenoBMTxpr.f:317
+      ld.param.s32         %s2, [$$_arg_acc_jmax_t148];// himenoBMTxpr.f:321 : $$MR_jmax_242
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:321
+      @%p2 bra             $jacobi_$ck_L310_7__l85__;  // himenoBMTxpr.f:321
+      cvt.s64.u32          %sd2, %ctaid.x;             // himenoBMTxpr.f:317 : $$id_T105
+      cvt.s64.s32          %sd3, %s1;                  // himenoBMTxpr.f:317
+      setp.ge.s64          %p3, %sd2, %sd3;            // himenoBMTxpr.f:317
+      @%p3 bra             $jacobi_$ck_L310_7__l85__;  // himenoBMTxpr.f:317
+      cvt.s64.u32          %sd1, %tid.x;               // himenoBMTxpr.f:321 : $$pvt2_id_T107
+      cvt.s64.s32          %sd4, %s2;                  // himenoBMTxpr.f:321
+      setp.ge.s64          %p4, %sd1, %sd4;            // himenoBMTxpr.f:321
+      @%p4 bra             $jacobi_$ck_L310_7__l84__;  // himenoBMTxpr.f:321
+      mul.lo.s64           %sd5, %sd2, 8777;           // himenoBMTxpr.f:323
+      cvt.s64.s32          %sd6, %s2;                  // himenoBMTxpr.f:323
+      mad.lo.s64           %sd7, %sd2, %sd6, %sd1;     // himenoBMTxpr.f:323
+      ld.param.s64         %sd8, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:323 : $$arg_ptr_acc_p_t56
+      mad.lo.s64           %sd9, %sd1, 131, %sd5;      // himenoBMTxpr.f:323
+      shl.b64              %bd1, %sd9, 2;              // himenoBMTxpr.f:323
+      add.s64              %sd10, %sd8, %bd1;          // himenoBMTxpr.f:323
+      ld.global.nc.f32     %f1, [%sd10 + 4];           // himenoBMTxpr.f:323 : 1[$$arg_ptr_acc_p_t56,$$LCS_pvt2id_58 + $$LCS_id_59,ex]
+      ld.param.s64         %sd11, [$$arg_ptr_acc_pack_p11_t82];// himenoBMTxpr.f:323 : $$arg_ptr_acc_pack_p11_t82
+      shl.b64              %bd2, %sd7, 2;              // himenoBMTxpr.f:323
+      add.s64              %sd12, %sd11, %bd2;         // himenoBMTxpr.f:323
+      st.global.f32        [%sd12], %f1;               // himenoBMTxpr.f:323 : 0[$$arg_ptr_acc_pack_p11_t82,$$LCS_pvt2_id_60]
+      ld.param.s32         %s3, [$$_arg_acc_imax_t147];// himenoBMTxpr.f:324 : $$_arg_acc_imax_t147
+      ld.param.s64         %sd13, [$$arg_ptr_acc_pack_p12_t80];// himenoBMTxpr.f:324 : $$arg_ptr_acc_pack_p12_t80
+      cvt.s64.s32          %sd14, %s3;                 // himenoBMTxpr.f:324
+      add.s64              %sd15, %sd14, %sd9;         // himenoBMTxpr.f:324
+      shl.b64              %bd3, %sd15, 2;             // himenoBMTxpr.f:324
+      add.s64              %sd16, %sd8, %bd3;          // himenoBMTxpr.f:324
+      ld.global.nc.f32     %f2, [%sd16 + -8];          // himenoBMTxpr.f:324 : -2[$$arg_ptr_acc_p_t56,.(integer (kind=8)) $$_arg_acc_imax_t147 + ($$LCS_pvt2id_58 + $$LCS_id_59),ex]
+      add.s64              %sd17, %sd13, %bd2;         // himenoBMTxpr.f:324
+      st.global.f32        [%sd17], %f2;               // himenoBMTxpr.f:324 : 0[$$arg_ptr_acc_pack_p12_t80,$$LCS_pvt2_id_60]
+$jacobi_$ck_L310_7__l84__:
+      bar.sync             0;                          // himenoBMTxpr.f:325
+$jacobi_$ck_L310_7__l85__:
+      exit;
+      } // jacobi_$ck_L310_7
+
+
+      .entry jacobi_$ck_L331_8(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_pack_p32_t72,
+               .param .s64 $$arg_ptr_acc_pack_p21_t78,
+               .param .s32 $$_arg_acc_imax_t150,
+               .param .s32 $$_arg_acc_jmax_t151,
+               .param .s32 $$_arg_acc_kmax_t152 )
+      .maxnreg 128
+      {
+      .reg .pred %p<6>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<23>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_kmax_t152];// himenoBMTxpr.f:337 : $$MR_kmax_248
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:337
+      @%p1 bra             $jacobi_$ck_L331_8__l105__; // himenoBMTxpr.f:337
+      ld.param.s32         %s2, [$$_arg_acc_imax_t150];// himenoBMTxpr.f:341 : $$MR_imax_249
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:341
+      @%p2 bra             $jacobi_$ck_L331_8__l105__; // himenoBMTxpr.f:341
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:337 : $$id_T111
+      cvt.s64.s32          %sd8, %s1;                  // himenoBMTxpr.f:337
+      setp.ge.s64          %p3, %sd1, %sd8;            // himenoBMTxpr.f:337
+      @%p3 bra             $jacobi_$ck_L331_8__l105__; // himenoBMTxpr.f:337
+      cvt.s64.u32          %sd6, %ntid.x;              // himenoBMTxpr.f:341 : $$pvt2_numthrds_T112
+      cvt.s64.u32          %sd9, %tid.x;               // himenoBMTxpr.f:341
+      mov.s64              %sd3, %sd9;                 // himenoBMTxpr.f:341 : $$I_L341_440
+      cvt.s64.s32          %sd10, %s2;                 // himenoBMTxpr.f:341
+      setp.ge.s64          %p4, %sd9, %sd10;           // himenoBMTxpr.f:341
+      @%p4 bra             $jacobi_$ck_L331_8__l104__; // himenoBMTxpr.f:341
+      cvt.s64.s32          %sd7, %s2;                  // himenoBMTxpr.f:345 : $$LIS_E12
+      mul.lo.s64           %sd11, %sd1, 8777;          // himenoBMTxpr.f:344
+      ld.param.s32         %s3, [$$_arg_acc_jmax_t151];// himenoBMTxpr.f:344 : $$_arg_acc_jmax_t151
+      cvt.s64.s32          %sd12, %s3;                 // himenoBMTxpr.f:344
+      mad.lo.s64           %sd5, 131, %sd12, %sd11;    // himenoBMTxpr.f:344 : $$LIS_E11
+      mov.s64              %sd4, %sd11;                // himenoBMTxpr.f:343 : $$LIS_E10
+      mul.lo.s64           %sd2, %sd1, %sd7;           // himenoBMTxpr.f:343 : $$LIS_E9
+$jacobi_$ck_L331_8__l100__:
+      add.s64              %sd13, %sd3, %sd2;          // himenoBMTxpr.f:343
+      ld.param.s64         %sd14, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:343 : $$arg_ptr_acc_p_t56
+      add.s64              %sd15, %sd3, %sd4;          // himenoBMTxpr.f:343
+      shl.b64              %bd1, %sd15, 2;             // himenoBMTxpr.f:343
+      add.s64              %sd16, %sd14, %bd1;         // himenoBMTxpr.f:343
+      ld.global.nc.f32     %f1, [%sd16 + 524];         // himenoBMTxpr.f:343 : 131[$$arg_ptr_acc_p_t56,$$I_L341_440 + $$LIS_E10,ex]
+      ld.param.s64         %sd17, [$$arg_ptr_acc_pack_p21_t78];// himenoBMTxpr.f:343 : $$arg_ptr_acc_pack_p21_t78
+      shl.b64              %bd2, %sd13, 2;             // himenoBMTxpr.f:343
+      add.s64              %sd18, %sd17, %bd2;         // himenoBMTxpr.f:343
+      add.s64              %sd19, %sd3, %sd5;          // himenoBMTxpr.f:344
+      shl.b64              %bd3, %sd19, 2;             // himenoBMTxpr.f:344
+      add.s64              %sd20, %sd14, %bd3;         // himenoBMTxpr.f:344
+      ld.global.nc.f32     %f2, [%sd20 + -1048];       // himenoBMTxpr.f:344 : -262[$$arg_ptr_acc_p_t56,$$I_L341_440 + $$LIS_E11,ex]
+      add.s64              %sd3, %sd3, %sd6;           // himenoBMTxpr.f:345 : $$I_L341_440
+      setp.lt.s64          %p5, %sd3, %sd7;            // himenoBMTxpr.f:345
+      st.global.f32        [%sd18], %f1;               // himenoBMTxpr.f:343 : 0[$$arg_ptr_acc_pack_p21_t78,$$LCS_62]
+      ld.param.s64         %sd21, [$$arg_ptr_acc_pack_p32_t72];// himenoBMTxpr.f:344 : $$arg_ptr_acc_pack_p32_t72
+      add.s64              %sd22, %sd21, %bd2;         // himenoBMTxpr.f:344
+      st.global.f32        [%sd22], %f2;               // himenoBMTxpr.f:344 : 0[$$arg_ptr_acc_pack_p32_t72,$$LCS_62]
+      @%p5 bra             $jacobi_$ck_L331_8__l100__; // himenoBMTxpr.f:345
+$jacobi_$ck_L331_8__l104__:
+      bar.sync             0;                          // himenoBMTxpr.f:345
+$jacobi_$ck_L331_8__l105__:
+      exit;
+      } // jacobi_$ck_L331_8
+
+
+      .entry jacobi_$ck_L351_9(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_pack_p32_t72,
+               .param .s64 $$arg_ptr_acc_pack_p31_t74,
+               .param .s32 $$_arg_acc_imax_t153,
+               .param .s32 $$_arg_acc_jmax_t154,
+               .param .s32 $$_arg_acc_kmax_t155 )
+      .maxnreg 128
+      {
+      .reg .pred %p<6>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<23>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_jmax_t154];// himenoBMTxpr.f:357 : $$MR_jmax_255
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:357
+      @%p1 bra             $jacobi_$ck_L351_9__l125__; // himenoBMTxpr.f:357
+      ld.param.s32         %s2, [$$_arg_acc_imax_t153];// himenoBMTxpr.f:361 : $$MR_imax_256
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:361
+      @%p2 bra             $jacobi_$ck_L351_9__l125__; // himenoBMTxpr.f:361
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:357 : $$id_T117
+      cvt.s64.s32          %sd8, %s1;                  // himenoBMTxpr.f:357
+      setp.ge.s64          %p3, %sd1, %sd8;            // himenoBMTxpr.f:357
+      @%p3 bra             $jacobi_$ck_L351_9__l125__; // himenoBMTxpr.f:357
+      cvt.s64.u32          %sd6, %ntid.x;              // himenoBMTxpr.f:361 : $$pvt2_numthrds_T118
+      cvt.s64.u32          %sd9, %tid.x;               // himenoBMTxpr.f:361
+      mov.s64              %sd3, %sd9;                 // himenoBMTxpr.f:361 : $$I_L361_442
+      cvt.s64.s32          %sd10, %s2;                 // himenoBMTxpr.f:361
+      setp.ge.s64          %p4, %sd9, %sd10;           // himenoBMTxpr.f:361
+      @%p4 bra             $jacobi_$ck_L351_9__l124__; // himenoBMTxpr.f:361
+      cvt.s64.s32          %sd7, %s2;                  // himenoBMTxpr.f:365 : $$LIS_E16
+      mul.lo.s64           %sd11, %sd1, 131;           // himenoBMTxpr.f:364
+      ld.param.s32         %s3, [$$_arg_acc_kmax_t155];// himenoBMTxpr.f:364 : $$_arg_acc_kmax_t155
+      cvt.s64.s32          %sd12, %s3;                 // himenoBMTxpr.f:364
+      mad.lo.s64           %sd5, 8777, %sd12, %sd11;   // himenoBMTxpr.f:364 : $$LIS_E15
+      mov.s64              %sd4, %sd11;                // himenoBMTxpr.f:363 : $$LIS_E14
+      mul.lo.s64           %sd2, %sd1, %sd7;           // himenoBMTxpr.f:363 : $$LIS_E13
+$jacobi_$ck_L351_9__l120__:
+      add.s64              %sd13, %sd3, %sd2;          // himenoBMTxpr.f:363
+      ld.param.s64         %sd14, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:363 : $$arg_ptr_acc_p_t56
+      add.s64              %sd15, %sd3, %sd4;          // himenoBMTxpr.f:363
+      shl.b64              %bd1, %sd15, 2;             // himenoBMTxpr.f:363
+      add.s64              %sd16, %sd14, %bd1;         // himenoBMTxpr.f:363
+      ld.global.nc.f32     %f1, [%sd16 + 35108];       // himenoBMTxpr.f:363 : 8777[$$arg_ptr_acc_p_t56,$$I_L361_442 + $$LIS_E14,ex]
+      ld.param.s64         %sd17, [$$arg_ptr_acc_pack_p31_t74];// himenoBMTxpr.f:363 : $$arg_ptr_acc_pack_p31_t74
+      shl.b64              %bd2, %sd13, 2;             // himenoBMTxpr.f:363
+      add.s64              %sd18, %sd17, %bd2;         // himenoBMTxpr.f:363
+      add.s64              %sd19, %sd3, %sd5;          // himenoBMTxpr.f:364
+      shl.b64              %bd3, %sd19, 2;             // himenoBMTxpr.f:364
+      add.s64              %sd20, %sd14, %bd3;         // himenoBMTxpr.f:364
+      ld.global.nc.f32     %f2, [%sd20 + -70216];      // himenoBMTxpr.f:364 : -17554[$$arg_ptr_acc_p_t56,$$I_L361_442 + $$LIS_E15,ex]
+      add.s64              %sd3, %sd3, %sd6;           // himenoBMTxpr.f:365 : $$I_L361_442
+      setp.lt.s64          %p5, %sd3, %sd7;            // himenoBMTxpr.f:365
+      st.global.f32        [%sd18], %f1;               // himenoBMTxpr.f:363 : 0[$$arg_ptr_acc_pack_p31_t74,$$LCS_64]
+      ld.param.s64         %sd21, [$$arg_ptr_acc_pack_p32_t72];// himenoBMTxpr.f:364 : $$arg_ptr_acc_pack_p32_t72
+      add.s64              %sd22, %sd21, %bd2;         // himenoBMTxpr.f:364
+      st.global.f32        [%sd22], %f2;               // himenoBMTxpr.f:364 : 0[$$arg_ptr_acc_pack_p32_t72,$$LCS_64]
+      @%p5 bra             $jacobi_$ck_L351_9__l120__; // himenoBMTxpr.f:365
+$jacobi_$ck_L351_9__l124__:
+      bar.sync             0;                          // himenoBMTxpr.f:365
+$jacobi_$ck_L351_9__l125__:
+      exit;
+      } // jacobi_$ck_L351_9
+
+
+      .entry jacobi_$ck_L386_10(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_unpack_p12_t68,
+               .param .s64 $$arg_ptr_acc_unpack_p11_t70,
+               .param .s32 $$_arg_acc_imax_t156,
+               .param .s32 $$_arg_acc_jmax_t157,
+               .param .s32 $$_arg_acc_kmax_t158 )
+      .maxnreg 128
+      {
+      .reg .pred %p<5>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<18>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_kmax_t158];// himenoBMTxpr.f:393 : $$MR_kmax_262
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:393
+      @%p1 bra             $jacobi_$ck_L386_10__l139__;// himenoBMTxpr.f:393
+      ld.param.s32         %s2, [$$_arg_acc_jmax_t157];// himenoBMTxpr.f:397 : $$MR_jmax_263
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:397
+      @%p2 bra             $jacobi_$ck_L386_10__l139__;// himenoBMTxpr.f:397
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:393 : $$id_T123
+      cvt.s64.s32          %sd3, %s1;                  // himenoBMTxpr.f:393
+      setp.ge.s64          %p3, %sd1, %sd3;            // himenoBMTxpr.f:393
+      @%p3 bra             $jacobi_$ck_L386_10__l139__;// himenoBMTxpr.f:393
+      cvt.s64.u32          %sd2, %tid.x;               // himenoBMTxpr.f:397 : $$pvt2_id_T125
+      cvt.s64.s32          %sd4, %s2;                  // himenoBMTxpr.f:397
+      setp.ge.s64          %p4, %sd2, %sd4;            // himenoBMTxpr.f:397
+      @%p4 bra             $jacobi_$ck_L386_10__l138__;// himenoBMTxpr.f:397
+      cvt.s64.s32          %sd5, %s2;                  // himenoBMTxpr.f:399
+      mad.lo.s64           %sd6, %sd1, %sd5, %sd2;     // himenoBMTxpr.f:399
+      mul.lo.s64           %sd7, %sd1, 8777;           // himenoBMTxpr.f:399
+      ld.param.s64         %sd8, [$$arg_ptr_acc_unpack_p11_t70];// himenoBMTxpr.f:399 : $$arg_ptr_acc_unpack_p11_t70
+      shl.b64              %bd1, %sd6, 2;              // himenoBMTxpr.f:399
+      add.s64              %sd9, %sd8, %bd1;           // himenoBMTxpr.f:399
+      ld.global.nc.f32     %f1, [%sd9];                // himenoBMTxpr.f:399 : 0[$$arg_ptr_acc_unpack_p11_t70,$$LCS_pvt2_id_65,ex]
+      ld.param.s64         %sd10, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:399 : $$arg_ptr_acc_p_t56
+      mad.lo.s64           %sd11, %sd2, 131, %sd7;     // himenoBMTxpr.f:399
+      shl.b64              %bd2, %sd11, 2;             // himenoBMTxpr.f:399
+      add.s64              %sd12, %sd10, %bd2;         // himenoBMTxpr.f:399
+      st.global.f32        [%sd12 + 4], %f1;           // himenoBMTxpr.f:399 : 1[$$arg_ptr_acc_p_t56,$$LCS_pvt2id_66 + $$LCS_id_67]
+      ld.param.s64         %sd13, [$$arg_ptr_acc_unpack_p12_t68];// himenoBMTxpr.f:400 : $$arg_ptr_acc_unpack_p12_t68
+      ld.param.s32         %s3, [$$_arg_acc_imax_t156];// himenoBMTxpr.f:400 : $$_arg_acc_imax_t156
+      add.s64              %sd14, %sd13, %bd1;         // himenoBMTxpr.f:400
+      ld.global.nc.f32     %f2, [%sd14];               // himenoBMTxpr.f:400 : 0[$$arg_ptr_acc_unpack_p12_t68,$$LCS_pvt2_id_65,ex]
+      cvt.s64.s32          %sd15, %s3;                 // himenoBMTxpr.f:400
+      add.s64              %sd16, %sd15, %sd11;        // himenoBMTxpr.f:400
+      shl.b64              %bd3, %sd16, 2;             // himenoBMTxpr.f:400
+      add.s64              %sd17, %sd10, %bd3;         // himenoBMTxpr.f:400
+      st.global.f32        [%sd17 + -8], %f2;          // himenoBMTxpr.f:400 : -2[$$arg_ptr_acc_p_t56,.(integer (kind=8)) $$_arg_acc_imax_t156 + ($$LCS_pvt2id_66 + $$LCS_id_67)]
+$jacobi_$ck_L386_10__l138__:
+      bar.sync             0;                          // himenoBMTxpr.f:401
+$jacobi_$ck_L386_10__l139__:
+      exit;
+      } // jacobi_$ck_L386_10
+
+
+      .entry jacobi_$ck_L407_11(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_unpack_p32_t60,
+               .param .s64 $$arg_ptr_acc_unpack_p21_t66,
+               .param .s32 $$_arg_acc_imax_t159,
+               .param .s32 $$_arg_acc_jmax_t160,
+               .param .s32 $$_arg_acc_kmax_t161 )
+      .maxnreg 128
+      {
+      .reg .pred %p<6>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<23>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_kmax_t161];// himenoBMTxpr.f:413 : $$MR_kmax_269
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:413
+      @%p1 bra             $jacobi_$ck_L407_11__l159__;// himenoBMTxpr.f:413
+      ld.param.s32         %s2, [$$_arg_acc_imax_t159];// himenoBMTxpr.f:417 : $$MR_imax_270
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:417
+      @%p2 bra             $jacobi_$ck_L407_11__l159__;// himenoBMTxpr.f:417
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:413 : $$id_T129
+      cvt.s64.s32          %sd8, %s1;                  // himenoBMTxpr.f:413
+      setp.ge.s64          %p3, %sd1, %sd8;            // himenoBMTxpr.f:413
+      @%p3 bra             $jacobi_$ck_L407_11__l159__;// himenoBMTxpr.f:413
+      cvt.s64.u32          %sd6, %ntid.x;              // himenoBMTxpr.f:417 : $$pvt2_numthrds_T130
+      cvt.s64.u32          %sd9, %tid.x;               // himenoBMTxpr.f:417
+      mov.s64              %sd3, %sd9;                 // himenoBMTxpr.f:417 : $$I_L417_446
+      cvt.s64.s32          %sd10, %s2;                 // himenoBMTxpr.f:417
+      setp.ge.s64          %p4, %sd9, %sd10;           // himenoBMTxpr.f:417
+      @%p4 bra             $jacobi_$ck_L407_11__l158__;// himenoBMTxpr.f:417
+      cvt.s64.s32          %sd7, %s2;                  // himenoBMTxpr.f:421 : $$LIS_E20
+      mul.lo.s64           %sd11, %sd1, 8777;          // himenoBMTxpr.f:420
+      ld.param.s32         %s3, [$$_arg_acc_jmax_t160];// himenoBMTxpr.f:420 : $$_arg_acc_jmax_t160
+      cvt.s64.s32          %sd12, %s3;                 // himenoBMTxpr.f:420
+      mad.lo.s64           %sd5, 131, %sd12, %sd11;    // himenoBMTxpr.f:420 : $$LIS_E19
+      mul.lo.s64           %sd2, %sd1, %sd7;           // himenoBMTxpr.f:419 : $$LIS_E18
+      mov.s64              %sd4, %sd11;                // himenoBMTxpr.f:419 : $$LIS_E17
+$jacobi_$ck_L407_11__l154__:
+      add.s64              %sd13, %sd3, %sd2;          // himenoBMTxpr.f:419
+      ld.param.s64         %sd14, [$$arg_ptr_acc_unpack_p21_t66];// himenoBMTxpr.f:419 : $$arg_ptr_acc_unpack_p21_t66
+      shl.b64              %bd1, %sd13, 2;             // himenoBMTxpr.f:419
+      add.s64              %sd15, %sd14, %bd1;         // himenoBMTxpr.f:419
+      ld.global.nc.f32     %f1, [%sd15];               // himenoBMTxpr.f:419 : 0[$$arg_ptr_acc_unpack_p21_t66,$$LCS_69,ex]
+      ld.param.s64         %sd16, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:419 : $$arg_ptr_acc_p_t56
+      add.s64              %sd17, %sd3, %sd4;          // himenoBMTxpr.f:419
+      shl.b64              %bd2, %sd17, 2;             // himenoBMTxpr.f:419
+      add.s64              %sd18, %sd16, %bd2;         // himenoBMTxpr.f:419
+      add.s64              %sd19, %sd3, %sd5;          // himenoBMTxpr.f:420
+      shl.b64              %bd3, %sd19, 2;             // himenoBMTxpr.f:420
+      add.s64              %sd20, %sd16, %bd3;         // himenoBMTxpr.f:420
+      add.s64              %sd3, %sd3, %sd6;           // himenoBMTxpr.f:421 : $$I_L417_446
+      setp.lt.s64          %p5, %sd3, %sd7;            // himenoBMTxpr.f:421
+      st.global.f32        [%sd18 + 524], %f1;         // himenoBMTxpr.f:419 : 131[$$arg_ptr_acc_p_t56,$$I_L417_446 + $$LIS_E17]
+      ld.param.s64         %sd21, [$$arg_ptr_acc_unpack_p32_t60];// himenoBMTxpr.f:420 : $$arg_ptr_acc_unpack_p32_t60
+      add.s64              %sd22, %sd21, %bd1;         // himenoBMTxpr.f:420
+      ld.global.nc.f32     %f2, [%sd22];               // himenoBMTxpr.f:420 : 0[$$arg_ptr_acc_unpack_p32_t60,$$LCS_69,ex]
+      st.global.f32        [%sd20 + -1048], %f2;       // himenoBMTxpr.f:420 : -262[$$arg_ptr_acc_p_t56,$$I_L417_446 + $$LIS_E19]
+      @%p5 bra             $jacobi_$ck_L407_11__l154__;// himenoBMTxpr.f:421
+$jacobi_$ck_L407_11__l158__:
+      bar.sync             0;                          // himenoBMTxpr.f:421
+$jacobi_$ck_L407_11__l159__:
+      exit;
+      } // jacobi_$ck_L407_11
+
+
+      .entry jacobi_$ck_L427_12(
+               .param .s64 $$arg_ptr_acc_p_t56,
+               .param .s64 $$arg_ptr_acc_unpack_p32_t60,
+               .param .s64 $$arg_ptr_acc_unpack_p31_t62,
+               .param .s32 $$_arg_acc_imax_t162,
+               .param .s32 $$_arg_acc_jmax_t163,
+               .param .s32 $$_arg_acc_kmax_t164 )
+      .maxnreg 128
+      {
+      .reg .pred %p<6>;
+      .reg .b64  %bd<4>;
+      .reg .s32  %s<4>;
+      .reg .s64  %sd<23>;
+      .reg .f32  %f<3>;
+      //
+      ld.param.s32         %s1, [$$_arg_acc_jmax_t163];// himenoBMTxpr.f:433 : $$MR_jmax_276
+      setp.le.s32          %p1, %s1, 0;                // himenoBMTxpr.f:433
+      @%p1 bra             $jacobi_$ck_L427_12__l179__;// himenoBMTxpr.f:433
+      ld.param.s32         %s2, [$$_arg_acc_imax_t162];// himenoBMTxpr.f:437 : $$MR_imax_277
+      setp.le.s32          %p2, %s2, 0;                // himenoBMTxpr.f:437
+      @%p2 bra             $jacobi_$ck_L427_12__l179__;// himenoBMTxpr.f:437
+      cvt.s64.u32          %sd1, %ctaid.x;             // himenoBMTxpr.f:433 : $$id_T135
+      cvt.s64.s32          %sd8, %s1;                  // himenoBMTxpr.f:433
+      setp.ge.s64          %p3, %sd1, %sd8;            // himenoBMTxpr.f:433
+      @%p3 bra             $jacobi_$ck_L427_12__l179__;// himenoBMTxpr.f:433
+      cvt.s64.u32          %sd6, %ntid.x;              // himenoBMTxpr.f:437 : $$pvt2_numthrds_T136
+      cvt.s64.u32          %sd9, %tid.x;               // himenoBMTxpr.f:437
+      mov.s64              %sd3, %sd9;                 // himenoBMTxpr.f:437 : $$I_L437_448
+      cvt.s64.s32          %sd10, %s2;                 // himenoBMTxpr.f:437
+      setp.ge.s64          %p4, %sd9, %sd10;           // himenoBMTxpr.f:437
+      @%p4 bra             $jacobi_$ck_L427_12__l178__;// himenoBMTxpr.f:437
+      cvt.s64.s32          %sd7, %s2;                  // himenoBMTxpr.f:441 : $$LIS_E24
+      mul.lo.s64           %sd11, %sd1, 131;           // himenoBMTxpr.f:440
+      ld.param.s32         %s3, [$$_arg_acc_kmax_t164];// himenoBMTxpr.f:440 : $$_arg_acc_kmax_t164
+      cvt.s64.s32          %sd12, %s3;                 // himenoBMTxpr.f:440
+      mad.lo.s64           %sd5, 8777, %sd12, %sd11;   // himenoBMTxpr.f:440 : $$LIS_E23
+      mul.lo.s64           %sd2, %sd1, %sd7;           // himenoBMTxpr.f:439 : $$LIS_E22
+      mov.s64              %sd4, %sd11;                // himenoBMTxpr.f:439 : $$LIS_E21
+$jacobi_$ck_L427_12__l174__:
+      add.s64              %sd13, %sd3, %sd2;          // himenoBMTxpr.f:439
+      ld.param.s64         %sd14, [$$arg_ptr_acc_unpack_p31_t62];// himenoBMTxpr.f:439 : $$arg_ptr_acc_unpack_p31_t62
+      shl.b64              %bd1, %sd13, 2;             // himenoBMTxpr.f:439
+      add.s64              %sd15, %sd14, %bd1;         // himenoBMTxpr.f:439
+      ld.global.nc.f32     %f1, [%sd15];               // himenoBMTxpr.f:439 : 0[$$arg_ptr_acc_unpack_p31_t62,$$LCS_71,ex]
+      ld.param.s64         %sd16, [$$arg_ptr_acc_p_t56];// himenoBMTxpr.f:439 : $$arg_ptr_acc_p_t56
+      add.s64              %sd17, %sd3, %sd4;          // himenoBMTxpr.f:439
+      shl.b64              %bd2, %sd17, 2;             // himenoBMTxpr.f:439
+      add.s64              %sd18, %sd16, %bd2;         // himenoBMTxpr.f:439
+      add.s64              %sd19, %sd3, %sd5;          // himenoBMTxpr.f:440
+      shl.b64              %bd3, %sd19, 2;             // himenoBMTxpr.f:440
+      add.s64              %sd20, %sd16, %bd3;         // himenoBMTxpr.f:440
+      add.s64              %sd3, %sd3, %sd6;           // himenoBMTxpr.f:441 : $$I_L437_448
+      setp.lt.s64          %p5, %sd3, %sd7;            // himenoBMTxpr.f:441
+      st.global.f32        [%sd18 + 35108], %f1;       // himenoBMTxpr.f:439 : 8777[$$arg_ptr_acc_p_t56,$$I_L437_448 + $$LIS_E21]
+      ld.param.s64         %sd21, [$$arg_ptr_acc_unpack_p32_t60];// himenoBMTxpr.f:440 : $$arg_ptr_acc_unpack_p32_t60
+      add.s64              %sd22, %sd21, %bd1;         // himenoBMTxpr.f:440
+      ld.global.nc.f32     %f2, [%sd22];               // himenoBMTxpr.f:440 : 0[$$arg_ptr_acc_unpack_p32_t60,$$LCS_71,ex]
+      st.global.f32        [%sd20 + -70216], %f2;      // himenoBMTxpr.f:440 : -17554[$$arg_ptr_acc_p_t56,$$I_L437_448 + $$LIS_E23]
+      @%p5 bra             $jacobi_$ck_L427_12__l174__;// himenoBMTxpr.f:441
+$jacobi_$ck_L427_12__l178__:
+      bar.sync             0;                          // himenoBMTxpr.f:441
+$jacobi_$ck_L427_12__l179__:
+      exit;
+      } // jacobi_$ck_L427_12
+

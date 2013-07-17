@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N himeno 
+#PBS -l mppwidth=64
+#PBS -l mppnppn=4
+#PBS -l mppdepth=4
+#PBS -l walltime=1:00:00
+#PBS -j oe
+#PBS -A VEN008
+cd $PBS_O_WORKDIR
+date
+export PAT_RT_HWPC=1
+export OMP_NUM_THREADS=4
+aprun -n 64  -N 4 -d 4 ./himeno_omp
+

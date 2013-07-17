@@ -1,0 +1,812 @@
+CrayPat/X:  Version 5.3.1 Revision 8907 (xf 8679)  03/08/12 12:37:40
+
+Number of PEs (MPI ranks):   4096
+                           
+Numbers of PEs per Node:       16  PEs on each of  256  Nodes
+                           
+Numbers of Threads per PE:      1
+                           
+Number of Cores per Socket:    16
+
+Execution start time:  Thu Apr  5 05:17:55 2012
+
+System type and speed:  x86_64 2200 MHz
+
+Current path to data file:
+  /ccs/home/levesque/lustre/VH1_version1/vhone+pat+24412-10752t.ap2  (RTS)
+
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 1:  Profile by Function Group and Function
+
+ Time%  |     Time  |    Imb.  |  Imb.  |    Calls  |Group 
+        |           |    Time  | Time%  |           | Function 
+        |           |          |        |           |  PE=HIDE 
+       
+ 100.0% | 76.107012 |       -- |     -- | 6922023.0 |Total
+|------------------------------------------------------------------------
+|  64.7% | 49.271887 |       -- |     -- | 6915004.0 |USER
+||-----------------------------------------------------------------------
+||  14.2% | 10.813488 | 0.648878 |   5.7% |  288000.0 |remap_
+||  14.0% | 10.657945 | 0.877981 |   7.6% |  288000.0 |ppmlr_
+||  12.4% |  9.438486 | 0.851876 |   8.3% | 2592000.0 |parabola_
+||   6.7% |  5.122633 | 0.388793 |   7.1% |  288000.0 |evolve_
+||   4.7% |  3.545617 | 1.097333 |  23.6% |  288000.0 |riemann_
+||   2.4% |  1.839255 | 0.155322 |   7.8% |  288000.0 |states_
+||   2.0% |  1.503443 | 0.167785 |  10.0% |  576000.0 |paraset_
+||   1.7% |  1.274338 | 0.186777 |  12.8% |  864000.0 |volume_
+||   1.3% |  0.956787 | 0.227695 |  19.2% |  864000.0 |forces_
+||   1.1% |  0.839106 | 0.075930 |   8.3% |  288000.0 |flatten_
+||   1.0% |  0.735346 | 0.068741 |   8.6% |     500.0 |sweepx1_
+||=======================================================================
+|  24.7% | 18.770139 |       -- |     -- |    3512.0 |MPI
+||-----------------------------------------------------------------------
+||  18.5% | 14.045113 | 0.697216 |   4.7% |    3000.0 |mpi_alltoall
+||   5.7% |  4.313980 | 2.940140 |  40.5% |       2.0 |mpi_comm_split
+||=======================================================================
+|  10.6% |  8.064973 |       -- |     -- |    3502.0 |MPI_SYNC
+||-----------------------------------------------------------------------
+||   6.9% |  5.248727 | 2.796189 |  53.3% |    3000.0 |mpi_alltoall_(sync)
+||   3.7% |  2.815949 | 1.561301 |  55.4% |     501.0 |mpi_allreduce_(sync)
+||=======================================================================
+|   0.0% |  0.000013 | 0.000034 |  72.6% |       5.0 |SYSCALL
+|========================================================================
+
+
+================  Observations and suggestions  ========================
+
+Metric-Based Rank Order:  
+
+    No rank order was suggested based on the following metric because
+    the resource was already well balanced across the nodes.
+      USER Time
+
+
+D1 cache utilization:
+
+    15.9% of total execution time was spent in 2 functions with D1 cache
+    hit ratios below the desirable minimum of 90.0%. Cache utilization
+    might be improved by modifying the alignment or stride of references
+    to data arrays in these functions.
+
+        D1    Time%   Function 
+     cache            
+       hit            
+     ratio            
+ 
+       89.1%    12.0%  ppmlr_
+       89.6%     3.8%  volume_
+                               
+
+TLB utilization:
+
+    All instrumented functions with significant execution time had more
+    than the desirable minimum of 512 data references per TLB miss.
+
+================  End Observations  ====================================
+
+
+
+Notes for table 2:
+
+  Table option:
+    -O profile+hwpc
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr,P -b gr,fu,pe=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the sum for the Function values.
+  The Function value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 2:  Profile by Function Group and Function
+
+Group / Function / PE=HIDE
+
+  
+=============================================================================
+  Total
+-----------------------------------------------------------------------------
+  Time%                                            100.0% 
+  Time                                          76.107012 secs
+  Imb. Time                                            -- secs
+  Imb. Time%                                           -- 
+  Calls                          0.091M/sec     6922023.0 calls
+  PAPI_L1_DCM                   23.222M/sec    1764821062 misses
+  PAPI_TLB_DM                    0.071M/sec       5424995 misses
+  PAPI_L1_DCA                  768.344M/sec   58391465321 refs
+  PAPI_FP_OPS                  455.756M/sec   34635889227 ops
+  Average Time per Call                          0.000011 secs
+  CrayPat Overhead : Time        25.0%                    
+  User time (approx)            75.997 secs  167192976785 cycles  100.0% Time
+  HW FP Ops / User time        455.756M/sec   34635889227 ops    2.6%peak(DP)
+  HW FP Ops / WCT              455.756M/sec               
+  Computational intensity         0.21 ops/cycle     0.59 ops/ref
+  MFLOPS (aggregate)        1866777.34M/sec               
+  TLB utilization             10763.41 refs/miss   21.022 avg uses
+  D1 cache hit,miss ratios       97.0% hits          3.0% misses
+  D1 cache utilization (misses)  33.09 refs/miss    4.136 avg hits
+=============================================================================
+  USER
+-----------------------------------------------------------------------------
+  Time%                                             64.7% 
+  Time                                          49.271887 secs
+  Imb. Time                                            -- secs
+  Imb. Time%                                           -- 
+  Calls                          0.141M/sec     6915004.0 calls
+  PAPI_L1_DCM                   32.417M/sec    1593484284 misses
+  PAPI_TLB_DM                    0.086M/sec       4237344 misses
+  PAPI_L1_DCA                  517.257M/sec   25425888687 refs
+  PAPI_FP_OPS                  704.620M/sec   34635759597 ops
+  Average Time per Call                          0.000007 secs
+  CrayPat Overhead : Time        38.5%                    
+  User time (approx)            49.155 secs  108141828805 cycles  100.0% Time
+  HW FP Ops / User time        704.620M/sec   34635759597 ops    4.0%peak(DP)
+  HW FP Ops / WCT              704.620M/sec               
+  Computational intensity         0.32 ops/cycle     1.36 ops/ref
+  MFLOPS (aggregate)        2886125.52M/sec               
+  TLB utilization              6000.43 refs/miss   11.720 avg uses
+  D1 cache hit,miss ratios       93.7% hits          6.3% misses
+  D1 cache utilization (misses)  15.96 refs/miss    1.995 avg hits
+=============================================================================
+  USER / remap_
+-----------------------------------------------------------------------------
+  Time%                                             14.2% 
+  Time                                          10.813488 secs
+  Imb. Time                                      0.648878 secs
+  Imb. Time%                                         5.7% 
+  Calls                          0.027M/sec      288000.0 calls
+  PAPI_L1_DCM                   27.072M/sec     285674849 misses
+  PAPI_TLB_DM                    0.040M/sec        426377 misses
+  PAPI_L1_DCA                  401.932M/sec    4241280292 refs
+  PAPI_FP_OPS                  528.971M/sec    5581824000 ops
+  Average Time per Call                          0.000038 secs
+  CrayPat Overhead : Time         7.3%                    
+  User time (approx)            10.552 secs   23214975511 cycles  100.0% Time
+  HW FP Ops / User time        528.971M/sec    5581824000 ops    3.0%peak(DP)
+  HW FP Ops / WCT              528.971M/sec               
+  Computational intensity         0.24 ops/cycle     1.32 ops/ref
+  MFLOPS (aggregate)        2166666.74M/sec               
+  TLB utilization              9947.25 refs/miss   19.428 avg uses
+  D1 cache hit,miss ratios       93.3% hits          6.7% misses
+  D1 cache utilization (misses)  14.85 refs/miss    1.856 avg hits
+=============================================================================
+  USER / ppmlr_
+-----------------------------------------------------------------------------
+  Time%                                             14.0% 
+  Time                                          10.657945 secs
+  Imb. Time                                      0.877981 secs
+  Imb. Time%                                         7.6% 
+  Calls                          0.028M/sec      288000.0 calls
+  PAPI_L1_DCM                   15.863M/sec     161690080 misses
+  PAPI_TLB_DM                    0.080M/sec        816699 misses
+  PAPI_L1_DCA                  136.031M/sec    1386554809 refs
+  PAPI_FP_OPS                                           0 ops
+  Average Time per Call                          0.000037 secs
+  CrayPat Overhead : Time         7.4%                    
+  User time (approx)            10.193 secs   22424486998 cycles  100.0% Time
+  HW FP Ops / User time                                 0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                         
+  Computational intensity         0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)              0.00M/sec               
+  TLB utilization              1697.75 refs/miss    3.316 avg uses
+  D1 cache hit,miss ratios       88.3% hits         11.7% misses
+  D1 cache utilization (misses)   8.58 refs/miss    1.072 avg hits
+=============================================================================
+  USER / parabola_
+-----------------------------------------------------------------------------
+  Time%                                             12.4% 
+  Time                                           9.438486 secs
+  Imb. Time                                      0.851876 secs
+  Imb. Time%                                         8.3% 
+  Calls                          0.265M/sec     2592000.0 calls
+  PAPI_L1_DCM                   42.908M/sec     419719824 misses
+  PAPI_TLB_DM                    0.048M/sec        474094 misses
+  PAPI_L1_DCA                 1067.727M/sec   10444336795 refs
+  PAPI_FP_OPS                 1808.848M/sec   17693862446 ops
+  Average Time per Call                          0.000004 secs
+  CrayPat Overhead : Time        75.3%                    
+  User time (approx)             9.782 secs   21520125183 cycles  100.0% Time
+  HW FP Ops / User time       1808.848M/sec   17693862446 ops   10.3%peak(DP)
+  HW FP Ops / WCT             1808.848M/sec               
+  Computational intensity         0.82 ops/cycle     1.69 ops/ref
+  MFLOPS (aggregate)        7409042.08M/sec               
+  TLB utilization             22030.09 refs/miss   43.028 avg uses
+  D1 cache hit,miss ratios       96.0% hits          4.0% misses
+  D1 cache utilization (misses)  24.88 refs/miss    3.111 avg hits
+=============================================================================
+  USER / evolve_
+-----------------------------------------------------------------------------
+  Time%                                              6.7% 
+  Time                                           5.122633 secs
+  Imb. Time                                      0.388793 secs
+  Imb. Time%                                         7.1% 
+  Calls                          0.057M/sec      288000.0 calls
+  PAPI_L1_DCM                   29.453M/sec     149006935 misses
+  PAPI_TLB_DM                    0.064M/sec        322483 misses
+  PAPI_L1_DCA                  326.438M/sec    1651486632 refs
+  PAPI_FP_OPS                  423.879M/sec    2144448000 ops
+  Average Time per Call                          0.000018 secs
+  CrayPat Overhead : Time        15.4%                    
+  User time (approx)             5.059 secs   11130076615 cycles  100.0% Time
+  HW FP Ops / User time        423.879M/sec    2144448000 ops    2.4%peak(DP)
+  HW FP Ops / WCT              423.879M/sec               
+  Computational intensity         0.19 ops/cycle     1.30 ops/ref
+  MFLOPS (aggregate)        1736207.28M/sec               
+  TLB utilization              5121.16 refs/miss   10.002 avg uses
+  D1 cache hit,miss ratios       91.0% hits          9.0% misses
+  D1 cache utilization (misses)  11.08 refs/miss    1.385 avg hits
+=============================================================================
+  USER / riemann_
+-----------------------------------------------------------------------------
+  Time%                                              4.7% 
+  Time                                           3.545617 secs
+  Imb. Time                                      1.097333 secs
+  Imb. Time%                                        23.6% 
+  Calls                          0.080M/sec      288000.0 calls
+  PAPI_L1_DCM                   16.006M/sec      57504456 misses
+  PAPI_TLB_DM                    0.043M/sec        153617 misses
+  PAPI_L1_DCA                  666.175M/sec    2393326571 refs
+  PAPI_FP_OPS                  918.180M/sec    3298688691 ops
+  Average Time per Call                          0.000012 secs
+  CrayPat Overhead : Time        22.3%                    
+  User time (approx)             3.593 secs    7903832360 cycles  100.0% Time
+  HW FP Ops / User time        918.180M/sec    3298688691 ops    5.2%peak(DP)
+  HW FP Ops / WCT              918.180M/sec               
+  Computational intensity         0.42 ops/cycle     1.38 ops/ref
+  MFLOPS (aggregate)        3760865.65M/sec               
+  TLB utilization             15579.78 refs/miss   30.429 avg uses
+  D1 cache hit,miss ratios       97.6% hits          2.4% misses
+  D1 cache utilization (misses)  41.62 refs/miss    5.202 avg hits
+=============================================================================
+  USER / states_
+-----------------------------------------------------------------------------
+  Time%                                              2.4% 
+  Time                                           1.839255 secs
+  Imb. Time                                      0.155322 secs
+  Imb. Time%                                         7.8% 
+  Calls                          0.152M/sec      288000.0 calls
+  PAPI_L1_DCM                   46.819M/sec      88454652 misses
+  PAPI_TLB_DM                    0.085M/sec        161196 misses
+  PAPI_L1_DCA                  503.786M/sec     951788653 refs
+  PAPI_FP_OPS                 1116.824M/sec    2109984000 ops
+  Average Time per Call                          0.000006 secs
+  CrayPat Overhead : Time        43.0%                    
+  User time (approx)             1.889 secs    4156414444 cycles  100.0% Time
+  HW FP Ops / User time       1116.824M/sec    2109984000 ops    6.3%peak(DP)
+  HW FP Ops / WCT             1116.824M/sec               
+  Computational intensity         0.51 ops/cycle     2.22 ops/ref
+  MFLOPS (aggregate)        4574509.40M/sec               
+  TLB utilization              5904.55 refs/miss   11.532 avg uses
+  D1 cache hit,miss ratios       90.7% hits          9.3% misses
+  D1 cache utilization (misses)  10.76 refs/miss    1.345 avg hits
+=============================================================================
+  USER / paraset_
+-----------------------------------------------------------------------------
+  Time%                                              2.0% 
+  Time                                           1.503443 secs
+  Imb. Time                                      0.167785 secs
+  Imb. Time%                                        10.0% 
+  Calls                          0.370M/sec      576000.0 calls
+  PAPI_L1_DCM                   57.164M/sec      88985983 misses
+  PAPI_TLB_DM                    0.095M/sec        147391 misses
+  PAPI_L1_DCA                  807.843M/sec    1257547421 refs
+  PAPI_FP_OPS                 1776.650M/sec    2765664000 ops
+  Average Time per Call                          0.000003 secs
+  CrayPat Overhead : Time       105.1%                    
+  User time (approx)             1.557 secs    3424694368 cycles  100.0% Time
+  HW FP Ops / User time       1776.650M/sec    2765664000 ops   10.1%peak(DP)
+  HW FP Ops / WCT             1776.650M/sec               
+  Computational intensity         0.81 ops/cycle     2.20 ops/ref
+  MFLOPS (aggregate)        7277158.01M/sec               
+  TLB utilization              8532.05 refs/miss   16.664 avg uses
+  D1 cache hit,miss ratios       92.9% hits          7.1% misses
+  D1 cache utilization (misses)  14.13 refs/miss    1.766 avg hits
+=============================================================================
+  USER / volume_
+-----------------------------------------------------------------------------
+  Time%                                              1.7% 
+  Time                                           1.274338 secs
+  Imb. Time                                      0.186777 secs
+  Imb. Time%                                        12.8% 
+  Calls                          0.622M/sec      864000.0 calls
+  PAPI_L1_DCM                   69.371M/sec      96387626 misses
+  PAPI_TLB_DM                    0.147M/sec        204743 misses
+  PAPI_L1_DCA                  449.288M/sec     624264088 refs
+  PAPI_FP_OPS                                           0 ops
+  Average Time per Call                          0.000001 secs
+  CrayPat Overhead : Time       186.0%                    
+  User time (approx)             1.389 secs    3056803903 cycles  100.0% Time
+  HW FP Ops / User time                                 0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                         
+  Computational intensity         0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)              0.00M/sec               
+  TLB utilization              3049.01 refs/miss    5.955 avg uses
+  D1 cache hit,miss ratios       84.6% hits         15.4% misses
+  D1 cache utilization (misses)   6.48 refs/miss    0.810 avg hits
+=============================================================================
+  USER / forces_
+-----------------------------------------------------------------------------
+  Time%                                              1.3% 
+  Time                                           0.956787 secs
+  Imb. Time                                      0.227695 secs
+  Imb. Time%                                        19.2% 
+  Calls                          0.895M/sec      864000.0 calls
+  PAPI_L1_DCM                   41.445M/sec      40009322 misses
+  PAPI_TLB_DM                    0.221M/sec        213418 misses
+  PAPI_L1_DCA                  249.466M/sec     240825857 refs
+  PAPI_FP_OPS                                           0 ops
+  Average Time per Call                          0.000001 secs
+  CrayPat Overhead : Time       247.7%                    
+  User time (approx)             0.965 secs    2123811361 cycles  100.0% Time
+  HW FP Ops / User time                                 0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                         
+  Computational intensity         0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)              0.00M/sec               
+  TLB utilization              1128.42 refs/miss    2.204 avg uses
+  D1 cache hit,miss ratios       83.4% hits         16.6% misses
+  D1 cache utilization (misses)   6.02 refs/miss    0.752 avg hits
+=============================================================================
+  USER / flatten_
+-----------------------------------------------------------------------------
+  Time%                                              1.1% 
+  Time                                           0.839106 secs
+  Imb. Time                                      0.075930 secs
+  Imb. Time%                                         8.3% 
+  Calls                          0.328M/sec      288000.0 calls
+  PAPI_L1_DCM                   27.238M/sec      23880172 misses
+  PAPI_TLB_DM                    0.191M/sec        167046 misses
+  PAPI_L1_DCA                  622.735M/sec     545968237 refs
+  PAPI_FP_OPS                  644.287M/sec     564864000 ops
+  Average Time per Call                          0.000003 secs
+  CrayPat Overhead : Time        94.2%                    
+  User time (approx)             0.877 secs    1928805630 cycles  100.0% Time
+  HW FP Ops / User time        644.287M/sec     564864000 ops    3.7%peak(DP)
+  HW FP Ops / WCT              644.287M/sec               
+  Computational intensity         0.29 ops/cycle     1.03 ops/ref
+  MFLOPS (aggregate)        2639001.52M/sec               
+  TLB utilization              3268.37 refs/miss    6.384 avg uses
+  D1 cache hit,miss ratios       95.6% hits          4.4% misses
+  D1 cache utilization (misses)  22.86 refs/miss    2.858 avg hits
+=============================================================================
+  USER / sweepx1_
+-----------------------------------------------------------------------------
+  Time%                                              1.0% 
+  Time                                           0.735346 secs
+  Imb. Time                                      0.068741 secs
+  Imb. Time%                                         8.6% 
+  Calls                        674.427 /sec         500.0 calls
+  PAPI_L1_DCM                   36.195M/sec      26833649 misses
+  PAPI_TLB_DM                    0.279M/sec        206694 misses
+  PAPI_L1_DCA                  303.737M/sec     225181547 refs
+  PAPI_FP_OPS                   99.448M/sec      73728000 ops
+  Average Time per Call                          0.001471 secs
+  CrayPat Overhead : Time         0.2%                    
+  User time (approx)             0.741 secs    1631018979 cycles  100.0% Time
+  HW FP Ops / User time         99.448M/sec      73728000 ops    0.6%peak(DP)
+  HW FP Ops / WCT               99.448M/sec               
+  Computational intensity         0.05 ops/cycle     0.33 ops/ref
+  MFLOPS (aggregate)         407340.55M/sec               
+  TLB utilization              1089.44 refs/miss    2.128 avg uses
+  D1 cache hit,miss ratios       88.1% hits         11.9% misses
+  D1 cache utilization (misses)   8.39 refs/miss    1.049 avg hits
+==============================================================================
+  MPI
+------------------------------------------------------------------------------
+  Time%                                              24.7% 
+  Time                                           18.770139 secs
+  Imb. Time                                             -- secs
+  Imb. Time%                                            -- 
+  Calls                         187.058 /sec        3512.0 calls
+  PAPI_L1_DCM                     7.932M/sec     148928748 misses
+  PAPI_TLB_DM                     0.056M/sec       1043231 misses
+  PAPI_L1_DCA                  1211.246M/sec   22741031677 refs
+  PAPI_FP_OPS                     0.007M/sec        129630 ops
+  Average Time per Call                           0.005345 secs
+  CrayPat Overhead : Time          0.1%                    
+  User time (approx)             18.775 secs   41304941433 cycles  100.0% Time
+  HW FP Ops / User time           0.007M/sec        129630 ops    0.0%peak(DP)
+  HW FP Ops / WCT                 0.007M/sec               
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)              28.28M/sec               
+  TLB utilization              21798.65 refs/miss   42.575 avg uses
+  D1 cache hit,miss ratios        99.3% hits          0.7% misses
+  D1 cache utilization (misses)  152.70 refs/miss   19.087 avg hits
+==============================================================================
+  MPI / mpi_alltoall
+------------------------------------------------------------------------------
+  Time%                                              18.5% 
+  Time                                           14.045113 secs
+  Imb. Time                                       0.697216 secs
+  Imb. Time%                                          4.7% 
+  Calls                         213.527 /sec        3000.0 calls
+  PAPI_L1_DCM                     8.284M/sec     116392812 misses
+  PAPI_TLB_DM                     0.074M/sec       1038832 misses
+  PAPI_L1_DCA                  1132.836M/sec   15916057169 refs
+  PAPI_FP_OPS                     0.009M/sec        129128 ops
+  Average Time per Call                           0.004682 secs
+  CrayPat Overhead : Time          0.1%                    
+  User time (approx)             14.050 secs   30909557888 cycles  100.0% Time
+  HW FP Ops / User time           0.009M/sec        129128 ops    0.0%peak(DP)
+  HW FP Ops / WCT                 0.009M/sec               
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)              37.65M/sec               
+  TLB utilization              15321.11 refs/miss   29.924 avg uses
+  D1 cache hit,miss ratios        99.3% hits          0.7% misses
+  D1 cache utilization (misses)  136.74 refs/miss   17.093 avg hits
+==============================================================================
+  MPI / mpi_comm_split
+------------------------------------------------------------------------------
+  Time%                                               5.7% 
+  Time                                            4.313980 secs
+  Imb. Time                                       2.940140 secs
+  Imb. Time%                                         40.5% 
+  Calls                           0.464 /sec           2.0 calls
+  PAPI_L1_DCM                     7.272M/sec      31372476 misses
+  PAPI_TLB_DM                    61.075 /sec       263.475 misses
+  PAPI_L1_DCA                  1462.284M/sec    6308274315 refs
+  PAPI_FP_OPS                                            0 ops
+  Average Time per Call                           2.156990 secs
+  CrayPat Overhead : Time          0.0%                    
+  User time (approx)              4.314 secs    9490803075 cycles  100.0% Time
+  HW FP Ops / User time                                  0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                          
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)               0.00M/sec               
+  TLB utilization           23942594.24 refs/miss    46763 avg uses
+  D1 cache hit,miss ratios        99.5% hits          0.5% misses
+  D1 cache utilization (misses)  201.08 refs/miss   25.135 avg hits
+==============================================================================
+  MPI_SYNC
+------------------------------------------------------------------------------
+  Time%                                              10.6% 
+  Time                                            8.064973 secs
+  Imb. Time                                             -- secs
+  Imb. Time%                                            -- 
+  Calls                         434.146 /sec        3502.0 calls
+  PAPI_L1_DCM                     2.778M/sec      22407950 misses
+  PAPI_TLB_DM                     0.018M/sec        144419 misses
+  PAPI_L1_DCA                  1267.544M/sec   10224533480 refs
+  PAPI_FP_OPS                                            0 ops
+  Average Time per Call                           0.002303 secs
+  CrayPat Overhead : Time          0.1%                    
+  User time (approx)              8.066 secs   17746178304 cycles  100.0% Time
+  HW FP Ops / User time                                  0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                          
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)               0.00M/sec               
+  TLB utilization              70797.54 refs/miss  138.276 avg uses
+  D1 cache hit,miss ratios        99.8% hits          0.2% misses
+  D1 cache utilization (misses)  456.29 refs/miss   57.036 avg hits
+==============================================================================
+  MPI_SYNC / mpi_alltoall_(sync)
+------------------------------------------------------------------------------
+  Time%                                               6.9% 
+  Time                                            5.248727 secs
+  Imb. Time                                       2.796189 secs
+  Imb. Time%                                         53.3% 
+  Calls                         571.441 /sec        3000.0 calls
+  PAPI_L1_DCM                     2.746M/sec      14415360 misses
+  PAPI_TLB_DM                     0.023M/sec        120323 misses
+  PAPI_L1_DCA                  1263.656M/sec    6634050478 refs
+  PAPI_FP_OPS                                            0 ops
+  Average Time per Call                           0.001750 secs
+  CrayPat Overhead : Time          0.2%                    
+  User time (approx)              5.250 secs   11549791176 cycles  100.0% Time
+  HW FP Ops / User time                                  0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                          
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)               0.00M/sec               
+  TLB utilization              55135.45 refs/miss  107.686 avg uses
+  D1 cache hit,miss ratios        99.8% hits          0.2% misses
+  D1 cache utilization (misses)  460.21 refs/miss   57.526 avg hits
+==============================================================================
+  MPI_SYNC / mpi_allreduce_(sync)
+------------------------------------------------------------------------------
+  Time%                                               3.7% 
+  Time                                            2.815949 secs
+  Imb. Time                                       1.561301 secs
+  Imb. Time%                                         55.4% 
+  Calls                         177.897 /sec         501.0 calls
+  PAPI_L1_DCM                     2.837M/sec       7990332 misses
+  PAPI_TLB_DM                     0.009M/sec         24083 misses
+  PAPI_L1_DCA                  1274.783M/sec    3590091286 refs
+  PAPI_FP_OPS                                            0 ops
+  Average Time per Call                           0.005621 secs
+  CrayPat Overhead : Time          0.0%                    
+  User time (approx)              2.816 secs    6195744344 cycles  100.0% Time
+  HW FP Ops / User time                                  0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                          
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)               0.00M/sec               
+  TLB utilization             149068.78 refs/miss  291.150 avg uses
+  D1 cache hit,miss ratios        99.8% hits          0.2% misses
+  D1 cache utilization (misses)  449.30 refs/miss   56.163 avg hits
+==============================================================================
+  SYSCALL
+------------------------------------------------------------------------------
+  Time%                                               0.0% 
+  Time                                            0.000013 secs
+  Imb. Time                                       0.000034 secs
+  Imb. Time%                                         72.6% 
+  Calls                           0.389M/sec           5.0 calls
+  PAPI_L1_DCM                     6.244M/sec        80.158 misses
+  PAPI_TLB_DM                     0.068M/sec         0.868 misses
+  PAPI_L1_DCA                   893.947M/sec         11476 refs
+  PAPI_FP_OPS                                            0 ops
+  Average Time per Call                           0.000003 secs
+  CrayPat Overhead : Time        106.4%                    
+  User time (approx)              0.000 secs         28244 cycles  100.0% Time
+  HW FP Ops / User time                                  0 ops    0.0%peak(DP)
+  HW FP Ops / WCT                                          
+  Computational intensity          0.00 ops/cycle     0.00 ops/ref
+  MFLOPS (aggregate)               0.00M/sec               
+  TLB utilization              13219.57 refs/miss   25.819 avg uses
+  D1 cache hit,miss ratios        99.3% hits          0.7% misses
+  D1 cache utilization (misses)  143.17 refs/miss   17.897 avg hits
+
+
+Notes for table 3:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm]
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 3:  Load Balance with MPI Message Stats
+
+ Time%  |     Time  |   MPI  |     MPI Msg  |  Avg MPI  |Group 
+        |           |   Msg  |       Bytes  | Msg Size  | PE=[mmm] 
+        |           | Count  |              |           |
+       
+ 100.0% | 95.096338 | 3502.0 | 1179977684.0 | 336943.94 |Total
+|------------------------------------------------------------------
+|  71.8% | 68.241957 |    0.0 |          0.0 |        -- |USER
+||-----------------------------------------------------------------
+||  75.7% | 71.959281 |    0.0 |          0.0 |        -- |pe.2176
+||  71.7% | 68.151594 |    0.0 |          0.0 |        -- |pe.1514
+||  69.6% | 66.230683 |    0.0 |          0.0 |        -- |pe.3805
+||=================================================================
+|  19.7% | 18.779774 | 3502.0 | 1179977684.0 | 336943.94 |MPI
+||-----------------------------------------------------------------
+||  23.5% | 22.356224 | 3502.0 | 1179977684.0 | 336943.94 |pe.1360
+||  19.8% | 18.827830 | 3502.0 | 1179977684.0 | 336943.94 |pe.2951
+||  13.7% | 12.991516 | 3502.0 | 1179977684.0 | 336943.94 |pe.3249
+||=================================================================
+|   8.5% |  8.074580 |    0.0 |          0.0 |        -- |MPI_SYNC
+||-----------------------------------------------------------------
+||  12.9% | 12.252049 |    0.0 |          0.0 |        -- |pe.3377
+||   8.5% |  8.100371 |    0.0 |          0.0 |        -- |pe.554
+||   4.0% |  3.769460 |    0.0 |          0.0 |        -- |pe.2176
+||=================================================================
+|   0.0% |  0.000027 |    0.0 |          0.0 |        -- |SYSCALL
+||-----------------------------------------------------------------
+||   0.0% |  0.000061 |    0.0 |          0.0 |        -- |pe.2596
+||   0.0% |  0.000027 |    0.0 |          0.0 |        -- |pe.2373
+||   0.0% |  0.000020 |    0.0 |          0.0 |        -- |pe.2017
+|==================================================================
+
+
+Notes for table 4:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm,Mc@,Mb1..7 -b fu,ca,pe=[mmm]
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with MPI Msg Count > 0.
+
+
+Table 4:  MPI Message Stats by Caller
+
+     MPI Msg  |   MPI  | MsgSz  | 4KB<=  | 64KB<=  |Function 
+       Bytes  |   Msg  |  <16B  | MsgSz  |  MsgSz  | Caller 
+              | Count  | Count  | <64KB  |   <1MB  |  PE=[mmm] 
+              |        |        | Count  |  Count  |
+             
+ 1179977684.0 | 3502.0 |  501.0 | 3000.0 |     1.0 |Total
+|----------------------------------------------------------------
+| 1179648000.0 | 3000.0 |    0.0 | 3000.0 |     0.0 |mpi_alltoall
+||---------------------------------------------------------------
+||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |sweepy_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.2720
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.672
+4|||  786432000.0 | 2000.0 |    0.0 | 2000.0 |     0.0 |pe.1375
+||||=============================================================
+||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |sweepz_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.2720
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.672
+4|||  393216000.0 | 1000.0 |    0.0 | 1000.0 |     0.0 |pe.1375
+||===============================================================
+|     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |mpi_gather
+|              |        |        |        |         | prin_
+3              |        |        |        |         |  vhone_
+||||-------------------------------------------------------------
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.2720
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.672
+4|||     327680.0 |    1.0 |    0.0 |    0.0 |     1.0 |pe.1375
+||||=============================================================
+|       2004.0 |  501.0 |  501.0 |    0.0 |     0.0 |MPI_ALLREDUCE
+||---------------------------------------------------------------
+||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |dtcon_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.2720
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.672
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |pe.1375
+||||=============================================================
+||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |init_
+3|              |        |        |        |         | vhone_
+||||-------------------------------------------------------------
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.2720
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.672
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |pe.1375
+|================================================================
+
+
+Notes for table 5:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm]
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+
+
+Table 5:  Wall Clock Time, Memory High Water Mark
+
+   Process  |  Process  |PE=[mmm] 
+      Time  |    HiMem  |
+            | (MBytes)  |
+           
+ 109.185099 |    37.419 |Total
+|---------------------------------
+| 113.793601 |    36.551 |pe.459
+| 109.111187 |    36.328 |pe.2421
+| 106.476315 |    36.684 |pe.3780
+|=================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/widow3/scratch/levesque/VH1_version1/vhone+pat+24412-10752t/000000.xf  (RTS)
+
+Original program:  /lustre/widow3/scratch/levesque/VH1_version1/vhone
+
+Instrumented with:  pat_build -u -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 4096 PEs
+
+CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  Configured for    0 PEs
+                         Capable    for 4096 PEs
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia X2090 Memory: 6.00 GB Frequency: 1.15 GHz
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  PBS_VERSION=TORQUE-2.5.9-snap.201111021154
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  ASYNCPE_VERSION=5.05
+  ATP_HOME=/opt/cray/atp/1.4.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.4.1/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.4.1/lib/ -Wl,-lAtpSigHandler -Wl,--undefined=__atpHandlerInstall
+  LIBSCI_VERSION=11.0.04.4
+  MPICH_ABORT_ON_ERROR=1
+  PGI_VERSION=12.1
+  XTOS_VERSION=4.0.30
+  CRAY_MPICH2_VERSION=5.4.1
+  MPICH_DIR=/opt/cray/mpt/5.4.1/xt/gemini/mpich2-pgi/109
+  PAT_RT_HWPC=1
+
+Report time environment variables:
+  CRAYPAT_ROOT=/opt/cray/perftools/5.3.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_
+
+Report command line options:  <none>
+
+Operating system:
+  Linux 2.6.32.45-0.3.2_1.0400.6221-cray_gem_c #1 SMP Wed Sep 28 03:54:16 UTC 2011
+
+Hardware performance counter events:
+   PAPI_L1_DCM  Level 1 data cache misses
+   PAPI_TLB_DM  Data translation lookaside buffer misses
+   PAPI_L1_DCA  Level 1 data cache accesses
+   PAPI_FP_OPS  Floating point operations
+   CYCLES_RTC   User Cycles (approx, from rtc)
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    PAPI_L1_DCM   33.596  
+    PAPI_TLB_DM    0.002  
+    PAPI_L1_DCA  667.346  
+    PAPI_FP_OPS    0.000  
+    CYCLES_RTC  6070.441  
+    Time           2.743  microsecs
+
+Number of traced functions:  89
+
+  (To see the list, specify:  -s traced_functions=show)
+

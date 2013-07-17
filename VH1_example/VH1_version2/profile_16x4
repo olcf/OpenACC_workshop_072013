@@ -1,0 +1,405 @@
+CrayPat/X:  Version 5.3.1 Revision 8907 (xf 8679)  03/08/12 12:37:40
+
+Number of PEs (MPI ranks):   16
+                           
+Numbers of PEs per Node:      3  PEs on each of  5  Nodes
+                              1  PE on           1  Node
+                           
+Numbers of Threads per PE:    4
+                           
+Number of Cores per Socket:  16
+
+Execution start time:  Tue Mar 27 08:24:12 2012
+
+System type and speed:  x86_64 2200 MHz
+
+Current path to data file:
+  /ccs/home/levesque/lustre/VH1_version2/vhone+pat+9077-10752t.ap2  (RTS)
+
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE,th=HIDE
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+  The PE value for Time, Calls is the max for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 1:  Profile by Function Group and Function
+
+ Time%  |      Time  |     Imb.  |  Imb.  |  Calls  |Group 
+        |            |     Time  | Time%  |         | Function 
+        |            |           |        |         |  PE=HIDE 
+        |            |           |        |         |   Thread=HIDE 
+       
+ 100.0% | 837.184873 |        -- |     -- | 16224.2 |Total
+|-------------------------------------------------------------------------------
+|  37.9% | 317.693343 |        -- |     -- |  3602.0 |MPI_SYNC
+||------------------------------------------------------------------------------
+||  27.2% | 227.623695 | 60.582929 |  26.6% |  3000.0 |mpi_alltoall_(sync)
+||   9.7% |  81.085757 | 30.479186 |  37.6% |   501.0 |mpi_allreduce_(sync)
+||   1.1% |   8.983891 |  6.038938 |  67.2% |   101.0 |mpi_gather_(sync)
+||==============================================================================
+|  31.7% | 265.408478 |        -- |     -- |  3000.0 |OMP
+||------------------------------------------------------------------------------
+||  10.2% |  85.789834 | 13.175811 |  14.2% |  1000.0 |sweepy_.REGION@li.38(ovhd)
+||   6.1% |  50.873663 |  8.480188 |  15.2% |   500.0 |sweepx1_.REGION@li.34(ovhd)
+||   5.4% |  44.983089 |  7.704898 |  15.6% |   500.0 |sweepz_.REGION@li.22(ovhd)
+||   5.1% |  43.016918 |  6.288829 |  13.6% |   500.0 |sweepx2_.REGION@li.34(ovhd)
+||   4.9% |  40.744974 |  6.389247 |  14.5% |   500.0 |sweepz_.REGION@li.55(ovhd)
+||==============================================================================
+|  25.5% | 213.215135 |        -- |     -- |  3612.2 |MPI
+||------------------------------------------------------------------------------
+||  20.9% | 174.939171 | 57.384291 |  26.3% |  3000.0 |mpi_alltoall
+||   4.0% |  33.685791 |  2.606800 |   7.7% |   501.0 |MPI_ALLREDUCE
+||   0.3% |   2.248781 |  6.350399 |  78.8% |   101.0 |mpi_gather
+||   0.1% |   1.215258 |  0.248445 |  18.1% |     1.0 |mpi_finalize
+||   0.1% |   1.126115 |  1.289297 |  56.9% |     2.0 |mpi_comm_split
+||   0.0% |   0.000009 |  0.000002 |  16.1% |     3.0 |MPI_COMM_SIZE
+||   0.0% |   0.000007 |  0.000001 |  14.5% |     3.0 |mpi_comm_rank
+||   0.0% |   0.000002 |  0.000000 |  12.8% |     1.0 |MPI_INIT
+||   0.0% |   0.000001 |  0.000017 | 100.0% |     0.1 |mpi_wtime
+||   0.0% |   0.000000 |  0.000007 | 100.0% |     0.1 |MPI_GET_PROCESSOR_NAME
+||==============================================================================
+|   4.9% |  40.867650 |        -- |     -- |  6002.0 |USER
+||------------------------------------------------------------------------------
+||   1.3% |  11.041759 |  1.329847 |  11.5% |  1000.0 |sweepy_.LOOP@li.39
+||   1.2% |  10.276942 |  1.289969 |  11.9% |   500.0 |sweepz_.LOOP@li.56
+||   0.7% |   5.668177 |  0.668454 |  11.3% |   500.0 |sweepx1_.LOOP@li.35
+||   0.6% |   5.412897 |  1.607427 |  24.4% |   500.0 |sweepx2_.LOOP@li.35
+||   0.5% |   4.312198 |  0.948316 |  19.2% |     1.0 |exit
+||   0.5% |   3.782881 | 18.242201 |  88.3% |     1.0 |vhone_
+||   0.0% |   0.337923 |  0.408906 |  58.4% |   500.0 |sweepz_.LOOP@li.23
+||   0.0% |   0.010817 |  0.066674 |  91.8% |  1000.0 |sweepy_.REGION@li.39
+||   0.0% |   0.010047 |  0.070734 |  93.4% |   500.0 |sweepz_.REGION@li.36
+||   0.0% |   0.007752 |  0.049405 |  92.2% |   500.0 |sweepz_.REGION@li.56
+||   0.0% |   0.005465 |  0.043058 |  94.7% |   500.0 |sweepx2_.REGION@li.35
+||   0.0% |   0.000790 |  0.000169 |  18.8% |   500.0 |sweepx1_.REGION@li.35
+||==============================================================================
+|   0.0% |   0.000255 |  0.000027 |  10.2% |     3.0 |PTHREAD
+||------------------------------------------------------------------------------
+|   0.0% |   0.000255 |  0.000027 |  10.2% |     3.0 | pthread_create
+||==============================================================================
+|   0.0% |   0.000012 |  0.000001 |  11.3% |     5.0 |SYSCALL
+||------------------------------------------------------------------------------
+|   0.0% |   0.000012 |  0.000001 |  11.3% |     5.0 | signal
+|===============================================================================
+
+
+================  Observations and suggestions  ========================
+
+Metric-Based Rank Order:  
+
+    No rank order was suggested based on the following metric because
+    the resource was already well balanced across the nodes.
+      USER Time
+
+================  End Observations  ====================================
+
+
+
+Notes for table 2:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm],th
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+  The PE value for each data item is the max for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 2:  Load Balance with MPI Message Stats
+
+ Time%  |      Time  |   MPI  |     MPI Msg  |   Avg MPI  |Group 
+        |            |   Msg  |       Bytes  |  Msg Size  | PE=[mmm] 
+        |            | Count  |              |            |  Thread 
+       
+ 100.0% | 830.153938 | 3602.0 | 4564252004.0 | 1267143.81 |Total
+|--------------------------------------------------------------------
+|  38.3% | 317.694408 |    0.0 |          0.0 |         -- |MPI_SYNC
+||-------------------------------------------------------------------
+||  78.7% | 653.209126 |    0.0 |          0.0 |         -- |pe.15
+3|        |            |        |              |            | thread.0
+||  37.3% | 309.415661 |    0.0 |          0.0 |         -- |pe.0
+3|        |            |        |              |            | thread.0
+||  27.2% | 226.037491 |    0.0 |          0.0 |         -- |pe.9
+3|        |            |        |              |            | thread.0
+||===================================================================
+|  32.0% | 265.409366 |    0.0 |          0.0 |         -- |OMP
+||-------------------------------------------------------------------
+||  37.0% | 307.368428 |    0.0 |          0.0 |         -- |pe.2
+3|        |            |        |              |            | thread.0
+||  35.6% | 295.856950 |    0.0 |          0.0 |         -- |pe.8
+3|        |            |        |              |            | thread.0
+||   0.4% |   2.966443 |    0.0 |          0.0 |         -- |pe.15
+3|        |            |        |              |            | thread.0
+||===================================================================
+|  25.7% | 213.216204 | 3602.0 | 4564252004.0 | 1267143.81 |MPI
+||-------------------------------------------------------------------
+||  32.5% | 269.997274 | 3552.0 | 4563752004.0 | 1284840.09 |pe.9
+3|        |            |        |              |            | thread.0
+||  27.2% | 225.851055 | 3752.0 | 4565752004.0 | 1216884.86 |pe.0
+3|        |            |        |              |            | thread.0
+||  17.5% | 144.875524 | 3552.0 | 4563752004.0 | 1284840.09 |pe.15
+3|        |            |        |              |            | thread.0
+||===================================================================
+|   4.1% |  33.833691 |    0.0 |          0.0 |         -- |USER
+||-------------------------------------------------------------------
+||   5.5% |  45.893938 |    0.0 |          0.0 |         -- |pe.0
+|||------------------------------------------------------------------
+3||   5.5% |  45.893938 |    0.0 |          0.0 |         -- |thread.0
+3||   4.1% |  34.425585 |    0.0 |          0.0 |         -- |thread.1
+3||   3.5% |  28.727681 |    0.0 |          0.0 |         -- |thread.3
+3||   2.6% |  21.550135 |    0.0 |          0.0 |         -- |thread.2
+|||==================================================================
+||   4.1% |  33.758425 |    0.0 |          0.0 |         -- |pe.5
+|||------------------------------------------------------------------
+3||   4.1% |  33.758425 |    0.0 |          0.0 |         -- |thread.1
+3||   3.7% |  30.511952 |    0.0 |          0.0 |         -- |thread.2
+3||   2.9% |  24.185411 |    0.0 |          0.0 |         -- |thread.0
+3||   2.2% |  18.366339 |    0.0 |          0.0 |         -- |thread.3
+|||==================================================================
+||   2.5% |  21.125134 |    0.0 |          0.0 |         -- |pe.15
+|||------------------------------------------------------------------
+3||   2.5% |  21.125134 |    0.0 |          0.0 |         -- |thread.0
+3||   2.3% |  19.290617 |    0.0 |          0.0 |         -- |thread.2
+3||   2.3% |  18.977290 |    0.0 |          0.0 |         -- |thread.1
+3||   1.4% |  11.216799 |    0.0 |          0.0 |         -- |thread.3
+||===================================================================
+|   0.0% |   0.000256 |    0.0 |          0.0 |         -- |PTHREAD
+||-------------------------------------------------------------------
+||   0.0% |   0.000283 |    0.0 |          0.0 |         -- |pe.11
+3|        |            |        |              |            | thread.0
+||   0.0% |   0.000255 |    0.0 |          0.0 |         -- |pe.10
+3|        |            |        |              |            | thread.0
+||   0.0% |   0.000243 |    0.0 |          0.0 |         -- |pe.15
+3|        |            |        |              |            | thread.0
+||===================================================================
+|   0.0% |   0.000013 |    0.0 |          0.0 |         -- |SYSCALL
+||-------------------------------------------------------------------
+||   0.0% |   0.000015 |    0.0 |          0.0 |         -- |pe.4
+3|        |            |        |              |            | thread.0
+||   0.0% |   0.000014 |    0.0 |          0.0 |         -- |pe.8
+3|        |            |        |              |            | thread.0
+||   0.0% |   0.000009 |    0.0 |          0.0 |         -- |pe.11
+3|        |            |        |              |            | thread.0
+|====================================================================
+
+
+Notes for table 3:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm,Mc@,Mb1..7 -b fu,ca,pe=[mmm],th=HIDE
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+  The PE value for each data item is the max for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with MPI Msg Count > 0.
+
+
+Table 3:  MPI Message Stats by Caller
+
+     MPI Msg  |   MPI  | MsgSz  | 4KB<=  | 64KB<=  | 1MB<=  |Function 
+       Bytes  |   Msg  |  <16B  | MsgSz  |  MsgSz  | MsgSz  | Caller 
+              | Count  | Count  | <64KB  |   <1MB  | <16MB  |  PE=[mmm] 
+              |        |        | Count  |  Count  | Count  |   Thread=HIDE 
+             
+ 4564252004.0 | 3602.0 |  501.0 |   50.0 |  3000.0 |   51.0 |Total
+|---------------------------------------------------------------------------
+| 4500000000.0 | 3000.0 |    0.0 |    0.0 |  3000.0 |    0.0 |mpi_alltoall
+||--------------------------------------------------------------------------
+|| 3000000000.0 | 2000.0 |    0.0 |    0.0 |  2000.0 |    0.0 |sweepy_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4||| 3000000000.0 | 2000.0 |    0.0 |    0.0 |  2000.0 |    0.0 |pe.0
+4||| 3000000000.0 | 2000.0 |    0.0 |    0.0 |  2000.0 |    0.0 |pe.8
+4||| 3000000000.0 | 2000.0 |    0.0 |    0.0 |  2000.0 |    0.0 |pe.15
+||||========================================================================
+|| 1500000000.0 | 1000.0 |    0.0 |    0.0 |  1000.0 |    0.0 |sweepz_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4||| 1500000000.0 | 1000.0 |    0.0 |    0.0 |  1000.0 |    0.0 |pe.0
+4||| 1500000000.0 | 1000.0 |    0.0 |    0.0 |  1000.0 |    0.0 |pe.8
+4||| 1500000000.0 | 1000.0 |    0.0 |    0.0 |  1000.0 |    0.0 |pe.15
+||==========================================================================
+|   64250000.0 |  101.0 |    0.0 |   50.0 |     0.0 |   51.0 |mpi_gather
+||--------------------------------------------------------------------------
+||   63750000.0 |   51.0 |    0.0 |    0.0 |     0.0 |   51.0 |prin_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4|||   63750000.0 |   51.0 |    0.0 |    0.0 |     0.0 |   51.0 |pe.0
+4|||   63750000.0 |   51.0 |    0.0 |    0.0 |     0.0 |   51.0 |pe.8
+4|||   63750000.0 |   51.0 |    0.0 |    0.0 |     0.0 |   51.0 |pe.15
+||||========================================================================
+||     250000.0 |   25.0 |    0.0 |   25.0 |     0.0 |    0.0 |imagesxy_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4|||    1000000.0 |  100.0 |    0.0 |  100.0 |     0.0 |    0.0 |pe.0
+4|||          0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||          0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.15
+||||========================================================================
+||     250000.0 |   25.0 |    0.0 |   25.0 |     0.0 |    0.0 |imagesxz_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4|||    1000000.0 |  100.0 |    0.0 |  100.0 |     0.0 |    0.0 |pe.0
+4|||          0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.6
+4|||          0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.15
+||==========================================================================
+|       2004.0 |  501.0 |  501.0 |    0.0 |     0.0 |    0.0 |MPI_ALLREDUCE
+||--------------------------------------------------------------------------
+||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |    0.0 |dtcon_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |    0.0 |pe.0
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||       2000.0 |  500.0 |  500.0 |    0.0 |     0.0 |    0.0 |pe.15
+||||========================================================================
+||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |init_
+3|              |        |        |        |         |        | vhone_
+||||------------------------------------------------------------------------
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.0
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||          4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.15
+|===========================================================================
+
+
+Notes for table 4:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm],th
+  Other options:
+    -T 
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+  The PE value for Process HiMem (MBytes), Process Time is the max for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+
+
+Table 4:  Wall Clock Time, Memory High Water Mark
+
+   Process  |  Process  |PE=[mmm] 
+      Time  |    HiMem  | Thread 
+            | (MBytes)  |
+           
+ 828.937054 |    86.851 |Total
+|---------------------------------
+| 829.906114 |    93.223 |pe.8
+|            |           | thread.0
+| 829.075840 |    84.148 |pe.11
+|            |           | thread.0
+| 825.624700 |    83.949 |pe.15
+|            |           | thread.0
+|=================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/widow3/scratch/levesque/VH1_version2/vhone+pat+9077-10752t.xf  (RTS)
+
+Original program:  /lustre/widow3/scratch/levesque/VH1_version2/vhone
+
+Instrumented with:  pat_build -w -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 16 PEs
+
+CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  Configured for  0 PEs
+                         Capable    for 16 PEs
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia X2090 Memory: 6.00 GB Frequency: 1.15 GHz
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  PBS_VERSION=TORQUE-2.5.9-snap.201111021154
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  ASYNCPE_VERSION=5.05
+  ATP_HOME=/opt/cray/atp/1.4.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.4.1/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.4.1/lib/ -Wl,-lAtpSigHandler -Wl,--undefined=__atpHandlerInstall
+  LIBSCI_VERSION=11.0.04.4
+  MPICH_ABORT_ON_ERROR=1
+  PGI_VERSION=12.1
+  XTOS_VERSION=4.0.30
+  CRAY_MPICH2_VERSION=5.4.1
+  MPICH_DIR=/opt/cray/mpt/5.4.1/xt/gemini/mpich2-pgi/109
+  MPICH_NEMESIS_ASYNC_PROGRESS=1
+  MPICH_MAX_THREAD_SAFETY=multiple
+  OMP_NUM_THREADS=4
+
+Report time environment variables:
+  CRAYPAT_ROOT=/opt/cray/perftools/5.3.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_
+
+Report command line options:  -T
+
+Operating system:
+  Linux 2.6.32.45-0.3.2_1.0400.6221-cray_gem_c #1 SMP Wed Sep 28 03:54:16 UTC 2011
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  0.296  microsecs
+
+Number of traced functions:  72
+
+  (To see the list, specify:  -s traced_functions=show)
+

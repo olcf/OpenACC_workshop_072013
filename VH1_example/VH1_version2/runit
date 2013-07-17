@@ -1,0 +1,17 @@
+#PBS -N VH1
+#PBS -j oe
+#PBS -l walltime=1:00:00
+#PBS -l nodes=16
+#PBS -A VEN008
+#setenv CUDA_PROFILE 0
+#setenv CRAY_ACC_CLEAR_MEM 1
+#setenv CRAY_ACC_DEBUG 3
+#setenv CRAY_ACC_TRUE_AUTO_ASYNC 1
+#setenv CRAY_ACC_MALLOC_HEAPSIZE 2000000000
+#setenv MPICH_NEMESIS_ASYNC_PROGRESS 1
+#setenv MPICH_MAX_THREAD_SAFETY multiple
+cd $PBS_O_WORKDIR
+setenv PAT_RT_HWPC 1
+setenv OMP_NUM_THREADS 4
+aprun -n 64 -d 4 -N 4  ./vhone
+
