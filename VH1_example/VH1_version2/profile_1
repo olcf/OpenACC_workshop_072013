@@ -1,0 +1,1007 @@
+CrayPat/X:  Version 5.3.1 Revision 8907 (xf 8679)  03/08/12 12:37:40
+
+Number of PEs (MPI ranks):   16
+                           
+Numbers of PEs per Node:     16
+                           
+Numbers of Threads per PE:    1
+                           
+Number of Cores per Socket:  16
+
+Execution start time:  Wed Mar 21 10:06:58 2012
+
+System type and speed:  x86_64 2200 MHz
+
+Current path to data file:
+  /ccs/home/levesque/lustre/VH1_version1/vhone+pat+7067-10050t.ap2  (RTS)
+
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 1:  Profile by Function Group and Function
+
+ Time%  |     Time  |    Imb.  |  Imb.  |    Calls  |Group 
+        |           |    Time  | Time%  |           | Function 
+        |           |          |        |           |  PE=HIDE 
+       
+ 100.0% | 34.852962 |       -- |     -- | 6751571.7 |Total
+|--------------------------------------------------------------------------
+|  84.2% | 29.330808 |       -- |     -- | 6750472.5 |USER
+||-------------------------------------------------------------------------
+||  18.4% |  6.429409 | 0.218477 |   3.5% |  281250.0 |remap_
+||  16.7% |  5.810697 | 0.119974 |   2.2% | 2531250.0 |parabola_
+||  16.0% |  5.593346 | 0.104173 |   2.0% |  281250.0 |ppmlr_
+||   8.0% |  2.776065 | 0.083264 |   3.1% |  281250.0 |evolve_
+||   6.9% |  2.410597 | 0.595630 |  21.1% |  281250.0 |riemann_
+||   3.2% |  1.106398 | 0.044145 |   4.1% |  281250.0 |states_
+||   2.5% |  0.879261 | 0.049732 |   5.7% |  562500.0 |paraset_
+||   2.4% |  0.829115 | 0.067544 |   8.0% |  843750.0 |volume_
+||   1.8% |  0.643536 | 0.039531 |   6.2% |      75.0 |sweepz_
+||   1.7% |  0.595547 | 0.019861 |   3.4% |     150.0 |sweepy_
+||   1.6% |  0.552258 | 0.026103 |   4.8% |  281250.0 |flatten_
+||   1.2% |  0.424348 | 0.046778 |  10.6% |  843750.0 |forces_
+||   1.1% |  0.378383 | 1.322647 |  82.9% |      11.0 |prin_
+||   0.7% |  0.236167 | 0.013351 |   5.7% |      75.0 |sweepx1_
+||   0.7% |  0.230389 | 0.006978 |   3.1% |      75.0 |sweepx2_
+||   0.5% |  0.187503 | 0.010122 |   5.5% |  281250.0 |boundary_
+||   0.3% |  0.105067 | 1.575233 | 100.0% |       3.8 |imagesxz_
+||   0.2% |  0.054569 | 0.817888 | 100.0% |       3.8 |imagesxy_
+||   0.1% |  0.045442 | 0.045943 |  53.6% |       1.0 |dump_
+||   0.1% |  0.028814 | 0.058268 |  71.4% |       1.0 |vhone_
+||   0.0% |  0.010759 | 0.001248 |  11.1% |      75.0 |dtcon_
+||   0.0% |  0.003108 | 0.000356 |  11.0% |       1.0 |init_
+||   0.0% |  0.000028 | 0.000029 |  53.7% |       1.0 |exit
+||=========================================================================
+|  13.1% |  4.572301 |       -- |     -- |     544.5 |MPI_SYNC
+||-------------------------------------------------------------------------
+||  11.8% |  4.096615 | 3.420281 |  83.5% |     450.0 |mpi_alltoall_(sync)
+||   0.8% |  0.266497 | 0.265959 |  99.8% |      18.5 |mpi_gather_(sync)
+||   0.6% |  0.209189 | 0.124726 |  59.6% |      76.0 |mpi_allreduce_(sync)
+||=========================================================================
+|   2.7% |  0.949853 |       -- |     -- |     554.7 |MPI
+||-------------------------------------------------------------------------
+||   1.9% |  0.659805 | 0.109040 |  15.1% |     450.0 |mpi_alltoall
+||   0.7% |  0.249706 | 0.079974 |  25.9% |       1.0 |mpi_finalize
+||   0.1% |  0.037899 | 0.008529 |  19.6% |      18.5 |mpi_gather
+||   0.0% |  0.001279 | 0.000150 |  11.2% |      76.0 |MPI_ALLREDUCE
+||   0.0% |  0.001141 | 0.000758 |  42.6% |       2.0 |mpi_comm_split
+||   0.0% |  0.000013 | 0.000006 |  34.4% |       3.0 |MPI_COMM_SIZE
+||   0.0% |  0.000006 | 0.000002 |  27.4% |       3.0 |mpi_comm_rank
+||   0.0% |  0.000002 | 0.000001 |  39.2% |       1.0 |MPI_INIT
+||   0.0% |  0.000001 | 0.000017 | 100.0% |       0.1 |mpi_wtime
+||   0.0% |  0.000001 | 0.000012 | 100.0% |       0.1 |MPI_GET_PROCESSOR_NAME
+|==========================================================================
+
+
+Notes for table 2:
+
+  Table option:
+    -O profile+hwpc
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr,P -b gr,fu,pe=HIDE
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the sum for the Function values.
+  The Function value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 2:  Profile by Function Group and Function
+
+Group / Function / PE=HIDE
+
+  
+======================================================================
+  Total
+----------------------------------------------------------------------
+  Time%                                     100.0% 
+  Time                                   34.852962 secs
+  Imb. Time                                     -- secs
+  Imb. Time%                                    -- 
+  Calls                    0.194M/sec    6751571.7 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       279.340M/sec   9710899091 ops
+  Average Time per Call                   0.000005 secs
+  CrayPat Overhead : Time  30.9%                   
+  User time (approx)      34.764 secs  76480456222 cycles  100.0% Time
+======================================================================
+  USER
+----------------------------------------------------------------------
+  Time%                                      84.2% 
+  Time                                   29.330808 secs
+  Imb. Time                                     -- secs
+  Imb. Time%                                    -- 
+  Calls                    0.231M/sec    6750472.5 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       332.127M/sec   9710895532 ops
+  Average Time per Call                   0.000004 secs
+  CrayPat Overhead : Time  36.8%                   
+  User time (approx)      29.239 secs  64325026394 cycles  100.0% Time
+======================================================================
+  USER / remap_
+----------------------------------------------------------------------
+  Time%                                      18.4% 
+  Time                                    6.429409 secs
+  Imb. Time                               0.218477 secs
+  Imb. Time%                                  3.5% 
+  Calls                    0.046M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       159.893M/sec    981902509 ops
+  Average Time per Call                   0.000023 secs
+  CrayPat Overhead : Time   7.0%                   
+  User time (approx)       6.141 secs  13510242277 cycles  100.0% Time
+======================================================================
+  USER / parabola_
+----------------------------------------------------------------------
+  Time%                                      16.7% 
+  Time                                    5.810697 secs
+  Imb. Time                               0.119974 secs
+  Imb. Time%                                  2.2% 
+  Calls                    0.410M/sec    2531250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       866.044M/sec   5345208876 ops
+  Average Time per Call                   0.000002 secs
+  CrayPat Overhead : Time  69.6%                   
+  User time (approx)       6.172 secs  13578407964 cycles  100.0% Time
+======================================================================
+  USER / ppmlr_
+----------------------------------------------------------------------
+  Time%                                      16.0% 
+  Time                                    5.593346 secs
+  Imb. Time                               0.104173 secs
+  Imb. Time%                                  2.0% 
+  Calls                    0.055M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         0.029M/sec       151283 ops
+  Average Time per Call                   0.000020 secs
+  CrayPat Overhead : Time   8.0%                   
+  User time (approx)       5.146 secs  11321769787 cycles  100.0% Time
+======================================================================
+  USER / evolve_
+----------------------------------------------------------------------
+  Time%                                       8.0% 
+  Time                                    2.776065 secs
+  Imb. Time                               0.083264 secs
+  Imb. Time%                                  3.1% 
+  Calls                    0.104M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       114.623M/sec    310712788 ops
+  Average Time per Call                   0.000010 secs
+  CrayPat Overhead : Time  16.2%                   
+  User time (approx)       2.711 secs   5963644302 cycles  100.0% Time
+======================================================================
+  USER / riemann_
+----------------------------------------------------------------------
+  Time%                                       6.9% 
+  Time                                    2.410597 secs
+  Imb. Time                               0.595630 secs
+  Imb. Time%                                 21.1% 
+  Calls                    0.115M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       663.692M/sec   1618626856 ops
+  Average Time per Call                   0.000009 secs
+  CrayPat Overhead : Time  18.6%                   
+  User time (approx)       2.439 secs   5365430765 cycles  100.0% Time
+======================================================================
+  USER / states_
+----------------------------------------------------------------------
+  Time%                                       3.2% 
+  Time                                    1.106398 secs
+  Imb. Time                               0.044145 secs
+  Imb. Time%                                  4.1% 
+  Calls                    0.247M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       300.956M/sec    343312992 ops
+  Average Time per Call                   0.000004 secs
+  CrayPat Overhead : Time  40.6%                   
+  User time (approx)       1.141 secs   2509641590 cycles  100.0% Time
+=======================================================================
+  USER / paraset_
+-----------------------------------------------------------------------
+  Time%                                        2.5% 
+  Time                                     0.879261 secs
+  Imb. Time                                0.049732 secs
+  Imb. Time%                                   5.7% 
+  Calls                     0.588M/sec     562500.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3        523.785M/sec    501321984 ops
+  Average Time per Call                    0.000002 secs
+  CrayPat Overhead : Time  102.2%                   
+  User time (approx)        0.957 secs   2105660309 cycles  100.0% Time
+=======================================================================
+  USER / volume_
+-----------------------------------------------------------------------
+  Time%                                        2.4% 
+  Time                                     0.829115 secs
+  Imb. Time                                0.067544 secs
+  Imb. Time%                                   8.0% 
+  Calls                     0.887M/sec     843750.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.026M/sec        24727 ops
+  Average Time per Call                    0.000001 secs
+  CrayPat Overhead : Time  162.6%                   
+  User time (approx)        0.952 secs   2093812822 cycles  100.0% Time
+=======================================================================
+  USER / sweepz_
+-----------------------------------------------------------------------
+  Time%                                        1.8% 
+  Time                                     0.643536 secs
+  Imb. Time                                0.039531 secs
+  Imb. Time%                                   6.2% 
+  Calls                   115.621 /sec         75.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         35.580M/sec     23079862 ops
+  Average Time per Call                    0.008580 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.649 secs   1427075716 cycles  100.0% Time
+=======================================================================
+  USER / sweepy_
+-----------------------------------------------------------------------
+  Time%                                        1.7% 
+  Time                                     0.595547 secs
+  Imb. Time                                0.019861 secs
+  Imb. Time%                                   3.4% 
+  Calls                   248.543 /sec        150.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         34.929M/sec     21080182 ops
+  Average Time per Call                    0.003970 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.604 secs   1327743861 cycles  100.0% Time
+=======================================================================
+  USER / flatten_
+-----------------------------------------------------------------------
+  Time%                                        1.6% 
+  Time                                     0.552258 secs
+  Imb. Time                                0.026103 secs
+  Imb. Time%                                   4.8% 
+  Calls                     0.481M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3        868.505M/sec    507926055 ops
+  Average Time per Call                    0.000002 secs
+  CrayPat Overhead : Time   81.4%                   
+  User time (approx)        0.585 secs   1286626546 cycles  100.0% Time
+=======================================================================
+  USER / forces_
+-----------------------------------------------------------------------
+  Time%                                        1.2% 
+  Time                                     0.424348 secs
+  Imb. Time                                0.046778 secs
+  Imb. Time%                                  10.6% 
+  Calls                     1.916M/sec     843750.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.002M/sec      828.062 ops
+  Average Time per Call                    0.000001 secs
+  CrayPat Overhead : Time  317.7%                   
+  User time (approx)        0.440 secs    968662390 cycles  100.0% Time
+=======================================================================
+  USER / prin_
+-----------------------------------------------------------------------
+  Time%                                        1.1% 
+  Time                                     0.378383 secs
+  Imb. Time                                1.322647 secs
+  Imb. Time%                                  82.9% 
+  Calls                    29.069 /sec         11.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          2.485M/sec       940419 ops
+  Average Time per Call                    0.034398 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.378 secs    832492007 cycles  100.0% Time
+=======================================================================
+  USER / sweepx1_
+-----------------------------------------------------------------------
+  Time%                                        0.7% 
+  Time                                     0.236167 secs
+  Imb. Time                                0.013351 secs
+  Imb. Time%                                   5.7% 
+  Calls                   312.260 /sec         75.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         71.425M/sec     17155276 ops
+  Average Time per Call                    0.003149 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.240 secs    528407486 cycles  100.0% Time
+=======================================================================
+  USER / sweepx2_
+-----------------------------------------------------------------------
+  Time%                                        0.7% 
+  Time                                     0.230389 secs
+  Imb. Time                                0.006978 secs
+  Imb. Time%                                   3.1% 
+  Calls                   321.574 /sec         75.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         69.828M/sec     16285865 ops
+  Average Time per Call                    0.003072 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.233 secs    513103423 cycles  100.0% Time
+=======================================================================
+  USER / boundary_
+-----------------------------------------------------------------------
+  Time%                                        0.5% 
+  Time                                     0.187503 secs
+  Imb. Time                                0.010122 secs
+  Imb. Time%                                   5.5% 
+  Calls                     1.380M/sec     281250.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3         42.566M/sec      8675277 ops
+  Average Time per Call                    0.000001 secs
+  CrayPat Overhead : Time  239.6%                   
+  User time (approx)        0.204 secs    448376585 cycles  100.0% Time
+=======================================================================
+  USER / imagesxz_
+-----------------------------------------------------------------------
+  Time%                                        0.3% 
+  Time                                     0.105067 secs
+  Imb. Time                                1.575233 secs
+  Imb. Time%                                 100.0% 
+  Calls                    35.693 /sec          3.8 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.013M/sec         1376 ops
+  Average Time per Call                    0.028018 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.105 secs    231139538 cycles  100.0% Time
+=======================================================================
+  USER / imagesxy_
+-----------------------------------------------------------------------
+  Time%                                        0.2% 
+  Time                                     0.054569 secs
+  Imb. Time                                0.817888 secs
+  Imb. Time%                                 100.0% 
+  Calls                    68.717 /sec          3.8 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.002M/sec       86.062 ops
+  Average Time per Call                    0.014552 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.055 secs    120058022 cycles  100.0% Time
+=======================================================================
+  USER / dump_
+-----------------------------------------------------------------------
+  Time%                                        0.1% 
+  Time                                     0.045442 secs
+  Imb. Time                                0.045943 secs
+  Imb. Time%                                  53.6% 
+  Calls                    22.004 /sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.002M/sec       89.938 ops
+  Average Time per Call                    0.045442 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.045 secs     99981718 cycles  100.0% Time
+=======================================================================
+  USER / vhone_
+-----------------------------------------------------------------------
+  Time%                                        0.1% 
+  Time                                     0.028814 secs
+  Imb. Time                                0.058268 secs
+  Imb. Time%                                  71.4% 
+  Calls                    35.351 /sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.051M/sec         1430 ops
+  Average Time per Call                    0.028814 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.028 secs     62232618 cycles  100.0% Time
+=======================================================================
+  USER / dtcon_
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.010759 secs
+  Imb. Time                                0.001248 secs
+  Imb. Time%                                  11.1% 
+  Calls                     0.007M/sec         75.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3       1289.038M/sec     13837773 ops
+  Average Time per Call                    0.000143 secs
+  CrayPat Overhead : Time    1.1%                   
+  User time (approx)        0.011 secs     23617005 cycles  100.0% Time
+=======================================================================
+  USER / init_
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.003108 secs
+  Imb. Time                                0.000356 secs
+  Imb. Time%                                  11.0% 
+  Calls                   321.756 /sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3        208.816M/sec       648989 ops
+  Average Time per Call                    0.003108 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.003 secs      6837502 cycles  100.0% Time
+=======================================================================
+  USER / exit
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000028 secs
+  Imb. Time                                0.000029 secs
+  Imb. Time%                                  53.7% 
+  Calls                     0.035M/sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.319M/sec            9 ops
+  Average Time per Call                    0.000028 secs
+  CrayPat Overhead : Time    5.7%                   
+  User time (approx)        0.000 secs        62159 cycles  100.0% Time
+=======================================================================
+  MPI_SYNC
+-----------------------------------------------------------------------
+  Time%                                       13.1% 
+  Time                                     4.572301 secs
+  Imb. Time                                      -- secs
+  Imb. Time%                                     -- 
+  Calls                   119.090 /sec        544.5 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.027 /sec        0.125 ops
+  Average Time per Call                    0.008397 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        4.572 secs  10058778018 cycles  100.0% Time
+=======================================================================
+  MPI_SYNC / mpi_alltoall_(sync)
+-----------------------------------------------------------------------
+  Time%                                       11.8% 
+  Time                                     4.096615 secs
+  Imb. Time                                3.420281 secs
+  Imb. Time%                                  83.5% 
+  Calls                   109.849 /sec        450.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.015 /sec        0.062 ops
+  Average Time per Call                    0.009104 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        4.097 secs   9012367509 cycles  100.0% Time
+=======================================================================
+  MPI_SYNC / mpi_gather_(sync)
+-----------------------------------------------------------------------
+  Time%                                        0.8% 
+  Time                                     0.266497 secs
+  Imb. Time                                0.265959 secs
+  Imb. Time%                                  99.8% 
+  Calls                    69.435 /sec         18.5 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.235 /sec        0.062 ops
+  Average Time per Call                    0.014405 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.266 secs    586157927 cycles  100.0% Time
+=======================================================================
+  MPI_SYNC / mpi_allreduce_(sync)
+-----------------------------------------------------------------------
+  Time%                                        0.6% 
+  Time                                     0.209189 secs
+  Imb. Time                                0.124726 secs
+  Imb. Time%                                  59.6% 
+  Calls                   363.280 /sec         76.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3                                0 ops
+  Average Time per Call                    0.002752 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.209 secs    460252582 cycles  100.0% Time
+=======================================================================
+  MPI
+-----------------------------------------------------------------------
+  Time%                                        2.7% 
+  Time                                     0.949853 secs
+  Imb. Time                                      -- secs
+  Imb. Time%                                     -- 
+  Calls                   582.031 /sec        554.7 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.004M/sec         3559 ops
+  Average Time per Call                    0.001712 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.953 secs   2096651810 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_alltoall
+-----------------------------------------------------------------------
+  Time%                                        1.9% 
+  Time                                     0.659805 secs
+  Imb. Time                                0.109040 secs
+  Imb. Time%                                  15.1% 
+  Calls                   678.839 /sec        450.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.005M/sec         3334 ops
+  Average Time per Call                    0.001466 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.663 secs   1458376725 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_finalize
+-----------------------------------------------------------------------
+  Time%                                        0.7% 
+  Time                                     0.249706 secs
+  Imb. Time                                0.079974 secs
+  Imb. Time%                                  25.9% 
+  Calls                     4.005 /sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.501 /sec        0.125 ops
+  Average Time per Call                    0.249706 secs
+  CrayPat Overhead : Time    0.0%                   
+  User time (approx)        0.250 secs    549361634 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_gather
+-----------------------------------------------------------------------
+  Time%                                        0.1% 
+  Time                                     0.037899 secs
+  Imb. Time                                0.008529 secs
+  Imb. Time%                                  19.6% 
+  Calls                   487.329 /sec         18.5 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.002M/sec       58.125 ops
+  Average Time per Call                    0.002049 secs
+  CrayPat Overhead : Time    0.1%                   
+  User time (approx)        0.038 secs     83516772 cycles  100.0% Time
+=======================================================================
+  MPI / MPI_ALLREDUCE
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.001279 secs
+  Imb. Time                                0.000150 secs
+  Imb. Time%                                  11.2% 
+  Calls                     0.059M/sec         76.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.122M/sec      156.875 ops
+  Average Time per Call                    0.000017 secs
+  CrayPat Overhead : Time    9.5%                   
+  User time (approx)        0.001 secs      2834445 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_comm_split
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.001141 secs
+  Imb. Time                                0.000758 secs
+  Imb. Time%                                  42.6% 
+  Calls                     0.002M/sec          2.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.008M/sec        9.688 ops
+  Average Time per Call                    0.000570 secs
+  CrayPat Overhead : Time    0.3%                   
+  User time (approx)        0.001 secs      2511710 cycles  100.0% Time
+=======================================================================
+  MPI / MPI_COMM_SIZE
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000013 secs
+  Imb. Time                                0.000006 secs
+  Imb. Time%                                  34.4% 
+  Calls                     0.224M/sec          3.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3                                0 ops
+  Average Time per Call                    0.000004 secs
+  CrayPat Overhead : Time   36.7%                   
+  User time (approx)        0.000 secs        29420 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_comm_rank
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000006 secs
+  Imb. Time                                0.000002 secs
+  Imb. Time%                                  27.4% 
+  Calls                     0.500M/sec          3.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3                                0 ops
+  Average Time per Call                    0.000002 secs
+  CrayPat Overhead : Time   82.3%                   
+  User time (approx)        0.000 secs        13209 cycles  100.0% Time
+=======================================================================
+  MPI / MPI_INIT
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000002 secs
+  Imb. Time                                0.000001 secs
+  Imb. Time%                                  39.2% 
+  Calls                     0.529M/sec          1.0 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3                                0 ops
+  Average Time per Call                    0.000002 secs
+  CrayPat Overhead : Time   82.0%                   
+  User time (approx)        0.000 secs         4156 cycles  100.0% Time
+=======================================================================
+  MPI / mpi_wtime
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000001 secs
+  Imb. Time                                0.000017 secs
+  Imb. Time%                                 100.0% 
+  Calls                     0.110M/sec          0.1 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.220M/sec        0.250 ops
+  Average Time per Call                    0.000009 secs
+  CrayPat Overhead : Time   17.3%                   
+  User time (approx)        0.000 secs         2496 cycles  100.0% Time
+=======================================================================
+  MPI / MPI_GET_PROCESSOR_NAME
+-----------------------------------------------------------------------
+  Time%                                        0.0% 
+  Time                                     0.000001 secs
+  Imb. Time                                0.000012 secs
+  Imb. Time%                                 100.0% 
+  Calls                     0.111M/sec          0.1 calls
+  DISPATCHED_FPU_OPS:
+    OPS_DUAL_PIPE0:
+    OPS_DUAL_PIPE1:
+    OPS_DUAL_PIPE2:
+    OPS_DUAL_PIPE3          0.221M/sec        0.125 ops
+  Average Time per Call                    0.000012 secs
+  CrayPat Overhead : Time   13.0%                   
+  User time (approx)        0.000 secs         1243 cycles  100.0% Time
+
+
+Notes for table 3:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm]
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 3:  Load Balance with MPI Message Stats
+
+ Time%  |     Time  |   MPI  |    MPI Msg  |   Avg MPI  |Group 
+        |           |   Msg  |      Bytes  |  Msg Size  | PE=[mmm] 
+        |           | Count  |             |            |
+       
+ 100.0% | 45.639778 |  544.5 | 688825304.0 | 1265060.25 |Total
+|------------------------------------------------------------------
+|  87.9% | 40.115868 |    0.0 |         0.0 |         -- |USER
+||-----------------------------------------------------------------
+||  96.8% | 44.200987 |    0.0 |         0.0 |         -- |pe.0
+||  87.7% | 40.010299 |    0.0 |         0.0 |         -- |pe.2
+||  84.8% | 38.723532 |    0.0 |         0.0 |         -- |pe.13
+||=================================================================
+|  10.0% |  4.573171 |    0.0 |         0.0 |         -- |MPI_SYNC
+||-----------------------------------------------------------------
+||  12.9% |  5.909528 |    0.0 |         0.0 |         -- |pe.13
+||   9.9% |  4.538886 |    0.0 |         0.0 |         -- |pe.12
+||   1.8% |  0.839883 |    0.0 |         0.0 |         -- |pe.0
+||=================================================================
+|   2.1% |  0.950739 |  544.5 | 688825304.0 | 1265060.25 |MPI
+||-----------------------------------------------------------------
+||   2.5% |  1.145089 |  537.0 | 688750304.0 | 1282589.02 |pe.6
+||   2.2% |  1.000478 |  552.0 | 688900304.0 | 1248007.80 |pe.2
+||   1.3% |  0.598374 |  567.0 | 689050304.0 | 1215256.27 |pe.0
+|==================================================================
+
+
+Notes for table 4:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm,Mc@,Mb1..7 -b fu,ca,pe=[mmm]
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with MPI Msg Count > 0.
+
+
+Table 4:  MPI Message Stats by Caller
+
+    MPI Msg  |   MPI  | MsgSz  | 4KB<=  | 64KB<=  | 1MB<=  |Function 
+      Bytes  |   Msg  |  <16B  | MsgSz  |  MsgSz  | MsgSz  | Caller 
+             | Count  | Count  | <64KB  |   <1MB  | <16MB  |  PE=[mmm] 
+             |        |        | Count  |  Count  | Count  |
+            
+ 688825304.0 |  544.5 |   76.0 |    7.5 |   450.0 |   11.0 |Total
+|------------------------------------------------------------------------
+| 675000000.0 |  450.0 |    0.0 |    0.0 |   450.0 |    0.0 |mpi_alltoall
+||-----------------------------------------------------------------------
+|| 450000000.0 |  300.0 |    0.0 |    0.0 |   300.0 |    0.0 |sweepy_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4||| 450000000.0 |  300.0 |    0.0 |    0.0 |   300.0 |    0.0 |pe.0
+4||| 450000000.0 |  300.0 |    0.0 |    0.0 |   300.0 |    0.0 |pe.8
+4||| 450000000.0 |  300.0 |    0.0 |    0.0 |   300.0 |    0.0 |pe.15
+||||=====================================================================
+|| 225000000.0 |  150.0 |    0.0 |    0.0 |   150.0 |    0.0 |sweepz_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4||| 225000000.0 |  150.0 |    0.0 |    0.0 |   150.0 |    0.0 |pe.0
+4||| 225000000.0 |  150.0 |    0.0 |    0.0 |   150.0 |    0.0 |pe.8
+4||| 225000000.0 |  150.0 |    0.0 |    0.0 |   150.0 |    0.0 |pe.15
+||=======================================================================
+|  13825000.0 |   18.5 |    0.0 |    7.5 |     0.0 |   11.0 |mpi_gather
+||-----------------------------------------------------------------------
+||  13750000.0 |   11.0 |    0.0 |    0.0 |     0.0 |   11.0 |prin_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4|||  13750000.0 |   11.0 |    0.0 |    0.0 |     0.0 |   11.0 |pe.0
+4|||  13750000.0 |   11.0 |    0.0 |    0.0 |     0.0 |   11.0 |pe.8
+4|||  13750000.0 |   11.0 |    0.0 |    0.0 |     0.0 |   11.0 |pe.15
+||||=====================================================================
+||     37500.0 |    3.8 |    0.0 |    3.8 |     0.0 |    0.0 |imagesxy_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4|||    150000.0 |   15.0 |    0.0 |   15.0 |     0.0 |    0.0 |pe.0
+4|||         0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||         0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.15
+||||=====================================================================
+||     37500.0 |    3.8 |    0.0 |    3.8 |     0.0 |    0.0 |imagesxz_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4|||    150000.0 |   15.0 |    0.0 |   15.0 |     0.0 |    0.0 |pe.0
+4|||         0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.6
+4|||         0.0 |    0.0 |    0.0 |    0.0 |     0.0 |    0.0 |pe.15
+||=======================================================================
+|       304.0 |   76.0 |   76.0 |    0.0 |     0.0 |    0.0 |MPI_ALLREDUCE
+||-----------------------------------------------------------------------
+||       300.0 |   75.0 |   75.0 |    0.0 |     0.0 |    0.0 |dtcon_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4|||       300.0 |   75.0 |   75.0 |    0.0 |     0.0 |    0.0 |pe.0
+4|||       300.0 |   75.0 |   75.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||       300.0 |   75.0 |   75.0 |    0.0 |     0.0 |    0.0 |pe.15
+||||=====================================================================
+||         4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |init_
+3|             |        |        |        |         |        | vhone_
+||||---------------------------------------------------------------------
+4|||         4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.0
+4|||         4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.8
+4|||         4.0 |    1.0 |    1.0 |    0.0 |     0.0 |    0.0 |pe.15
+|========================================================================
+
+
+Notes for table 5:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm]
+  Other options:
+    -T 
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+
+
+Table 5:  Wall Clock Time, Memory High Water Mark
+
+  Process  |  Process  |PE=[mmm] 
+     Time  |    HiMem  |
+           | (MBytes)  |
+          
+ 46.156582 |    34.366 |Total
+|--------------------------------
+| 46.157295 |    33.109 |pe.10
+| 46.156565 |    31.527 |pe.3
+| 46.155802 |    31.711 |pe.9
+|================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/widow3/scratch/levesque/VH1_version1/vhone+pat+7067-10050t.xf  (RTS)
+
+Original program:  /lustre/widow3/scratch/levesque/VH1_version1/vhone
+
+Instrumented with:  pat_build -u -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 16 PEs
+
+CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  Configured for  0 PEs
+                         Capable    for 16 PEs
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia X2090 Memory: 6.00 GB Frequency: 1.15 GHz
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  PBS_VERSION=TORQUE-2.5.9-snap.201111021154
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  ASYNCPE_VERSION=5.05
+  ATP_HOME=/opt/cray/atp/1.4.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.4.1/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.4.1/lib/ -Wl,-lAtpSigHandler -Wl,--undefined=__atpHandlerInstall
+  LIBSCI_VERSION=11.0.04.4
+  MPICH_ABORT_ON_ERROR=1
+  PGI_VERSION=12.1
+  XTOS_VERSION=4.0.30
+  CRAY_MPICH2_VERSION=5.4.1
+  MPICH_DIR=/opt/cray/mpt/5.4.1/xt/gemini/mpich2-pgi/109
+  PAT_RT_HWPC=12
+
+Report time environment variables:
+  CRAYPAT_ROOT=/opt/cray/perftools/5.3.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_
+
+Report command line options:  -T
+
+Operating system:
+  Linux 2.6.32.45-0.3.2_1.0400.6221-cray_gem_c #1 SMP Wed Sep 28 03:54:16 UTC 2011
+
+Hardware performance counter events:
+   DISPATCHED_FPU_OPS:OPS_DUAL_PIPE0:OPS_DUAL_PIPE1:OPS_DUAL_PIPE2:OPS_DUAL_PIPE3  FPU Pipe Assignment
+   CYCLES_RTC                                                                      User Cycles (approx, from rtc)
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    DISPATCHED_FPU_OPS:OPS_DUAL_PIPE0:OPS_DUAL_PIPE1:OPS_DUAL_PIPE2:OPS_DUAL_PIPE3  0.000  
+    CYCLES_RTC                                                                   3543.978  
+    Time                                                                            1.598  microsecs
+
+Number of traced functions:  88
+
+  (To see the list, specify:  -s traced_functions=show)
+

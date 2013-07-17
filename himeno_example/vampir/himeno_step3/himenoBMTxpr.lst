@@ -1,0 +1,1066 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S u m m a r y   R e p o r t
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Compilation
+-----------
+File     : /lustre/scratch/csep44/himeno/himeno_step3/himenoBMTxpr.f
+Compiled : 07/17/13  10:36:00
+Compiler : Version 8.1.8
+Ftnlx    : Version 8128 (libcif 81032)
+Target   : x86-64
+Command  : /opt/cray/cce/8.1.8/cftn/x86-64/bin/ftn_driver.exe -hcpu=interlagos
+           -haccel=nvidia_35 -hnetwork=gemini -hdynamic
+           -I/sw/xk6/vampirtrace/5.14.3-chester/cle4.1_cray8.1.8/include/vampirt
+           race -hfunc_trace -rm -eF -DGPU -ohimeno_acc
+           -L/sw/xk6/vampirtrace/5.14.3-chester/cle4.1_cray8.1.8/lib -lfmpich
+           -lvt-hyb -lvt-mpi-unify -lotfaux
+           -L/opt/cray/cce/8.1.8/CC/x86-64/lib/x86-64 -lcray-c++-rts
+           -lcraystdc++ -lmpich -lopen-trace-format -lz
+           -L/opt/cray/papi/5.1.0.2/perf_events/no-cuda/lib/ -lpapi -ldl
+           -L/opt/nvidia/cudatoolkit/5.0.35/extras/CUPTI/lib64/ -lcupti
+           -L/opt/nvidia/cudatoolkit/5.0.35/lib64/ -lcuda -lcudart
+           -I/opt/nvidia/cudatoolkit/5.0.35/include
+           -I/opt/nvidia/cudatoolkit/5.0.35/extras/CUPTI/include
+           -I/opt/nvidia/cudatoolkit/5.0.35/extras/Debugger/include
+           -I/opt/cray/papi/5.1.0.2/perf_events/no-cuda/include
+           -I/opt/cray/udreg/2.3.2-1.0401.5929.3.3.gem/include
+           -I/opt/cray/ugni/4.0-1.0401.5928.9.5.gem/include
+           -I/opt/cray/dmapp/3.2.1-1.0401.5983.4.5.gem/include
+           -I/opt/cray/gni-headers/2.1-1.0401.5675.4.4.gem/include
+           -I/opt/cray/xpmem/0.1-2.0401.36790.4.3.gem/include
+           -I/opt/cray/pmi/4.0.1-1.0000.9421.73.3.gem/include
+           -I/opt/cray/rca/1.0.0-2.0401.38656.2.2.gem/include
+           -I/opt/cray-hss-devel/7.0.0/include
+           -I/opt/cray/krca/1.0.0-2.0401.36792.3.70.gem/include
+           -I/opt/cray/cce/8.1.8/craylibs/x86-64/include -haccel=nvidia_35
+           -L/opt/nvidia/cudatoolkit/5.0.35/lib64
+           -L/opt/nvidia/cudatoolkit/5.0.35/extras/CUPTI/lib64
+           -L/opt/cray/nvidia/default/lib64 -lcuda
+           -L/opt/cray/papi/5.1.0.2/perf_events/no-cuda/lib -lpapi
+           -L/opt/cray/udreg/2.3.2-1.0401.5929.3.3.gem/lib64
+           -L/opt/cray/ugni/4.0-1.0401.5928.9.5.gem/lib64
+           -L/opt/cray/dmapp/3.2.1-1.0401.5983.4.5.gem/lib64
+           -L/opt/cray/xpmem/0.1-2.0401.36790.4.3.gem/lib64
+           -L/opt/cray/pmi/4.0.1-1.0000.9421.73.3.gem/lib64
+           -L/opt/cray/rca/1.0.0-2.0401.38656.2.2.gem/lib64 -lrca
+           -L/opt/cray/cce/8.1.8/craylibs/x86-64 -L/opt/gcc/4.4.4/snos/lib64
+           -D__CRAYXE -D__CRAYXT_COMPUTE_LINUX_TARGET -D__TARGET_LINUX__
+           -I/opt/cray/mpt/5.6.5/gni/mpich2-cray/74/include
+           -I/opt/cray/libsci_acc/2.0.02/cray/81/x86_64/include
+           -I/opt/cray/libsci/12.0.01/cray/74/interlagos/include
+           -L/opt/cray/mpt/5.6.5/gni/mpich2-cray/74/lib
+           -L/opt/cray/libsci_acc/2.0.02/cray/81/x86_64/lib
+           -L/opt/cray/libsci/12.0.01/cray/74/interlagos/lib
+           -lsci_acc_cray_nv35 -lscicpp_cray -lsci_cray_mp -lcufft -lcublas
+           -lmpichf90_cray -lmpich_cray -lmpl -lpmi -lalpslli -lalpsutil
+           -lpthread -lstdc++ -L/usr/lib/alps himenoBMTxpr.f
+
+ftnlx report
+------------
+Source   : /lustre/scratch/csep44/himeno/himeno_step3/himenoBMTxpr.f
+Date     : 07/17/2013  10:36:24
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+     %%%    L o o p m a r k   L e g e n d    %%%
+
+     Primary Loop Type        Modifiers
+     ------- ---- ----        ---------
+     A - Pattern matched      a - atomic memory operation
+                              b - blocked
+     C - Collapsed            c - conditional and/or computed
+     D - Deleted               
+     E - Cloned               f - fused
+     G - Accelerated          g - partitioned
+     I - Inlined              i - interchanged
+     M - Multithreaded        m - partitioned
+                              n - non-blocking remote transfer
+                              p - partial
+                              r - unrolled
+                              s - shortloop
+     V - Vectorized           w - unwound
+
+     + - More messages listed at end of listing
+     ------------------------------------------
+
+
+    1.                     C*********************************************************************
+    2.                     C
+    3.                     C This benchmark test program is measuring a cpu performance
+    4.                     C of floating point operation by a Poisson equation solver.
+    5.                     CC
+    6.                     C If you have any question, please ask me via email.
+    7.                     C written by Ryutaro HIMENO, November 26, 2001.
+    8.                     C Version 3.0
+    9.                     C ----------------------------------------------
+   10.                     C Ryutaro Himeno, Dr. of Eng.
+   11.                     C Head of Computer Information Division,
+   12.                     C RIKEN (The Institute of Pysical and Chemical Research)
+   13.                     C Email : himeno@postman.riken.go.jp
+   14.                     C -----------------------------------------------------------
+   15.                     C You can adjust the size of this benchmark code to fit your target
+   16.                     C computer. In that case, please chose following sets of
+   17.                     C (mimax,mjmax,mkmax):
+   18.                     C small : 65,33,33
+   19.                     C small : 129,65,65
+   20.                     C midium: 257,129,129
+   21.                     C large : 513,257,257
+   22.                     C ext.large: 1025,513,513
+   23.                     C This program is to measure a computer performance in MFLOPS
+   24.                     C by using a kernel which appears in a linear solver of pressure
+   25.                     C Poisson eq. which appears in an incompressible Navier-Stokes solver.
+   26.                     C A point-Jacobi method is employed in this solver as this method can 
+   27.                     C be easyly vectrized and be parallelized.
+   28.                     C ------------------
+   29.                     C Finite-difference method, curvilinear coodinate system
+   30.                     C Vectorizable and parallelizable on each grid point
+   31.                     C No. of grid points : imax x jmax x kmax including boundaries
+   32.                     C ------------------
+   33.                     C A,B,C:coefficient matrix, wrk1: source term of Poisson equation
+   34.                     C wrk2 : working area, OMEGA : relaxation parameter
+   35.                     C BND:control variable for boundaries and objects ( = 0 or 1)
+   36.                     C P: pressure
+   37.                     C -------------------
+   38.                           PROGRAM HIMENOBMTXP
+   39.                     C
+   40.                           IMPLICIT REAL*4(a-h,o-z)
+   41.                     C
+   42.                           include 'mpif.h'
+   43.                           include 'param.h'
+   44.                     C
+   45.                     C     ttarget specifys the measuring period in sec
+   46.                           PARAMETER (ttarget=60.0)
+   47.                     C
+   48.                           real*8  cpu,cpu0,cpu1,xmflops2,flop
+   49.                     C
+   50.                           omega=0.8
+   51.                           mx= mx0-1
+   52.                           my= my0-1
+   53.                           mz= mz0-1
+   54.                     C
+   55.                     CC Initializing communicator
+   56.  +                        call initcomm
+   57.                     C
+   58.                     CC Initializaing computational index
+   59.  +                        call initmax(mx,my,mz,it)
+   60.                     C
+   61.                     CC Initializing matrixes
+   62.  +                        call initmt(mz,it)
+   63.                           if(id .eq. 0) then
+   64.                              write(*,*) 'Sequential version array size'
+   65.                              write(*,*) ' mimax=',mx0,' mjmax=',my0,' mkmax=',mz0
+   66.                              write(*,*) 'Parallel version  array size'
+   67.                              write(*,*) ' mimax=',mimax,' mjmax=',mjmax,' mkmax=',mkmax
+   68.                              write(*,*) ' imax=',imax,' jmax=',jmax,' kmax=',kmax
+   69.                              write(*,*) ' I-decomp= ',ndx,' J-decomp= ',ndy,
+   70.                          >              ' K-decomp= ',ndz
+   71.                              write(*,*)
+   72.                           end if
+   73.                     C
+   74.                     CC Start measuring
+   75.                     C
+   76.                           nn=3
+   77.                           if(id .eq. 0) then
+   78.                              write(*,*) ' Start rehearsal measurement process.'
+   79.                              write(*,*) ' Measure the performance in 3 times.'
+   80.                           end if
+   81.                     C
+   82.                           gosa= 0.0
+   83.                           cpu= 0.0
+   84.  +                        call mpi_barrier(mpi_comm_world,ierr)
+   85.  +                        cpu0= mpi_wtime()
+   86.                     C Jacobi iteration
+   87.  +                        call jacobi(nn,gosa)
+   88.  +                        cpu1= mpi_wtime() - cpu0
+   89.                     C
+   90.  +                        call mpi_allreduce(cpu1,
+   91.                          >                   cpu,
+   92.                          >                   1,
+   93.                          >                   mpi_real8,
+   94.                          >                   mpi_max,
+   95.                          >                   mpi_comm_world,
+   96.                          >                   ierr)
+   97.                     C
+   98.                           flop=real(mx-2)*real(my-2)*real(mz-2)*34.0
+   99.                           if(cpu .ne. 0.0) xmflops2=flop/cpu*1.0d-6*real(nn)
+  100.                           if(id .eq. 0) then
+  101.                              write(*,*) '  MFLOPS:',xmflops2,'  time(s):',cpu,gosa
+  102.                           end if
+  103.  +                        nn= int(ttarget/(cpu/3.0))
+  104.                     C
+  105.                     C     end the test loop
+  106.                           if(id .eq. 0) then
+  107.                              write(*,*) 'Now, start the actual measurement process.'
+  108.                              write(*,*) 'The loop will be excuted in',nn,' times.'
+  109.                              write(*,*) 'This will take about one minute.'
+  110.                              write(*,*) 'Wait for a while.'
+  111.                           end if
+  112.                     C
+  113.                           gosa= 0.0
+  114.                           cpu= 0.0
+  115.  +                        call mpi_barrier(mpi_comm_world,ierr)
+  116.  +                        cpu0= mpi_wtime()
+  117.                     C Jacobi iteration
+  118.  +                        call jacobi(nn,gosa)
+  119.  +                        cpu1= mpi_wtime() - cpu0
+  120.                     C
+  121.  +                        call mpi_reduce(cpu1,
+  122.                          >                cpu,
+  123.                          >                1,
+  124.                          >                mpi_real8,
+  125.                          >                mpi_max,
+  126.                          >                0,
+  127.                          >                mpi_comm_world,
+  128.                          >                ierr)
+  129.                     C
+  130.                           if(id .eq. 0) then
+  131.                              if(cpu .ne. 0.0)  xmflops2=flop*1.0d-6/cpu*real(nn)
+  132.                     C
+  133.                              write(*,*) ' Loop executed for ',nn,' times'
+  134.                              write(*,*) ' Gosa :',gosa
+  135.                              write(*,*) ' MFLOPS:',xmflops2, '  time(s):',cpu
+  136.  +                           score=xmflops2/82.84
+  137.                              write(*,*) ' Score based on Pentium III 600MHz :',score
+  138.                           end if
+  139.  +                        call mpi_finalize(ierr)
+  140.                     C
+  141.                           stop
+  142.                           END
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 56 
+  "initcomm" (called from "HIMENOBMTXP") was not inlined because the call site will not flatten.  Routine "mpi_init" is missing.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 59 
+  "initmax" (called from "HIMENOBMTXP") was not inlined because the call site will not flatten.  Routine "mpi_type_vector" is
+  missing.
+
+ftn-3171 ftn: IPA File = himenoBMTxpr.f, Line = 62 
+  "initmt" (called from "HIMENOBMTXP") was not inlined because it is not in the body of a loop.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 84 
+  "mpi_barrier" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 85 
+  "mpi_wtime" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 87 
+  "jacobi" (called from "HIMENOBMTXP") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 88 
+  "mpi_wtime" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 90 
+  "mpi_allreduce" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-6010 ftn: SCALAR File = himenoBMTxpr.f, Line = 103 
+  A divide was turned into a multiply by a reciprocal
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 115 
+  "mpi_barrier" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 116 
+  "mpi_wtime" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 118 
+  "jacobi" (called from "HIMENOBMTXP") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 119 
+  "mpi_wtime" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 121 
+  "mpi_reduce" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+ftn-6010 ftn: SCALAR File = himenoBMTxpr.f, Line = 136 
+  A divide was turned into a multiply by a reciprocal
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 139 
+  "mpi_finalize" (called from "HIMENOBMTXP") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  143.                     C
+  144.                     C
+  145.                     C**************************************************************
+  146.                           subroutine initmt(mz,it)
+  147.                     C**************************************************************
+  148.                           IMPLICIT REAL*4(a-h,o-z)
+  149.                     C
+  150.                           include 'param.h'
+  151.                     C
+  152.                     ! Directive inserted by Cray Reveal.  May be incomplete.
+  153.    M--------------< !$OMP  parallel do default(none)                      
+  154.    M                !$OMP&   private (i,j,k)                             
+  155.    M                !$OMP&   shared  (a,b,bnd,c,p,wrk1,wrk2)
+  156.  + M m------------<       do k=1,mkmax
+  157.    M m C----------<          do j=1,mjmax
+  158.    M m C VCr4-----<             do i=1,mimax
+  159.    M m C VCr4                      a(i,j,k,1)=0.0
+  160.    M m C VCr4                      a(i,j,k,2)=0.0
+  161.    M m C VCr4                      a(i,j,k,3)=0.0
+  162.    M m C VCr4                      a(i,j,k,4)=0.0
+  163.    M m C VCr4                      b(i,j,k,1)=0.0
+  164.    M m C VCr4                      b(i,j,k,2)=0.0
+  165.    M m C VCr4                      b(i,j,k,3)=0.0
+  166.    M m C VCr4                      c(i,j,k,1)=0.0
+  167.    M m C VCr4                      c(i,j,k,2)=0.0
+  168.    M m C VCr4                      c(i,j,k,3)=0.0
+  169.    M m C VCr4 A--<>                p(i,j,k)=0.0
+  170.    M m C VCr4 A--<>                wrk1(i,j,k)=0.0   
+  171.    M m C VCr4 A--<>                wrk2(i,j,k)=0.0   
+  172.    M m C VCr4 A--<>                bnd(i,j,k)=0.0 
+  173.    M m C VCr4----->             enddo
+  174.    M m C---------->          enddo
+  175.    M m----------->>       enddo
+  176.                     C
+  177.  + 1--------------<       do k=1,kmax
+  178.  + 1 2------------<          do j=1,jmax
+  179.    1 2 Vr2--------<             do i=1,imax
+  180.    1 2 Vr2                         a(i,j,k,1)=1.0
+  181.    1 2 Vr2                         a(i,j,k,2)=1.0
+  182.    1 2 Vr2                         a(i,j,k,3)=1.0
+  183.    1 2 Vr2                         a(i,j,k,4)=1.0/6.0
+  184.    1 2 Vr2                         b(i,j,k,1)=0.0
+  185.    1 2 Vr2                         b(i,j,k,2)=0.0
+  186.    1 2 Vr2                         b(i,j,k,3)=0.0
+  187.    1 2 Vr2                         c(i,j,k,1)=1.0
+  188.    1 2 Vr2                         c(i,j,k,2)=1.0
+  189.    1 2 Vr2                         c(i,j,k,3)=1.0
+  190.  + 1 2 Vr2                         p(i,j,k)=float((k-1+it)*(k-1+it))
+  191.    1 2 Vr2               >                       /float((mz-1)*(mz-1))
+  192.    1 2 Vr2                         wrk1(i,j,k)=0.0   
+  193.    1 2 Vr2                         wrk2(i,j,k)=0.0   
+  194.    1 2 Vr2                         bnd(i,j,k)=1.0
+  195.    1 2 Vr2-------->             enddo
+  196.    1 2------------>          enddo
+  197.    1-------------->       enddo
+  198.                     C
+  199.                           return
+  200.                           end
+
+ftn-6823 ftn: THREAD File = himenoBMTxpr.f, Line = 153 
+  A region starting at line 153 and ending at line 175 was multi-threaded.
+
+ftn-6294 ftn: VECTOR File = himenoBMTxpr.f, Line = 156 
+  A loop starting at line 156 was not vectorized because a better candidate was found at line 158.
+
+ftn-6817 ftn: THREAD File = himenoBMTxpr.f, Line = 156 
+  A loop starting at line 156 was partitioned.
+
+ftn-6003 ftn: SCALAR File = himenoBMTxpr.f, Line = 157 
+  A loop starting at line 157 was collapsed into the loop starting at line 158.
+
+ftn-6005 ftn: SCALAR File = himenoBMTxpr.f, Line = 158 
+  A loop starting at line 158 was unrolled 4 times.
+
+ftn-6204 ftn: VECTOR File = himenoBMTxpr.f, Line = 158 
+  A loop starting at line 158 was vectorized.
+
+ftn-6231 ftn: VECTOR File = himenoBMTxpr.f, Line = 169 
+  A statement was replaced by a library call.
+
+ftn-6231 ftn: VECTOR File = himenoBMTxpr.f, Line = 170 
+  A statement was replaced by a library call.
+
+ftn-6231 ftn: VECTOR File = himenoBMTxpr.f, Line = 171 
+  A statement was replaced by a library call.
+
+ftn-6231 ftn: VECTOR File = himenoBMTxpr.f, Line = 172 
+  A statement was replaced by a library call.
+
+ftn-6294 ftn: VECTOR File = himenoBMTxpr.f, Line = 177 
+  A loop starting at line 177 was not vectorized because a better candidate was found at line 179.
+
+ftn-6294 ftn: VECTOR File = himenoBMTxpr.f, Line = 178 
+  A loop starting at line 178 was not vectorized because a better candidate was found at line 179.
+
+ftn-6005 ftn: SCALAR File = himenoBMTxpr.f, Line = 179 
+  A loop starting at line 179 was unrolled 2 times.
+
+ftn-6204 ftn: VECTOR File = himenoBMTxpr.f, Line = 179 
+  A loop starting at line 179 was vectorized.
+
+ftn-6010 ftn: SCALAR File = himenoBMTxpr.f, Line = 190 
+  A divide was turned into a multiply by a reciprocal
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  201.                     C
+  202.                     C*************************************************************
+  203.                           subroutine jacobi(nn,gosa)
+  204.                     C*************************************************************
+  205.                           IMPLICIT REAL*4(a-h,o-z)
+  206.                     C
+  207.                           include 'mpif.h'
+  208.                           include 'param.h'
+  209.                     C
+  210.  + 1--------------<       DO loop=1,nn
+  211.    1                         gosa=0.0
+  212.    1                         wgosa=0.0
+  213.    1                ! Directive inserted by Cray Reveal.  May be incomplete.
+  214.    1                #ifdef GPU
+  215.  + 1 G------------< !$ACC  parallel loop 
+  216.    1 G              !$ACC&   private (i,j,k,s0,ss)                                    
+  217.    1 G              !$ACC&   reduction (+:wgosa)
+  218.    1 G              #else
+  219.    1 G              !$OMP  parallel do default(none)                                   
+  220.    1 G              !$OMP&   private (i,j,k,s0,ss)                                    
+  221.    1 G              !$OMP&   shared  (a,b,bnd,c,imax,jmax,kmax,omega,p,wrk1,wrk2)    
+  222.    1 G              !$OMP&   reduction (+:wgosa)
+  223.    1 G              #endif
+  224.    1 G g----------<          DO K=2,kmax-1
+  225.  + 1 G g 4--------<             DO J=2,jmax-1
+  226.    1 G g 4 g------<                DO I=2,imax-1
+  227.    1 G g 4 g                          S0=a(I,J,K,1)*p(I+1,J,K)+a(I,J,K,2)*p(I,J+1,K)
+  228.    1 G g 4 g             1                 +a(I,J,K,3)*p(I,J,K+1)
+  229.    1 G g 4 g             2                 +b(I,J,K,1)*(p(I+1,J+1,K)-p(I+1,J-1,K)
+  230.    1 G g 4 g             3                 -p(I-1,J+1,K)+p(I-1,J-1,K))
+  231.    1 G g 4 g             4                 +b(I,J,K,2)*(p(I,J+1,K+1)-p(I,J-1,K+1)
+  232.    1 G g 4 g             5                 -p(I,J+1,K-1)+p(I,J-1,K-1))
+  233.    1 G g 4 g             6                 +b(I,J,K,3)*(p(I+1,J,K+1)-p(I-1,J,K+1)
+  234.    1 G g 4 g             7                 -p(I+1,J,K-1)+p(I-1,J,K-1))
+  235.    1 G g 4 g             8                 +c(I,J,K,1)*p(I-1,J,K)+c(I,J,K,2)*p(I,J-1,K)
+  236.    1 G g 4 g             9                 +c(I,J,K,3)*p(I,J,K-1)+wrk1(I,J,K)
+  237.    1 G g 4 g                          SS=(S0*a(I,J,K,4)-p(I,J,K))*bnd(I,J,K)
+  238.    1 G g 4 g                          WGOSA=WGOSA+SS*SS
+  239.    1 G g 4 g                          wrk2(I,J,K)=p(I,J,K)+OMEGA *SS
+  240.    1 G g 4 g------>                enddo
+  241.    1 G g 4-------->             enddo
+  242.    1 G g---------->          enddo
+  243.    1 G              #ifdef GPU
+  244.    1 G------------> !$ACC  end parallel loop 
+  245.    1                #endif
+  246.    1                C     
+  247.  + 1 2------------<          DO K=2,kmax-1
+  248.  + 1 2 3----------<             DO J=2,jmax-1
+  249.    1 2 3 A--------<                DO I=2,imax-1
+  250.    1 2 3 A                            p(I,J,K)=wrk2(I,J,K)
+  251.    1 2 3 A-------->                enddo
+  252.    1 2 3---------->             enddo
+  253.    1 2------------>          enddo
+  254.    1                C
+  255.  + 1                         call sendp(ndx,ndy,ndz)
+  256.    1                C
+  257.  + 1                         call mpi_allreduce(wgosa,
+  258.    1                     >                      gosa,
+  259.    1                     >                      1,
+  260.    1                     >                      mpi_real4,
+  261.    1                     >                      mpi_sum,
+  262.    1                     >                      mpi_comm_world,
+  263.    1                     >                      ierr)
+  264.    1                C
+  265.    1-------------->       enddo
+  266.                     CC End of iteration
+  267.                           return
+  268.                           end
+
+ftn-6288 ftn: VECTOR File = himenoBMTxpr.f, Line = 210 
+  A loop starting at line 210 was not vectorized because it contains a call to subroutine "sendp" on line 255.
+
+ftn-6405 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  A region starting at line 215 and ending at line 244 was placed on the accelerator.
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "p" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "a" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "b" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "c" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "wrk1" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6418 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "bnd" to accelerator, free at line 244 (acc_copyin).
+
+ftn-6416 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  If not already present: allocate memory and copy whole array "wrk2" to accelerator, copy back at line 244 (acc_copy).
+
+ftn-6415 ftn: ACCEL File = himenoBMTxpr.f, Line = 215 
+  Allocate memory and copy variable "wgosa" to accelerator, copy back at line 244 (acc_copy).
+
+ftn-6430 ftn: ACCEL File = himenoBMTxpr.f, Line = 224 
+  A loop starting at line 224 was partitioned across the thread blocks.
+
+ftn-6509 ftn: ACCEL File = himenoBMTxpr.f, Line = 225 
+  A loop starting at line 225 was not partitioned because a better candidate was found at line 226.
+
+ftn-6412 ftn: ACCEL File = himenoBMTxpr.f, Line = 225 
+  A loop starting at line 225 will be redundantly executed.
+
+ftn-6430 ftn: ACCEL File = himenoBMTxpr.f, Line = 226 
+  A loop starting at line 226 was partitioned across the 128 threads within a threadblock.
+
+ftn-6294 ftn: VECTOR File = himenoBMTxpr.f, Line = 247 
+  A loop starting at line 247 was not vectorized because a better candidate was found at line 249.
+
+ftn-6294 ftn: VECTOR File = himenoBMTxpr.f, Line = 248 
+  A loop starting at line 248 was not vectorized because a better candidate was found at line 249.
+
+ftn-6202 ftn: VECTOR File = himenoBMTxpr.f, Line = 249 
+  A loop starting at line 249 was replaced by a library call.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 255 
+  "sendp" (called from "jacobi") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 257 
+  "mpi_allreduce" (called from "jacobi") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  269.                     c
+  270.                     c
+  271.                     c
+  272.                           subroutine initcomm
+  273.                     c
+  274.                           IMPLICIT REAL*4(a-h,o-z)
+  275.                     c
+  276.                           include 'mpif.h'
+  277.                           include 'param.h'
+  278.                     c
+  279.                           logical    ipd(3),ir
+  280.                           dimension  idm(3)
+  281.                     c
+  282.  +                        call mpi_init(ierr)
+  283.  +                        call mpi_comm_size(mpi_comm_world,npe,ierr)
+  284.  +                        call mpi_comm_rank(mpi_comm_world,id,ierr)
+  285.                     C
+  286.                           if(ndx*ndy*ndz .ne. npe) then
+  287.                              if(id .eq. 0) then
+  288.                                 write(*,*) 'Invalid number of PE'
+  289.                                 write(*,*) 'Please check partitioning pattern'
+  290.                                 write(*,*) '                 or number of  PE'
+  291.                              end if
+  292.  +                           call mpi_finalize(ierr)
+  293.                              stop
+  294.                           end if
+  295.                     C
+  296.                           icomm= mpi_comm_world
+  297.                     c
+  298.                           idm(1)= ndx
+  299.                           idm(2)= ndy
+  300.                           idm(3)= ndz
+  301.                     C
+  302.                           ipd(1)= .false.
+  303.                           ipd(2)= .false.
+  304.                           ipd(3)= .false.
+  305.                           ir= .false.
+  306.                     C
+  307.  +                        call mpi_cart_create(icomm,
+  308.                          >                     ndims,
+  309.                          >                     idm,
+  310.                          >                     ipd,
+  311.                          >                     ir,
+  312.                          >                     mpi_comm_cart,
+  313.                          >                     ierr)
+  314.  +                        call mpi_cart_get(mpi_comm_cart,
+  315.                          >                  ndims,
+  316.                          >                  idm,
+  317.                          >                  ipd,
+  318.                          >                  iop,
+  319.                          >                  ierr)
+  320.                     c
+  321.                     c
+  322.                           if(ndz .gt. 1) then
+  323.  +                           call mpi_cart_shift(mpi_comm_cart,
+  324.                          >                       2,
+  325.                          >                       1,
+  326.                          >                       npz(1),
+  327.                          >                       npz(2),
+  328.                          >                       ierr)
+  329.                           end if
+  330.                     c
+  331.                           if(ndy .gt. 1) then
+  332.  +                           call mpi_cart_shift(mpi_comm_cart,
+  333.                          >                       1,
+  334.                          >                       1,
+  335.                          >                       npy(1),
+  336.                          >                       npy(2),
+  337.                          >                       ierr)
+  338.                           end if
+  339.                     c
+  340.                           if(ndx .gt. 1) then
+  341.  +                           call mpi_cart_shift(mpi_comm_cart,
+  342.                          >                       0,
+  343.                          >                       1,
+  344.                          >                       npx(1),
+  345.                          >                       npx(2),
+  346.                          >                       ierr)
+  347.                           end if
+  348.                     c
+  349.                           return
+  350.                           end
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 282 
+  "mpi_init" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 283 
+  "mpi_comm_size" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 284 
+  "mpi_comm_rank" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 292 
+  "mpi_finalize" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 307 
+  "mpi_cart_create" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 314 
+  "mpi_cart_get" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 323 
+  "mpi_cart_shift" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 332 
+  "mpi_cart_shift" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 341 
+  "mpi_cart_shift" (called from "INITCOMM") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  351.                     c
+  352.                     c
+  353.                     c
+  354.                           subroutine initmax(mx,my,mz,ks)
+  355.                     c
+  356.                           IMPLICIT REAL*4(a-h,o-z)
+  357.                     c
+  358.                           include 'param.h'
+  359.                           include 'mpif.h'
+  360.                     C
+  361.                           integer  itmp,ks
+  362.                           integer  mx1(0:ndx),my1(0:ndy),mz1(0:ndz)
+  363.                           integer  mx2(0:ndx),my2(0:ndy),mz2(0:ndz)
+  364.                     C
+  365.                     CC    define imax, communication direction
+  366.                           itmp= mx/ndx
+  367.                           mx1(0)= 0
+  368.  + 1--------------<       do  i=1,ndx
+  369.    1                         if(i .le. mod(mx,ndx)) then
+  370.    1                            mx1(i)= mx1(i-1) + itmp + 1
+  371.    1                         else
+  372.    1                            mx1(i)= mx1(i-1) + itmp
+  373.    1                         end if
+  374.    1-------------->       end do
+  375.    w--------------<       do i=0,ndx-1
+  376.    w                         mx2(i)= mx1(i+1) - mx1(i)
+  377.    w                         if(i .ne. 0)     mx2(i)= mx2(i) + 1
+  378.    w                         if(i .ne. ndx-1) mx2(i)= mx2(i) + 1
+  379.    w-------------->       end do
+  380.                     c
+  381.                           itmp= my/ndy
+  382.                           my1(0)= 0
+  383.  + 1--------------<       do  i=1,ndy
+  384.    1                         if(i .le. mod(my,ndy)) then
+  385.    1                            my1(i)= my1(i-1) + itmp + 1
+  386.    1                         else
+  387.    1                            my1(i)= my1(i-1) + itmp
+  388.    1                         end if
+  389.    1-------------->       end do
+  390.    w--------------<       do i=0,ndy-1
+  391.    w                         my2(i)= my1(i+1) - my1(i)
+  392.    w                         if(i .ne. 0)      my2(i)= my2(i) + 1
+  393.    w                         if(i .ne. ndy-1)  my2(i)= my2(i) + 1
+  394.    w-------------->       end do
+  395.                     c
+  396.                           itmp= mz/ndz
+  397.                           mz1(0)= 0
+  398.    w--------------<       do  i=1,ndz
+  399.    w                         if(i .le. mod(mz,ndz)) then
+  400.    w                            mz1(i)= mz1(i-1) + itmp + 1
+  401.    w                         else
+  402.    w                            mz1(i)= mz1(i-1) + itmp
+  403.    w                         end if
+  404.    w-------------->       end do
+  405.    w--------------<       do i=0,ndz-1
+  406.    w                         mz2(i)= mz1(i+1) - mz1(i)
+  407.    w                         if(i .ne. 0)      mz2(i)= mz2(i) + 1
+  408.    w                         if(i .ne. ndz-1)  mz2(i)= mz2(i) + 1
+  409.    w-------------->       end do
+  410.                     c
+  411.                           imax= mx2(iop(1))
+  412.                           jmax= my2(iop(2))
+  413.                           kmax= mz2(iop(3))
+  414.                     c
+  415.                           if(iop(3) .eq. 0) then
+  416.                              ks= mz1(iop(3))
+  417.                           else
+  418.                              ks= mz1(iop(3)) - 1
+  419.                           end if
+  420.                     c
+  421.                     c     j-k plane  divied by i-direction
+  422.                           if(ndx .gt. 1) then
+  423.  +                           call mpi_type_vector(jmax*kmax,
+  424.                          >                        1,
+  425.                          >                        mimax,
+  426.                          >                        mpi_real4,
+  427.                          >                        jkvec,
+  428.                          >                        ierr)
+  429.  +                           call mpi_type_commit(jkvec,
+  430.                          >                        ierr)
+  431.                           end if
+  432.                     c
+  433.                     c     i-k plane  divied by j-direction
+  434.                           if(ndy .gt. 1) then
+  435.  +                           call mpi_type_vector(kmax,
+  436.                          >                        imax,
+  437.                          >                        mimax*mjmax,
+  438.                          >                        mpi_real4,
+  439.                          >                        ikvec,
+  440.                          >                        ierr)
+  441.  +                           call mpi_type_commit(ikvec,
+  442.                          >                        ierr)
+  443.                           end if
+  444.                     c
+  445.                     c     new vector k-direction
+  446.                           if(ndz .gt. 1) then
+  447.  +                           call mpi_type_vector(jmax,
+  448.                          >                        imax,
+  449.                          >                        mimax,
+  450.                          >                        mpi_real4,
+  451.                          >                        ijvec,
+  452.                          >                        ierr)
+  453.  +                           call mpi_type_commit(ijvec,
+  454.                          >                        ierr)
+  455.                           end if
+  456.                     c
+  457.                           return
+  458.                           end
+
+ftn-6254 ftn: VECTOR File = himenoBMTxpr.f, Line = 368 
+  A loop starting at line 368 was not vectorized because a recurrence was found on "mx1" at line 370.
+
+ftn-6008 ftn: SCALAR File = himenoBMTxpr.f, Line = 375 
+  A loop starting at line 375 was unwound.
+
+ftn-6254 ftn: VECTOR File = himenoBMTxpr.f, Line = 383 
+  A loop starting at line 383 was not vectorized because a recurrence was found on "my1" at line 385.
+
+ftn-6008 ftn: SCALAR File = himenoBMTxpr.f, Line = 390 
+  A loop starting at line 390 was unwound.
+
+ftn-6008 ftn: SCALAR File = himenoBMTxpr.f, Line = 398 
+  A loop starting at line 398 was unwound.
+
+ftn-6008 ftn: SCALAR File = himenoBMTxpr.f, Line = 405 
+  A loop starting at line 405 was unwound.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 423 
+  "mpi_type_vector" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 429 
+  "mpi_type_commit" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 435 
+  "mpi_type_vector" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 441 
+  "mpi_type_commit" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 447 
+  "mpi_type_vector" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 453 
+  "mpi_type_commit" (called from "initmax") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  459.                     c
+  460.                     c
+  461.                     c
+  462.                           subroutine sendp(ndx,ndy,ndz)
+  463.                     c
+  464.                           IMPLICIT REAL*4(a-h,o-z)
+  465.                     C
+  466.                           if(ndz .gt. 1) then
+  467.  +                           call sendp3()
+  468.                           end if
+  469.                     c
+  470.                           if(ndy .gt. 1) then
+  471.  +                           call sendp2()
+  472.                           end if
+  473.                     c
+  474.                           if(ndx .gt. 1) then
+  475.  +                           call sendp1()
+  476.                           end if
+  477.                     c
+  478.                           return
+  479.                           end
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 467 
+  "sendp3" (called from "sendp") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 471 
+  "sendp2" (called from "sendp") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+ftn-3118 ftn: IPA File = himenoBMTxpr.f, Line = 475 
+  "sendp1" (called from "sendp") was not inlined because the call site will not flatten.  Routine "mpi_irecv" is missing.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  480.                     c
+  481.                     c
+  482.                     c
+  483.                           subroutine sendp3()
+  484.                     c
+  485.                           IMPLICIT REAL*4(a-h,o-z)
+  486.                     c
+  487.                           include 'mpif.h'
+  488.                           include 'param.h'
+  489.                     c
+  490.                           dimension ist(mpi_status_size,0:3),ireq(0:3)
+  491.                           data ireq /4*mpi_request_null/
+  492.                     c
+  493.  +                        call mpi_irecv(p(1,1,kmax),
+  494.                          >               1,
+  495.                          >               ijvec,
+  496.                          >               npz(2),
+  497.                          >               1,
+  498.                          >               mpi_comm_cart,
+  499.                          >               ireq(3),
+  500.                          >               ierr)
+  501.                     c
+  502.  +                        call mpi_irecv(p(1,1,1),
+  503.                          >               1,
+  504.                          >               ijvec,
+  505.                          >               npz(1),
+  506.                          >               2,
+  507.                          >               mpi_comm_cart,
+  508.                          >               ireq(2),
+  509.                          >               ierr)
+  510.                     c
+  511.  +                        call mpi_isend(p(1,1,2),
+  512.                          >               1,
+  513.                          >               ijvec,
+  514.                          >               npz(1),
+  515.                          >               1,
+  516.                          >               mpi_comm_cart,
+  517.                          >               ireq(0),
+  518.                          >               ierr)
+  519.                     c
+  520.  +                        call mpi_isend(p(1,1,kmax-1),
+  521.                          >               1,
+  522.                          >               ijvec,
+  523.                          >               npz(2),
+  524.                          >               2,
+  525.                          >               mpi_comm_cart,
+  526.                          >               ireq(1),
+  527.                          >               ierr)
+  528.                     c
+  529.  +                        call mpi_waitall(4,
+  530.                          >                 ireq,
+  531.                          >                 ist,
+  532.                          >                 ierr)
+  533.                     c
+  534.                           return
+  535.                           end
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 493 
+  "mpi_irecv" (called from "sendp3") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 502 
+  "mpi_irecv" (called from "sendp3") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 511 
+  "mpi_isend" (called from "sendp3") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 520 
+  "mpi_isend" (called from "sendp3") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 529 
+  "mpi_waitall" (called from "sendp3") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  536.                     c
+  537.                     c
+  538.                     c
+  539.                           subroutine sendp2()
+  540.                     c
+  541.                           IMPLICIT REAL*4(a-h,o-z)
+  542.                     c
+  543.                           include 'mpif.h'
+  544.                           include 'param.h'
+  545.                     c
+  546.                           dimension ist(mpi_status_size,0:3),ireq(0:3)
+  547.                           data ireq /4*mpi_request_null/
+  548.                     c
+  549.  +                        call mpi_irecv(p(1,1,1),
+  550.                          >               1,
+  551.                          >               ikvec,
+  552.                          >               npy(1),
+  553.                          >               2,
+  554.                          >               mpi_comm_cart,
+  555.                          >               ireq(3),
+  556.                          >               ierr)
+  557.                     c
+  558.  +                        call mpi_irecv(p(1,jmax,1),
+  559.                          >               1,
+  560.                          >               ikvec,
+  561.                          >               npy(2),
+  562.                          >               1,
+  563.                          >               mpi_comm_cart,
+  564.                          >               ireq(2),
+  565.                          >               ierr)
+  566.                     c
+  567.  +                        call mpi_isend(p(1,2,1),
+  568.                          >               1,
+  569.                          >               ikvec,
+  570.                          >               npy(1),
+  571.                          >               1,
+  572.                          >               mpi_comm_cart,
+  573.                          >               ireq(0),
+  574.                          >               ierr)
+  575.                     c
+  576.  +                        call mpi_isend(p(1,jmax-1,1),
+  577.                          >               1,
+  578.                          >               ikvec,
+  579.                          >               npy(2),
+  580.                          >               2,
+  581.                          >               mpi_comm_cart,
+  582.                          >               ireq(1),
+  583.                          >               ierr)
+  584.                     c
+  585.  +                        call mpi_waitall(4,
+  586.                          >                 ireq,
+  587.                          >                 ist,
+  588.                          >                 ierr)
+  589.                     c
+  590.                           return
+  591.                           end
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 549 
+  "mpi_irecv" (called from "sendp2") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 558 
+  "mpi_irecv" (called from "sendp2") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 567 
+  "mpi_isend" (called from "sendp2") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 576 
+  "mpi_isend" (called from "sendp2") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 585 
+  "mpi_waitall" (called from "sendp2") was not inlined because the compiler was unable to locate the routine.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          S o u r c e   L i s t i n g
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  592.                     c
+  593.                     c
+  594.                     c
+  595.                           subroutine sendp1()
+  596.                     c
+  597.                           IMPLICIT REAL*4(a-h,o-z)
+  598.                     c
+  599.                           include 'mpif.h'
+  600.                           include 'param.h'
+  601.                     c
+  602.                           dimension ist(mpi_status_size,0:3),ireq(0:3)
+  603.                           data ireq /4*mpi_request_null/
+  604.                     c
+  605.  +                        call mpi_irecv(p(1,1,1),
+  606.                          >               1,
+  607.                          >               jkvec,
+  608.                          >               npx(1),
+  609.                          >               2,
+  610.                          >               mpi_comm_cart,
+  611.                          >               ireq(3),
+  612.                          >               ierr)
+  613.                     c
+  614.  +                        call mpi_irecv(p(imax,1,1),
+  615.                          >               1,
+  616.                          >               jkvec,
+  617.                          >               npx(2),
+  618.                          >               1,
+  619.                          >               mpi_comm_cart,
+  620.                          >               ireq(2),
+  621.                          >               ierr)
+  622.                     c
+  623.  +                        call mpi_isend(p(2,1,1),
+  624.                          >               1,
+  625.                          >               jkvec,
+  626.                          >               npx(1),
+  627.                          >               1,
+  628.                          >               mpi_comm_cart,
+  629.                          >               ireq(0),
+  630.                          >               ierr)
+  631.                     c
+  632.  +                        call mpi_isend(p(imax-1,1,1),
+  633.                          >               1,
+  634.                          >               jkvec,
+  635.                          >               npx(2),
+  636.                          >               2,
+  637.                          >               mpi_comm_cart,
+  638.                          >               ireq(1),
+  639.                          >               ierr)
+  640.                     c
+  641.  +                        call mpi_waitall(4,
+  642.                          >                 ireq,
+  643.                          >                 ist,
+  644.                          >                 ierr)
+  645.                     c
+  646.                           return
+  647.                           end
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 605 
+  "mpi_irecv" (called from "sendp1") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 614 
+  "mpi_irecv" (called from "sendp1") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 623 
+  "mpi_isend" (called from "sendp1") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 632 
+  "mpi_isend" (called from "sendp1") was not inlined because the compiler was unable to locate the routine.
+
+ftn-3021 ftn: IPA File = himenoBMTxpr.f, Line = 641 
+  "mpi_waitall" (called from "sendp1") was not inlined because the compiler was unable to locate the routine.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

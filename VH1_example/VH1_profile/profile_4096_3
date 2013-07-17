@@ -1,0 +1,360 @@
+CrayPat/X:  Version 5.3.1 Revision 8907 (xf 8679)  03/08/12 12:37:40
+
+Number of PEs (MPI ranks):   4096
+                           
+Numbers of PEs per Node:       16  PEs on each of  256  Nodes
+                           
+Numbers of Threads per PE:      1
+                           
+Number of Cores per Socket:    16
+
+Execution start time:  Thu Apr  5 05:23:41 2012
+
+System type and speed:  x86_64 2200 MHz
+
+Current path to data file:
+  /ccs/home/levesque/lustre/VH1_version1/vhone+pat+24452-10752t.ap2  (RTS)
+
+
+
+Notes for table 1:
+
+  Table option:
+    -O callers
+  Options implied by table option:
+    -d ti%@0.95,ti,tr -b gr,fu,ca,pe=HIDE
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the sum for the Caller values.
+  The Caller value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+
+Table 1:  Profile by Function and Callers
+
+ Time%  |      Time  |     Calls  |Group 
+        |            |            | Function 
+        |            |            |  Caller 
+        |            |            |   PE=HIDE 
+       
+ 100.0% | 117.646170 | 13549032.0 |Total
+|-------------------------------------------------------
+|  75.4% |  88.723495 | 13542013.0 |USER
+||------------------------------------------------------
+||  10.7% |  12.589734 |  2592000.0 |parabola_
+|||-----------------------------------------------------
+3||   7.1% |   8.360290 |  1728000.0 |remap_.LOOPS
+4||        |            |            | remap_
+5||        |            |            |  ppmlr_
+||||||--------------------------------------------------
+6|||||   3.2% |   3.708452 |   768000.0 |sweepx2_.LOOP.2.li.35
+7|||||        |            |            | sweepx2_.LOOP.1.li.34
+8|||||        |            |            |  sweepx2_.LOOPS
+9|||||        |            |            |   sweepx2_
+10||||        |            |            |    vhone_
+6|||||   3.1% |   3.663423 |   768000.0 |sweepx1_.LOOP.2.li.35
+7|||||        |            |            | sweepx1_.LOOP.1.li.34
+8|||||        |            |            |  sweepx1_.LOOPS
+9|||||        |            |            |   sweepx1_
+10||||        |            |            |    vhone_
+||||||==================================================
+3||   3.6% |   4.229443 |   864000.0 |ppmlr_
+||||----------------------------------------------------
+4|||   1.6% |   1.880874 |   384000.0 |sweepx2_.LOOP.2.li.35
+5|||        |            |            | sweepx2_.LOOP.1.li.34
+6|||        |            |            |  sweepx2_.LOOPS
+7|||        |            |            |   sweepx2_
+8|||        |            |            |    vhone_
+4|||   1.6% |   1.852820 |   384000.0 |sweepx1_.LOOP.2.li.35
+5|||        |            |            | sweepx1_.LOOP.1.li.34
+6|||        |            |            |  sweepx1_.LOOPS
+7|||        |            |            |   sweepx1_
+8|||        |            |            |    vhone_
+|||=====================================================
+||  10.1% |  11.872415 |  2592000.0 |parabola_.LOOPS
+3|        |            |            | parabola_
+||||----------------------------------------------------
+4|||   6.7% |   7.833853 |  1728000.0 |remap_.LOOPS
+5|||        |            |            | remap_
+6|||        |            |            |  ppmlr_
+|||||||-------------------------------------------------
+7||||||   1.8% |   2.117947 |   768000.0 |sweepx2_.LOOP.2.li.35
+8||||||        |            |            | sweepx2_.LOOP.1.li.34
+9||||||        |            |            |  sweepx2_.LOOPS
+10|||||        |            |            |   sweepx2_
+11|||||        |            |            |    vhone_
+7||||||   1.8% |   2.097852 |   768000.0 |sweepx1_.LOOP.2.li.35
+8||||||        |            |            | sweepx1_.LOOP.1.li.34
+9||||||        |            |            |  sweepx1_.LOOPS
+10|||||        |            |            |   sweepx1_
+11|||||        |            |            |    vhone_
+7||||||   1.6% |   1.832880 |    96000.0 |sweepy_.LOOP.2.li.39
+8||||||        |            |            | sweepy_.LOOP.1.li.38
+9||||||        |            |            |  sweepy_.LOOPS
+10|||||        |            |            |   sweepy_
+11|||||        |            |            |    vhone_
+7||||||   1.5% |   1.785173 |    96000.0 |sweepz_.LOOP.06.li.55
+8||||||        |            |            | sweepz_.LOOP.05.li.54
+9||||||        |            |            |  sweepz_.LOOPS
+10|||||        |            |            |   sweepz_
+11|||||        |            |            |    vhone_
+|||||||=================================================
+4|||   3.4% |   4.038562 |   864000.0 |ppmlr_
+||||====================================================
+||   9.3% |  10.983978 |   288000.0 |remap_.LOOPS
+3|        |            |            | remap_
+4|        |            |            |  ppmlr_
+|||||---------------------------------------------------
+5||||   3.9% |   4.531578 |   128000.0 |sweepx2_.LOOP.2.li.35
+6||||        |            |            | sweepx2_.LOOP.1.li.34
+7||||        |            |            |  sweepx2_.LOOPS
+8||||        |            |            |   sweepx2_
+9||||        |            |            |    vhone_
+5||||   3.8% |   4.522093 |   128000.0 |sweepx1_.LOOP.2.li.35
+6||||        |            |            | sweepx1_.LOOP.1.li.34
+7||||        |            |            |  sweepx1_.LOOPS
+8||||        |            |            |   sweepx1_
+9||||        |            |            |    vhone_
+|||||===================================================
+||   8.9% |  10.520742 |   288000.0 |ppmlr_
+|||-----------------------------------------------------
+3||   4.0% |   4.666013 |   128000.0 |sweepx2_.LOOP.2.li.35
+4||        |            |            | sweepx2_.LOOP.1.li.34
+5||        |            |            |  sweepx2_.LOOPS
+6||        |            |            |   sweepx2_
+7||        |            |            |    vhone_
+3||   4.0% |   4.652724 |   128000.0 |sweepx1_.LOOP.2.li.35
+4||        |            |            | sweepx1_.LOOP.1.li.34
+5||        |            |            |  sweepx1_.LOOPS
+6||        |            |            |   sweepx1_
+7||        |            |            |    vhone_
+|||=====================================================
+||   5.5% |   6.517219 |   288000.0 |riemann_.LOOPS
+3|        |            |            | riemann_
+4|        |            |            |  ppmlr_
+|||||---------------------------------------------------
+5||||   1.7% |   1.975963 |    16000.0 |sweepy_.LOOP.2.li.39
+6||||        |            |            | sweepy_.LOOP.1.li.38
+7||||        |            |            |  sweepy_.LOOPS
+8||||        |            |            |   sweepy_
+9||||        |            |            |    vhone_
+5||||   1.7% |   1.962285 |    16000.0 |sweepz_.LOOP.06.li.55
+6||||        |            |            | sweepz_.LOOP.05.li.54
+7||||        |            |            |  sweepz_.LOOPS
+8||||        |            |            |   sweepz_
+9||||        |            |            |    vhone_
+5||||   1.1% |   1.307750 |   128000.0 |sweepx2_.LOOP.2.li.35
+6||||        |            |            | sweepx2_.LOOP.1.li.34
+7||||        |            |            |  sweepx2_.LOOPS
+8||||        |            |            |   sweepx2_
+9||||        |            |            |    vhone_
+5||||   1.1% |   1.271222 |   128000.0 |sweepx1_.LOOP.2.li.35
+6||||        |            |            | sweepx1_.LOOP.1.li.34
+7||||        |            |            |  sweepx1_.LOOPS
+8||||        |            |            |   sweepx1_
+9||||        |            |            |    vhone_
+|||||===================================================
+||   4.5% |   5.296439 |   288000.0 |evolve_.LOOPS
+3|        |            |            | evolve_
+4|        |            |            |  ppmlr_
+|||||---------------------------------------------------
+5||||   1.9% |   2.198326 |   128000.0 |sweepx2_.LOOP.2.li.35
+6||||        |            |            | sweepx2_.LOOP.1.li.34
+7||||        |            |            |  sweepx2_.LOOPS
+8||||        |            |            |   sweepx2_
+9||||        |            |            |    vhone_
+5||||   1.9% |   2.178974 |   128000.0 |sweepx1_.LOOP.2.li.35
+6||||        |            |            | sweepx1_.LOOP.1.li.34
+7||||        |            |            |  sweepx1_.LOOPS
+8||||        |            |            |   sweepx1_
+9||||        |            |            |    vhone_
+|||||===================================================
+||   3.6% |   4.271049 |   864000.0 |forces_
+|||-----------------------------------------------------
+3||   2.4% |   2.831380 |   576000.0 |evolve_.LOOPS
+4||        |            |            | evolve_
+5||        |            |            |  ppmlr_
+||||||--------------------------------------------------
+6|||||   1.1% |   1.254039 |   256000.0 |sweepx2_.LOOP.2.li.35
+7|||||        |            |            | sweepx2_.LOOP.1.li.34
+8|||||        |            |            |  sweepx2_.LOOPS
+9|||||        |            |            |   sweepx2_
+10||||        |            |            |    vhone_
+6|||||   1.1% |   1.239126 |   256000.0 |sweepx1_.LOOP.2.li.35
+7|||||        |            |            | sweepx1_.LOOP.1.li.34
+8|||||        |            |            |  sweepx1_.LOOPS
+9|||||        |            |            |   sweepx1_
+10||||        |            |            |    vhone_
+||||||==================================================
+3||   1.2% |   1.439669 |   288000.0 |states_.LOOPS
+4||        |            |            | states_
+5||        |            |            |  ppmlr_
+|||=====================================================
+||   3.3% |   3.893677 |   864000.0 |volume_
+|||-----------------------------------------------------
+3||   2.2% |   2.576018 |   576000.0 |evolve_.LOOPS
+4||        |            |            | evolve_
+5||        |            |            |  ppmlr_
+||||||--------------------------------------------------
+6|||||   1.0% |   1.145399 |   256000.0 |sweepx2_.LOOP.2.li.35
+7|||||        |            |            | sweepx2_.LOOP.1.li.34
+8|||||        |            |            |  sweepx2_.LOOPS
+9|||||        |            |            |   sweepx2_
+10||||        |            |            |    vhone_
+6|||||   1.0% |   1.131515 |   256000.0 |sweepx1_.LOOP.2.li.35
+7|||||        |            |            | sweepx1_.LOOP.1.li.34
+8|||||        |            |            |  sweepx1_.LOOPS
+9|||||        |            |            |   sweepx1_
+10||||        |            |            |    vhone_
+||||||==================================================
+3||   1.1% |   1.317659 |   288000.0 |remap_.LOOPS
+4||        |            |            | remap_
+5||        |            |            |  ppmlr_
+|||=====================================================
+||   2.3% |   2.711828 |   576000.0 |paraset_
+|||-----------------------------------------------------
+3||   1.2% |   1.379569 |   288000.0 |remap_.LOOPS
+4||        |            |            | remap_
+5||        |            |            |  ppmlr_
+3||   1.1% |   1.332258 |   288000.0 |ppmlr_
+|||=====================================================
+||   1.6% |   1.939064 |   288000.0 |states_.LOOPS
+3|        |            |            | states_
+4|        |            |            |  ppmlr_
+||   1.5% |   1.730571 |   576000.0 |paraset_.LOOPS
+3|        |            |            | paraset_
+||   1.3% |   1.493014 |   864000.0 |volume_.LOOPS
+3|        |            |            | volume_
+||   1.3% |   1.482179 |   288000.0 |boundary_
+3|        |            |            | ppmlr_
+||   1.2% |   1.444514 |   288000.0 |remap_
+3|        |            |            | ppmlr_
+||   1.2% |   1.387128 |   288000.0 |states_
+3|        |            |            | ppmlr_
+||   1.2% |   1.378317 |   288000.0 |riemann_
+3|        |            |            | ppmlr_
+||   1.2% |   1.367268 |   288000.0 |flatten_
+3|        |            |            | ppmlr_
+||   1.2% |   1.366502 |   288000.0 |evolve_
+3|        |            |            | ppmlr_
+||   1.2% |   1.359659 |   864000.0 |forces_.LOOPS
+3|        |            |            | forces_
+||   1.0% |   1.158989 |      500.0 |sweepx2_.LOOPS
+3|        |            |            | sweepx2_
+4|        |            |            |  vhone_
+||======================================================
+|  15.6% |  18.313144 |     3512.0 |MPI
+||------------------------------------------------------
+||  11.9% |  14.043110 |     3000.0 |mpi_alltoall
+|||-----------------------------------------------------
+3||   8.2% |   9.640881 |     1000.0 |sweepz_.LOOPS
+4||        |            |            | sweepz_
+5||        |            |            |  vhone_
+3||   3.7% |   4.402229 |     2000.0 |sweepy_.LOOPS
+4||        |            |            | sweepy_
+5||        |            |            |  vhone_
+|||=====================================================
+||   3.4% |   3.962204 |        2.0 |mpi_comm_split
+3|        |            |            | vhone_
+||======================================================
+|   9.0% |  10.609519 |     3502.0 |MPI_SYNC
+||------------------------------------------------------
+||   5.7% |   6.650006 |     3000.0 |mpi_alltoall_(sync)
+|||-----------------------------------------------------
+3||   3.5% |   4.064898 |     2000.0 |sweepy_.LOOPS
+4||        |            |            | sweepy_
+5||        |            |            |  vhone_
+3||   2.2% |   2.585108 |     1000.0 |sweepz_.LOOPS
+4||        |            |            | sweepz_
+5||        |            |            |  vhone_
+|||=====================================================
+||   3.4% |   3.959255 |      501.0 |mpi_allreduce_(sync)
+3|   3.3% |   3.867138 |      500.0 | dtcon_.LOOPS
+4|        |            |            |  dtcon_
+5|        |            |            |   vhone_
+||======================================================
+|   0.0% |   0.000012 |        5.0 |SYSCALL
+|=======================================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lustre/widow3/scratch/levesque/VH1_version1/vhone+pat+24452-10752t/000000.xf  (RTS)
+
+Original program:  /lustre/widow3/scratch/levesque/VH1_version1/vhone
+
+Instrumented with:  pat_build -u -g mpi vhone 
+
+Instrumented program:  ./vhone+pat
+
+Program invocation:  ./vhone+pat 
+
+Exit Status:  0 for 4096 PEs
+
+CPU  Family: 15h  Model: 01h  Stepping: 2
+
+Core Performance Boost:  Configured for    0 PEs
+                         Capable    for 4096 PEs
+
+Memory pagesize:  4096
+
+Accelerator Model: Nvidia X2090 Memory: 6.00 GB Frequency: 1.15 GHz
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  PBS_VERSION=TORQUE-2.5.9-snap.201111021154
+  MODULE_VERSION=3.2.6.6
+  MODULE_VERSION_STACK=3.2.6.6
+  ASYNCPE_VERSION=5.05
+  ATP_HOME=/opt/cray/atp/1.4.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.4.1/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.4.1/lib/ -Wl,-lAtpSigHandler -Wl,--undefined=__atpHandlerInstall
+  LIBSCI_VERSION=11.0.04.4
+  MPICH_ABORT_ON_ERROR=1
+  PGI_VERSION=12.1
+  XTOS_VERSION=4.0.30
+  CRAY_MPICH2_VERSION=5.4.1
+  MPICH_DIR=/opt/cray/mpt/5.4.1/xt/gemini/mpich2-pgi/109
+  PAT_RT_HWPC=1
+
+Report time environment variables:
+  CRAYPAT_ROOT=/opt/cray/perftools/5.3.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_
+
+Report command line options:  -O callers
+
+Operating system:
+  Linux 2.6.32.45-0.3.2_1.0400.6221-cray_gem_c #1 SMP Wed Sep 28 03:54:16 UTC 2011
+
+Hardware performance counter events:
+   PAPI_L1_DCM  Level 1 data cache misses
+   PAPI_TLB_DM  Data translation lookaside buffer misses
+   PAPI_L1_DCA  Level 1 data cache accesses
+   PAPI_FP_OPS  Floating point operations
+   CYCLES_RTC   User Cycles (approx, from rtc)
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    PAPI_L1_DCM   34.874  
+    PAPI_TLB_DM    0.003  
+    PAPI_L1_DCA  663.556  
+    PAPI_FP_OPS    0.000  
+    CYCLES_RTC  6214.346  
+    Time           2.797  microsecs
+
+Number of traced functions:  89
+
+  (To see the list, specify:  -s traced_functions=show)
+

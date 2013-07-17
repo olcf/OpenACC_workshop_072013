@@ -1,0 +1,423 @@
+CrayPat/X:  Version 6.1.1 Revision 11449 (xf 11015)  06/19/13 18:09:08
+
+Number of PEs (MPI ranks):   64
+                           
+Numbers of PEs per Node:      4  PEs on each of  16  Nodes
+                           
+Numbers of Threads per PE:    1
+                           
+Number of Cores per Socket:  16
+
+Execution start time:  Wed Jul 10 11:03:45 2013
+
+System name and speed:  hera2 2100 MHz
+
+Current path to data file:
+  /home/users/levesque/lustre/himeno_step1/a.out+pat+10353943-764t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 1:  Profile by Function Group and Function
+
+ Time%  |     Time  |    Imb.  |  Imb.  | Calls  |Group 
+        |           |    Time  | Time%  |        | Function 
+        |           |          |        |        |  PE=HIDE 
+       
+ 100.0% | 68.885511 |       -- |     -- | 1732.1 |Total
+|---------------------------------------------------------------------
+|  94.9% | 65.345140 |       -- |     -- |  295.0 |USER
+||--------------------------------------------------------------------
+||  89.9% | 61.942446 | 6.617243 |   9.8% |    2.0 |jacobi_.LOOPS
+||   4.9% |  3.398672 | 0.222187 |   6.2% |    1.0 |initmt_.LOOPS
+||   0.0% |  0.000973 | 0.000574 |  37.7% |   71.0 |sendp3_
+||   0.0% |  0.000940 | 0.000428 |  31.8% |   71.0 |sendp1_
+||   0.0% |  0.000818 | 0.000413 |  34.1% |   71.0 |sendp_
+||   0.0% |  0.000791 | 0.000363 |  31.9% |   71.0 |sendp2_
+||   0.0% |  0.000257 | 0.000512 |  67.6% |    1.0 |himenobmtxp_
+||   0.0% |  0.000089 | 0.000008 |   8.0% |    1.0 |initmax_
+||   0.0% |  0.000049 | 0.000008 |  14.3% |    1.0 |initmax_.LOOPS
+||   0.0% |  0.000042 | 0.000006 |  12.2% |    1.0 |exit
+||   0.0% |  0.000041 | 0.000004 |   8.6% |    1.0 |initcomm_
+||   0.0% |  0.000011 | 0.000002 |  14.8% |    2.0 |jacobi_
+||   0.0% |  0.000010 | 0.000007 |  43.1% |    1.0 |initmt_
+||====================================================================
+|   3.7% |  2.529086 |       -- |     -- | 1159.0 |MPI
+||--------------------------------------------------------------------
+||   2.9% |  2.013934 | 3.286170 |  63.0% |  213.0 |mpi_waitall_
+||   0.4% |  0.261576 | 0.330889 |  56.7% |    1.0 |mpi_cart_create_
+||   0.4% |  0.247474 | 0.139808 |  36.7% |  426.0 |mpi_isend_
+||   0.0% |  0.003219 | 0.005324 |  63.3% |  426.0 |mpi_irecv_
+||   0.0% |  0.002607 | 0.000566 |  18.1% |   72.0 |mpi_allreduce_
+||   0.0% |  0.000072 | 0.000016 |  18.8% |    1.0 |mpi_finalize_
+||   0.0% |  0.000048 | 0.000024 |  34.3% |    2.0 |mpi_barrier_
+||   0.0% |  0.000045 | 0.000017 |  27.9% |    4.0 |mpi_wtime_
+||   0.0% |  0.000031 | 0.000015 |  32.1% |    3.0 |mpi_type_commit_
+||   0.0% |  0.000023 | 0.000008 |  25.2% |    3.0 |mpi_type_vector_
+||   0.0% |  0.000018 | 0.000018 |  51.5% |    1.0 |mpi_reduce_
+||   0.0% |  0.000013 | 0.000003 |  20.2% |    3.0 |mpi_cart_shift_
+||   0.0% |  0.000012 | 0.000003 |  18.7% |    1.0 |mpi_cart_get_
+||   0.0% |  0.000010 | 0.000002 |  18.8% |    1.0 |mpi_comm_size_
+||   0.0% |  0.000004 | 0.000001 |  18.5% |    1.0 |mpi_comm_rank_
+||   0.0% |  0.000001 | 0.000000 |  24.8% |    1.0 |mpi_init_
+||====================================================================
+|   1.5% |  1.011238 |       -- |     -- |   75.0 |MPI_SYNC
+||--------------------------------------------------------------------
+||   1.2% |  0.815078 | 0.785783 |  96.4% |   72.0 |mpi_allreduce_(sync)
+||   0.3% |  0.196137 | 0.196067 | 100.0% |    2.0 |mpi_barrier_(sync)
+||   0.0% |  0.000023 | 0.000006 |  26.8% |    1.0 |mpi_reduce_(sync)
+||====================================================================
+|   0.0% |  0.000048 |       -- |     -- |  203.1 |ETC
+||--------------------------------------------------------------------
+||   0.0% |  0.000047 | 0.000059 |  56.5% |  203.1 |__libc_csu_init
+||   0.0% |  0.000001 | 0.000070 | 100.0% |    0.0 |_STOP2
+|=====================================================================
+
+================  Observations and suggestions  ========================
+
+Number of accelerators used:  0 of 16
+
+
+MPI Grid Detection:
+
+    A 4x4x4 grid pattern was detected in sent message traffic.  Because only
+    3.7% of the total execution time was spent in MPI functions, modifying
+    the rank order is unlikely to significantly improve overall performance.
+
+
+Metric-Based Rank Order:
+
+    When the use of a shared resource like memory bandwidth is unbalanced
+    across nodes, total execution time may be reduced with a rank order
+    that improves the balance.  The metric used here for resource usage
+    is: USER Time
+
+    For each node, the metric values for the ranks on that node are
+    summed.  The maximum and average value of those sums are shown below
+    for both the current rank order and a custom rank order that seeks
+    to reduce the maximum value.
+
+    A file named MPICH_RANK_ORDER.USER_Time was generated
+    along with this report and contains usage instructions and the
+    Custom rank order from the following table.
+
+      Rank     Node  Reduction    Maximum   Average 
+     Order   Metric     in Max      Value   Value 
+               Imb.      Value              
+
+    Current   13.73%             1.842e-02  1.589e-02
+     Custom    1.72%    12.224%  1.617e-02  1.589e-02
+
+================  End Observations  ====================================
+
+Notes for table 2:
+
+  Table option:
+    -O loop_times
+  Options implied by table option:
+    -d LT,Lc@,Lz,La,Lm,LM,Ln -b fu=/.LOOP[.],pe=HIDE -s total=hide
+  Other options:
+    -T 
+
+  The Function value for Loop Incl Time Total, Loop Hit is the avg for the PE values.
+  The Function value for Loop Trips Min is the min for the PE values.
+  The Function value for Loop Trips Max is the max for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Loop Hit > 0.
+
+  Loop stats can be used in the loop_info compiler directives:
+   !DIR$        LOOP_INFO est_trips(Avg) min_trips(Min) max_trips(Max)
+   #pragma _CRI loop_info est_trips(Avg) min_trips(Min) max_trips(Max)
+  The compiler interprets Avg as an estimate, but Min and Max as guarantees.
+
+Table 2:  Loop Stats by Function (from -hprofile_generate)
+
+     Loop  |   Loop  |   Loop  |  Loop  |  Loop  |Function=/.LOOP[.] 
+     Incl  |    Hit  |  Trips  | Trips  | Trips  | PE=HIDE 
+     Time  |         |    Avg  |   Min  |   Max  |
+    Total  |         |         |        |        |
+|-----------------------------------------------------------------------
+| 65.028712 |       2 |  35.500 |      0 |     68 |jacobi_.LOOP.1.li.206
+| 53.781274 |      71 | 255.500 |      0 |    256 |jacobi_.LOOP.2.li.209
+| 53.779588 |   18140 | 255.500 |      0 |    256 |jacobi_.LOOP.3.li.210
+| 53.562073 | 4634898 | 511.500 |      0 |    512 |jacobi_.LOOP.4.li.211
+|  8.160298 |      71 | 255.500 |      0 |    256 |jacobi_.LOOP.5.li.229
+|  8.159107 |   18140 | 255.500 |      0 |    256 |jacobi_.LOOP.6.li.230
+|  7.751929 | 4634898 | 511.500 |      0 |    512 |jacobi_.LOOP.7.li.231
+|  2.323213 |       1 |     259 |      0 |    259 |initmt_.LOOP.1.li.152
+|  2.323187 |     259 |     259 |      0 |    259 |initmt_.LOOP.2.li.153
+|  2.320096 |   67081 |     515 |      0 |    515 |initmt_.LOOP.3.li.154
+|  1.075438 |       1 | 257.500 |      0 |    258 |initmt_.LOOP.4.li.173
+|  1.075389 | 257.500 | 257.500 |      0 |    258 |initmt_.LOOP.5.li.174
+|  1.071839 |   66306 | 513.500 |      0 |    514 |initmt_.LOOP.6.li.175
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.1.li.350
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.3.li.365
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.5.li.380
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.6.li.387
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.4.li.372
+|  0.000000 |       1 |       4 |      0 |      4 |initmax_.LOOP.2.li.357
+|=======================================================================
+
+Notes for table 3:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm]
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 3:  Load Balance with MPI Message Stats
+
+ Time%  |     Time  |   MPI  |    MPI Msg  |  Avg MPI  |Group 
+        |           |   Msg  |      Bytes  | Msg Size  | PE=[mmm] 
+        |           | Count  |             |           |
+       
+ 100.0% | 68.885511 |  392.5 | 140903527.5 | 358989.88 |Total
+|-----------------------------------------------------------------
+|  94.9% | 65.345140 |    0.0 |         0.0 |        -- |USER
+||----------------------------------------------------------------
+|| 104.8% | 72.184491 |    0.0 |         0.0 |        -- |pe.38
+||  92.6% | 63.763108 |    0.0 |         0.0 |        -- |pe.13
+||  89.5% | 61.665635 |    0.0 |         0.0 |        -- |pe.63
+||================================================================
+|   3.7% |  2.529086 |  392.5 | 140903527.5 | 358989.88 |MPI
+||----------------------------------------------------------------
+||   8.8% |  6.053714 |  428.0 | 150355580.0 | 351298.08 |pe.43
+||   2.4% |  1.674553 |  357.0 | 131305428.0 | 367802.32 |pe.49
+||   1.0% |  0.702383 |  357.0 | 131305428.0 | 367802.32 |pe.52
+||================================================================
+|   1.5% |  1.011238 |    0.0 |         0.0 |        -- |MPI_SYNC
+||----------------------------------------------------------------
+||   3.8% |  2.638496 |    0.0 |         0.0 |        -- |pe.60
+||   0.9% |  0.633523 |    0.0 |         0.0 |        -- |pe.3
+||   0.1% |  0.077988 |    0.0 |         0.0 |        -- |pe.24
+||================================================================
+|   0.0% |  0.000048 |    0.0 |         0.0 |        -- |ETC
+||----------------------------------------------------------------
+||   0.0% |  0.000177 |    0.0 |         0.0 |        -- |pe.0
+||   0.0% |  0.000047 |    0.0 |         0.0 |        -- |pe.16
+||   0.0% |  0.000028 |    0.0 |         0.0 |        -- |pe.33
+|=================================================================
+
+Notes for table 4:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm,Mc@,Mb1..7 -b fu,ca,pe=[mmm]
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with MPI Msg Count > 0.
+
+Table 4:  MPI Message Stats by Caller
+
+    MPI Msg  |   MPI  | MsgSz  | 64KB<=  |Function 
+      Bytes  |   Msg  |  <16B  |  MsgSz  | Caller 
+             | Count  | Count  |   <1MB  |  PE=[mmm] 
+             |        |        |  Count  |
+            
+ 140903527.5 |  392.5 |   73.0 |   319.5 |Total
+|--------------------------------------------------------------
+| 140903227.5 |  319.5 |    0.0 |   319.5 |mpi_isend_
+||-------------------------------------------------------------
+||  56328382.5 |  106.5 |    0.0 |   106.5 |sendp3_
+3|             |        |        |         | sendp_
+4|             |        |        |         |  jacobi_.LOOP.1.li.206
+5|             |        |        |         |   jacobi_.LOOPS
+6|             |        |        |         |    jacobi_
+7|             |        |        |         |     himenobmtxp_
+||||||||-------------------------------------------------------
+8|||||||  75323616.0 |  142.0 |    0.0 |   142.0 |pe.21
+8|||||||  37661808.0 |   71.0 |    0.0 |    71.0 |pe.43
+8|||||||  37442844.0 |   71.0 |    0.0 |    71.0 |pe.0
+||||||||=======================================================
+||  56328382.5 |  106.5 |    0.0 |   106.5 |sendp2_
+3|             |        |        |         | sendp_
+4|             |        |        |         |  jacobi_.LOOP.1.li.206
+5|             |        |        |         |   jacobi_.LOOPS
+6|             |        |        |         |    jacobi_
+7|             |        |        |         |     himenobmtxp_
+||||||||-------------------------------------------------------
+8|||||||  75323616.0 |  142.0 |    0.0 |   142.0 |pe.21
+8|||||||  37661808.0 |   71.0 |    0.0 |    71.0 |pe.45
+8|||||||  37442844.0 |   71.0 |    0.0 |    71.0 |pe.0
+||||||||=======================================================
+||  28246462.5 |  106.5 |    0.0 |   106.5 |sendp1_
+3|             |        |        |         | sendp_
+4|             |        |        |         |  jacobi_.LOOP.1.li.206
+5|             |        |        |         |   jacobi_.LOOPS
+6|             |        |        |         |    jacobi_
+7|             |        |        |         |     himenobmtxp_
+||||||||-------------------------------------------------------
+8|||||||  37808352.0 |  142.0 |    0.0 |   142.0 |pe.26
+8|||||||  18904176.0 |   71.0 |    0.0 |    71.0 |pe.58
+8|||||||  18757916.0 |   71.0 |    0.0 |    71.0 |pe.0
+||=============================================================
+|       292.0 |   72.0 |   72.0 |     0.0 |mpi_allreduce_
+||-------------------------------------------------------------
+||       284.0 |   71.0 |   71.0 |     0.0 |jacobi_.LOOP.1.li.206
+3|             |        |        |         | jacobi_.LOOPS
+4|             |        |        |         |  jacobi_
+5|             |        |        |         |   himenobmtxp_
+||||||---------------------------------------------------------
+6|||||       284.0 |   71.0 |   71.0 |     0.0 |pe.32
+6|||||       284.0 |   71.0 |   71.0 |     0.0 |pe.0
+6|||||       284.0 |   71.0 |   71.0 |     0.0 |pe.31
+||||||=========================================================
+||         8.0 |    1.0 |    1.0 |     0.0 |himenobmtxp_
+|||------------------------------------------------------------
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.32
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.0
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.31
+||=============================================================
+|         8.0 |    1.0 |    1.0 |     0.0 |mpi_reduce_
+|             |        |        |         | himenobmtxp_
+|||------------------------------------------------------------
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.32
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.0
+3||         8.0 |    1.0 |    1.0 |     0.0 |pe.31
+|==============================================================
+
+Notes for table 5:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm]
+  Other options:
+    -T 
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+
+Table 5:  Wall Clock Time, Memory High Water Mark
+
+  Process  |  Process  |PE=[mmm] 
+     Time  |    HiMem  |
+           | (MBytes)  |
+          
+ 66.690115 |      1879 |Total
+|--------------------------------
+| 66.849201 |      1880 |pe.25
+| 66.673130 |      1880 |pe.4
+| 66.555906 |      1878 |pe.17
+|================================
+
+=========  Additional details ============================
+
+Experiment:  trace
+
+Original path to data file:
+  /lus/nid00023/levesque/himeno_step1/a.out+pat+10353943-764t.xf  (RTS)
+
+Original program:  /lus/nid00023/levesque/himeno_step1/a.out
+
+Instrumented with:  pat_build -u -g mpi a.out 
+
+Instrumented program:  ./a.out+pat
+
+Program invocation:  ./a.out+pat 
+
+Exit Status:  0 for 64 PEs
+
+AMD CPU  Family: 15h  Model: 01h  Stepping: 2  for 48 PEs
+AMD CPU  Family: 15h  Model: 02h  Stepping: 0  for 16 PEs
+
+Core Performance Boost:  All 64 PEs have CPB capability
+
+Memory pagesize:  4096
+
+Accelerator Model: Unknown Unknown Memory: 0.00 GB Frequency: 0.00 GHz  for 48 PEs
+Accelerator Model: Nvidia K20X Memory: 5.62 GB Frequency: 0.73 GHz  for 16 PEs
+
+Accelerator Driver Version: 0.0.0  for 48 PEs
+Accelerator Driver Version: 304.47.13  for 16 PEs
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  ASYNCPE_VERSION=5.22.01
+  ATP_ENABLED=1
+  ATP_HOME=/opt/cray/atp/1.6.3
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.6.3/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.6.3/lib/ -Wl,--undefined=_ATP_Data_Globals -Wl,--undefined=__atpHandlerInstall -Wl,-lAtpSigHCommData -Wl,-lAtpSigHandler
+  CRAY_BINUTILS_VERSION=/opt/cray/cce/8.1.9
+  CRAY_CC_VERSION=8.1.9
+  CRAY_FTN_VERSION=8.1.9
+  CRAY_LIBSCI_VERSION=12.1.00
+  LIBSCI_VERSION=12.1.00
+  MODULE_VERSION=3.2.6.7
+  MODULE_VERSION_STACK=3.2.6.7
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/6.0.1/gni/mpich2-cray/81
+  OMP_NUM_THREADS=16
+  XTOS_VERSION=4.2.24
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.1.1
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Report command line options:  -T
+
+Operating system:
+  Linux 2.6.32.59-0.7.1_1.0402.7200-cray_gem_c #1 SMP Wed May 1 04:06:43 UTC 2013
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  0.332  microsecs
+
+Number of traced functions:  746
+
+  (To see the list, specify:  -s traced_functions=show)
+
