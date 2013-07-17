@@ -10,4 +10,4 @@ LOG=profile_$(hostname).nvp
 lfs setstripe -c 1 $LOG
  
 # Execute the provided command.
-exec nvprof .o $LOG $*
+exec nvprof -o $LOG $*
